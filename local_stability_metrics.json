@@ -1,0 +1,46 @@
+{
+    "perturbation_0pct": {
+        "mean_accuracy": 0.797,
+        "std_deviation": 0.004472135954999583,
+        "raw_scores": [
+            0.79,
+            0.798,
+            0.794,
+            0.802,
+            0.801
+        ]
+    },
+    "perturbation_5pct": {
+        "mean_accuracy": 0.7946,
+        "std_deviation": 0.006280127387243038,
+        "raw_scores": [
+            0.783,
+            0.797,
+            0.795,
+            0.802,
+            0.796
+        ]
+    },
+    "perturbation_10pct": {
+        "mean_accuracy": 0.7872000000000001,
+        "std_deviation": 0.009195651146058127,
+        "raw_scores": [
+            0.772,
+            0.791,
+            0.782,
+            0.798,
+            0.793
+        ]
+    },
+    "perturbation_20pct": {
+        "mean_accuracy": 0.7794000000000001,
+        "std_deviation": 0.00588557558782487,
+        "raw_scores": [
+            0.77,
+            0.784,
+            0.775,
+            0.783,
+            0.785
+        ]
+    }
+}
