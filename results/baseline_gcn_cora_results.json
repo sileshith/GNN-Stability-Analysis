@@ -1,0 +1,6 @@
+{
+    "best_epoch": 17,
+    "train_accuracy": 0.9928571428571429,
+    "validation_accuracy": 0.766,
+    "test_accuracy": 0.783
+}
