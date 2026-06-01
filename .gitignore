@@ -1,3 +1,27 @@
+# macOS
 .DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
 .ipynb_checkpoints/
+
+# Data downloaded by PyTorch Geometric
 data/
+
+# Model artifacts
+*.pt
+*.pth
+*.pkl
+
+# Logs and experiment runs
+*.log
+runs/
+wandb/
+
+# Environment files
+.env
+.venv/
+.virtual_documents/
