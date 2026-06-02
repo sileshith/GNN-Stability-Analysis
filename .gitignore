@@ -25,3 +25,4 @@ wandb/
 .env
 .venv/
 .virtual_documents/
+.aider*
