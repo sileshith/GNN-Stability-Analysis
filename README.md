@@ -1,7 +1,7 @@
 # Graph Neural Network (GNN) Structural Stability Analysis  
 ### Scientific Machine Learning (SciML) Sandbox | ASU STP 499 Research Track
 
-This repository documents a rigorous investigation into the stability, mathematical properties, and robustness of Graph Neural Networks (GNNs) under spatial message-passing degradation constraints. Grounded in Banach fixed-point theory and Lipschitz continuity bounding, this sandbox measures how structural topological perturbations degrade representation learning over the network.
+This repository documents an early-stage research sandbox exploring how Graph Convolutional Network (GCN) performance on the Cora citation network changes under random edge deletion perturbations. This is a brainstorming-level experiment to establish baseline observations before pursuing deeper theoretical analysis involving spectral stability, Lipschitz continuity, and Banach fixed-point theory.
 
 ## 🌐 Network Topology & Information Flow
 
@@ -22,28 +22,66 @@ This macro-map exposes the structural mechanics behind **Community Boundary Blee
 
 When a network experiences edge drops, dominant intra-class edges are stripped away first due to pure random distribution. As these internal clusters collapse, the relative proportion of cross-class noise flowing along the off-diagonal links increases. During spatial convolutions, node embeddings begin to drift out of alignment and bleed across semantic boundaries—forcing vanilla Graph Convolutional Networks (GCNs) into a non-linear accuracy drop down to **$77.94\%$**.
 
-## Stability Metrics Summary (Cora Dataset)
+## Current Results Summary
 
-The experimental decay curve tracks a monotonic performance degradation across 5 independent initialization seeds to isolate structural fragility from random initialization weight behavior:
+The baseline experiment tracks GCN test accuracy across 5 independent random seeds (42, 101, 2023, 7, 88) at four edge deletion levels:
 
-| Adjacency Perturbation Level | Mean Test Accuracy (%) | Standard Deviation ($\sigma$) | Performance Delta ($\Delta$) | Impact Classification |
-| :--- | :--- | :--- | :--- | :--- |
-| **0% Edge Deletion (Baseline)** | 79.70% | ±0.45% | *Reference* | Optimal State |
-| **5% Edge Deletion** | 79.46% | ±0.63% | $-0.24\%$ | Topological Buffer Zone |
-| **10% Edge Deletion** | 78.72% | ±0.92% | $-0.98\%$ | Accelerated Decay Phase |
-| **20% Edge Deletion** | 77.94% | ±0.59% | $-1.76\%$ | Structural Fragmentation |
+| Perturbation Level | Mean Test Accuracy | Std Dev | Absolute Drop | Relative Drop |
+|---:|---:|---:|---:|---:|
+| 0% | 79.70% | ±0.45% | 0.00% | 0.00% |
+| 5% | 79.46% | ±0.63% | -0.24% | -0.30% |
+| 10% | 78.72% | ±0.92% | -0.98% | -1.23% |
+| 20% | 77.94% | ±0.59% | -1.76% | -2.21% |
 
-
-## Key Framework Capacities
-
-* **Multi-Scale Diagnostics:** Pairs global adjacency matrix sparsity tracking ($\rho \approx 0.14\%$) and Power-Law node degree distribution histograms with micro-level 2-Hop Ego Graph receptive field subplots.
-* **Reproducible Controls:** Validated for complete reproducibility across both local workstation machines and ASU's High-Performance Computing (HPC) Sol cluster environment.
-* **SciML Benchmarking Sandbox:** Establishes the definitive baseline reference curve needed to evaluate advanced structural continuity constraints, Lipschitz-bounded weight tensors, and Graph Attention Networks (GAT).
+**Interpretation:**  
+The baseline GCN achieves 79.70% test accuracy with no edge deletion. At 20% edge deletion, accuracy drops to 77.94%, an absolute decrease of 1.76 percentage points and a relative decrease of about 2.21%. The largest standard deviation appears at 10% perturbation, suggesting that the model may be more sensitive to which specific edges are removed at that level. These results support an early observation that GCN performance depends on graph structure, but the decline is moderate in this first experiment.
 
 
-##  Core Mathematical Formulation
+## Generated Figures
 
-The structural decay evaluated in this sandbox directly manipulates the spatial convolution operator at layer $l+1$:
+The analysis notebook produces four visualizations saved to `results/figures/`:
+
+![Perturbation Curve](results/figures/perturbation_curve.png)
+*Mean test accuracy vs. edge deletion percentage with error bars.*
+
+![Variance Analysis](results/figures/variance_analysis.png)
+*Standard deviation across perturbation levels.*
+
+![Raw Seed Scores](results/figures/raw_seed_scores.png)
+*Individual seed performance at each perturbation level.*
+
+![Seed Trajectories](results/figures/seed_trajectories.png)
+*Trajectory of each seed across perturbation levels.*
+
+
+## Current Notebook
+
+`notebooks/01_baseline_analysis.ipynb` contains the first cleaned analysis notebook. It loads the current JSON results from `results/local_stability_metrics.json`, creates the summary table, generates four figures, and documents the current interpretation.
+
+## Current Limitations
+
+- Only one dataset: Cora
+- Only one model: GCN
+- Only edge deletion perturbation (no feature noise, no adversarial attacks)
+- Only five random seeds
+- No validation accuracy logged yet
+- No training accuracy logged yet
+- No statistical significance testing yet
+- No spectral or Lipschitz analysis yet
+
+## Next Steps
+
+- Add validation and training accuracy logging
+- Add more seeds for stronger statistical confidence
+- Add finer perturbation levels such as 2.5%, 7.5%, and 15%
+- Add statistical testing in a future `02_statistical_analysis.ipynb`
+- Later compare GCN with GAT, GraphSAGE, and SGC
+- Later explore spectral stability and Lipschitz or Banach fixed-point connections
+- Later test on additional datasets such as CiteSeer and PubMed
+
+## Future Mathematical Direction
+
+The current experiment manipulates the spatial convolution operator at layer $l+1$:
 
 $$H^{(l+1)} = \sigma \left( \tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)$$
 
@@ -51,8 +89,8 @@ By programmatically deleting target edge percentages from the coordinate tensor 
 
 $$L_{\text{sym}} = I - \tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}}$$
 
-This restriction prevents the Laplacian operator from functioning as a reliable low-pass filter, resulting in the representation starvation and classification decay documented throughout this pipeline.
-### Quickstart Installation Guide
+Future theoretical work may investigate whether this perturbation disrupts the Laplacian's low-pass filtering properties, and whether Lipschitz continuity bounds or Banach fixed-point theory can provide formal stability guarantees. These are promising directions for deeper mathematical analysis once the empirical baseline is more thoroughly established.
+## Quickstart
 
 1. Ensure you have `mamba` installed. If not, visit https://mamba.readthedocs.io/en/latest/installation.html.
 2. Activate the conda environment:
@@ -67,10 +105,19 @@ mamba activate local_gnn_env
 python local_stability_test.py
 ```
 
-4. The script will execute the full pipeline running GCN training with multiple seeds and generate accuracy metrics across graph perturbation regimes.
+This generates `results/local_stability_metrics.json` with mean accuracy, standard deviation, and raw scores for each perturbation level.
 
+4. Open and run the analysis notebook:
 
-Contributions and usage questions welcome. This environment and tooling have been validated for reproducibility on ASU's HPC Sol cluster and local machines equipped with PyTorch Geometric.
+```bash
+jupyter notebook notebooks/01_baseline_analysis.ipynb
+```
+
+Run **Kernel → Restart & Run All** to regenerate the summary table and figures. Figures are saved to `results/figures/`.
+
+---
+
+Contributions and usage questions welcome. This environment has been tested on local machines equipped with PyTorch Geometric.
 
 ---
 
