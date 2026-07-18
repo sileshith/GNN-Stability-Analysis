@@ -1,0 +1,377 @@
+# Experiment Configuration Template
+# Version: 1.0
+# Last updated: 2026-07-17
+# Governing methodology: notes/empirical_validation_methodology.md
+
+# IMPORTANT NOTES:
+# - Use placeholders like "<required>", "<optional>", "<pending>", [], null, or false
+# - Do not insert real results, current commit hashes, or invented values
+# - One seed is debugging evidence only
+# - Three seeds are for pilot assessment
+# - Five seeds are the default for production experiments
+# - Equal edge budgets do not imply equal operator perturbations
+# - Constructor success is not model validation
+# - Legacy Cora outputs cannot populate current result fields
+# - No placeholder should be mistaken for an observed result
+
+# ==============================================================================
+# EXPERIMENT METADATA
+# ==============================================================================
+
+experiment:
+  id: "<EXP-YYYYMMDD-NNN-short-description>"
+  title: "<Descriptive experiment title>"
+  date: "<YYYY-MM-DD>"
+  researcher: "<Researcher name>"
+  status: "<pending|running|completed|failed|inconclusive>"
+  experiment_type: "<smoke-test|baseline|perturbation|robustness|theory-validation|other>"
+
+# ==============================================================================
+# RESEARCH PURPOSE
+# ==============================================================================
+
+research:
+  question: "<Clear, answerable research question>"
+  hypothesis: "<Testable prediction about expected behavior>"
+  literature_reference: "<Citation or reference to motivating literature>"
+  theory_reference: "<Reference to theoretical framework or prediction>"
+  acceptance_criteria:
+    implementation: "<What must be true about the code?>"
+    data: "<What must be true about the data and splits?>"
+    perturbation: "<What must be true about the perturbation?>"
+    empirical: "<What empirical conditions must be met?>"
+  interpretation_options:
+    - "support"
+    - "contradiction"
+    - "qualification"
+    - "inconclusive"
+    - "implementation-concern"
+    - "assumption-failure"
+  next_decision_options:
+    - "stop"
+    - "revise-implementation"
+    - "revise-design"
+    - "revisit-assumptions"
+    - "repeat"
+    - "promote-to-more-seeds"
+    - "expand-budgets"
+    - "add-dataset"
+    - "add-architecture"
+    - "narrow-scope"
+    - "manuscript-eligible"
+    - "archive-as-negative"
+
+# ==============================================================================
+# EVIDENCE CLASSIFICATION
+# ==============================================================================
+
+evidence:
+  target_level: "<0|1|2|3|4|5|6>"  # Intended evidence level
+  current_level: "<0|1|2|3|4|5|6>"  # Current evidence level
+  phase: "<Phase-0-12-identifier>"  # Relevant Phase 0–12 phase
+  gate: "<Gate-A-I-identifier>"  # Relevant gate (A–I)
+  manuscript_candidate: false  # Is this a manuscript candidate?
+
+# ==============================================================================
+# CODE PROVENANCE
+# ==============================================================================
+
+code:
+  repository: "<repository-name>"
+  branch: "<branch-name>"
+  commit: "<full-40-character-commit-hash>"
+  working_tree_clean: "<true|false>"  # Was working tree clean before execution?
+  entrypoint: "<path-to-main-script>"
+  command: "<exact-command-to-execute>"
+  slurm_script: "<path-to-slurm-script-if-applicable>"
+  sol_job_id: "<SLURM-job-ID-if-applicable>"
+
+# ==============================================================================
+# ENVIRONMENT
+# ==============================================================================
+
+environment:
+  python: "<X.Y.Z>"
+  pytorch: "<X.Y.Z+cuXXX>"
+  pyg: "<X.Y.Z>"
+  pygsd: "<X.Y.Z>"
+  device: "<CPU|GPU>"
+  cuda_available: "<true|false>"
+  cuda_version: "<X.Y>"
+  additional_packages:
+    - "<package-name>==<version>"
+    # Add more as needed
+
+# ==============================================================================
+# DATA
+# ==============================================================================
+
+data:
+  dataset: "<SDSBM|Bitcoin-Alpha|Bitcoin-OTC|Cora|other>"
+  version: "<version-or-source>"
+  raw_path: "<path-to-raw-data>"
+  processed_path: "<path-to-processed-data>"
+  immutable_reference: "<checksum-or-URL-if-available>"
+  checksum: "<checksum-if-available>"
+  task: "<node-classification|link-prediction|edge-classification>"
+  features:
+    dimensionality: "<int>"
+    normalization: "<none|zero-mean-unit-variance|min-max|other>"
+  labels:
+    type: "<categorical|binary|continuous>"
+    num_classes: "<int-if-applicable>"
+  structural_summary:
+    num_nodes: "<int>"
+    num_edges: "<int>"
+    num_positive_edges: "<int>"
+    num_negative_edges: "<int>"
+    positive_edge_proportion: "<float>"
+    negative_edge_proportion: "<float>"
+    reciprocity: "<float-if-applicable>"
+    density: "<float>"
+    connected_components: "<int>"
+    strongly_connected_components: "<int-if-applicable>"
+    isolated_nodes: "<int>"
+
+# ==============================================================================
+# SPLIT
+# ==============================================================================
+
+split:
+  protocol: "<random|stratified|temporal|other>"
+  train_fraction: "<float>"
+  validation_fraction: "<float>"
+  test_fraction: "<float>"
+  split_seed: "<int>"
+  stratified: "<true|false>"
+  sign_balance_checked: "<true|false|N/A>"
+  direction_balance_checked: "<true|false|N/A>"
+  reverse_edge_leakage_checked: "<true|false|N/A>"
+  message_passing_leakage_checked: "<true|false|N/A>"
+  negative_sampling:
+    enabled: "<true|false>"
+    rule: "<rule-if-applicable>"
+    seed: "<int-if-applicable>"
+  temporal_constraints: "<description-if-applicable>"
+
+# ==============================================================================
+# MODEL
+# ==============================================================================
+
+model:
+  architecture: "<MSGNN|MagNet|SSSNET|SGCN|GCN|other>"
+  package: "<package.module>"
+  class: "<ClassName>"
+  constructor:
+    in_channels: "<int>"
+    hidden_channels: "<int-or-list>"
+    out_channels: "<int>"
+    num_layers: "<int>"
+    dropout: "<float>"
+    # Add architecture-specific parameters as needed
+  forward_signature:
+    inputs: ["x", "edge_index", "edge_weight"]  # Adjust as needed
+    outputs: ["node_embeddings", "logits"]  # Adjust as needed
+  output_semantics: "<node-embeddings|logits|probabilities|other>"
+  loss: "<CrossEntropyLoss|BCEWithLogitsLoss|other>"
+  checkpoint_selection: "<best-validation-loss|best-validation-accuracy|other>"
+  api_validation_status:
+    import_verified: false
+    constructor_verified: false
+    finite_parameters_verified: false
+    forward_signature_verified: false
+    finite_forward_output_verified: false
+    loss_compatibility_verified: false
+    minimal_functional_run_verified: false
+    baseline_reproduced: false
+
+# ==============================================================================
+# TRAINING
+# ==============================================================================
+
+training:
+  initialization_seed: "<int>"
+  epochs: "<int>"
+  optimizer: "<Adam|SGD|other>"
+  learning_rate: "<float>"
+  weight_decay: "<float>"
+  hidden_channels: "<int-or-list>"
+  layers: "<int>"
+  dropout: "<float>"
+  early_stopping:
+    enabled: "<true|false>"
+    patience: "<int>"
+  batch_size: "<int|full-batch>"
+  clean_checkpoint: "<path-to-clean-checkpoint>"
+
+# ==============================================================================
+# PERTURBATION
+# ==============================================================================
+
+perturbation:
+  enabled: "<true|false>"
+  type: "<none|sign-flip|direction-reversal|edge-deletion|other>"
+  formal_definition:
+    sign_flip: "(i, j, w) → (i, j, −w)"
+    direction_reversal: "(i, j, w) → (j, i, w)"
+    edge_deletion: "(i, j, w) → removed"
+    other: "<specify-if-applicable>"
+  eligible_edges: "<all-edges|positive-edges|negative-edges|training-edges|other>"
+  requested_budget: "<percentage-or-count>"
+  budget_denominator: "<total-edges|positive-edges|negative-edges|eligible-edges|other>"
+  requested_count: "<int>"
+  realized_count: "<int>"
+  seed: "<int>"
+  manifest_path: "<path-to-manifest-file>"
+  manifest_checksum: "<checksum-if-available>"
+  verification_status: "<verified|pending|failed>"
+  architecture_specific_preprocessing:
+    normalization: "<symmetric|row|column|none>"
+    self_loops: "<added|not-added|conditional>"
+    charge_or_phase: "<values-for-magnetic-Laplacians-if-applicable>"
+
+# CRITICAL PRINCIPLE:
+# Equal edge-level budgets do not imply equal model-specific operator perturbations.
+# Different architectures convert the same perturbed raw graph into different operators
+# with different perturbation magnitudes.
+
+# ==============================================================================
+# EVALUATION
+# ==============================================================================
+
+evaluation:
+  protocol: "<clean-training-perturbed-inference|perturbed-training|cross-perturbation|other>"
+  frozen_parameters: "<true|false>"
+  recompute_graph_representation: "<true|false>"
+  untouched_test_edges: "<true|false>"
+  seeds: []  # List of seed values for multi-seed repetition
+  metrics:
+    - "accuracy"
+    - "macro-f1"
+    - "roc-auc"  # Only where appropriate
+    # Add more as needed
+  uncertainty_summary:
+    mean: "<float>"
+    std: "<float>"
+    raw_results: []  # List of per-seed results
+  formal_test:
+    enabled: "<true|false>"
+    test_name: "<t-test|wilcoxon|other>"
+    justification: "<why-this-test-is-appropriate>"
+    assumptions: "<list-of-assumptions>"
+    p_value: "<float-if-applicable>"
+
+# SEED CLASSIFICATION:
+# - One seed: Debugging evidence only
+# - Three seeds: Pilot assessment
+# - Five seeds: Default production evidence
+
+# ==============================================================================
+# DIAGNOSTICS
+# ==============================================================================
+
+diagnostics:
+  structural:
+    requested_budget: "<value>"
+    realized_count: "<value>"
+    eligible_edge_count: "<value>"
+    positive_edges_before: "<int>"
+    positive_edges_after: "<int>"
+    negative_edges_before: "<int>"
+    negative_edges_after: "<int>"
+    reciprocity_before: "<float-if-applicable>"
+    reciprocity_after: "<float-if-applicable>"
+    degree_distribution_change: "<summary>"
+    connected_components_before: "<int>"
+    connected_components_after: "<int>"
+    isolated_nodes_before: "<int>"
+    isolated_nodes_after: "<int>"
+    density_before: "<float>"
+    density_after: "<float>"
+
+  operator:
+    raw_adjacency_frobenius_norm_change: "<float>"
+    raw_adjacency_spectral_norm_change: "<float>"
+    model_specific_operator_frobenius_norm_change: "<float>"
+    model_specific_operator_spectral_norm_change: "<float>"
+    normalization_convention: "<symmetric|row|column|none>"
+    self_loop_convention: "<added|not-added|conditional>"
+    charge_or_phase_parameters: "<values-if-applicable>"
+    complex_vs_real: "<complex|real>"
+
+  spectral:
+    eigenvalue_drift: "<summary-or-values>"
+    eigengap_change: "<float>"
+    subspace_drift: "<summary-or-values>"
+    davis_kahan_diagnostic: "<value-if-applicable>"
+    approximation_method: "<Lanczos|Arnoldi|exact|other>"
+    tolerance: "<float-if-applicable>"
+
+  representation:
+    normalized_embedding_drift: "<float>"
+    embedding_cosine_similarity: "<float>"
+    embedding_cluster_coherence: "<summary>"
+    logit_drift: "<summary>"
+    prediction_disagreement: "<proportion>"
+    confidence_or_margin_change: "<summary>"
+
+  task:
+    absolute_degradation: "<float>"
+    relative_degradation: "<float>"
+    macro_f1: "<float-if-applicable>"
+    accuracy: "<float>"
+    roc_auc: "<float-if-applicable>"
+    confusion_matrix: "<matrix-or-path>"
+    empirical_lipschitz_ratio: "<float-if-applicable>"
+    theoretical_bound: "<float-if-applicable>"
+    observed_error: "<float>"
+    bound_to_observed_error_ratio: "<float-if-applicable>"
+
+# CRITICAL STATEMENTS:
+# - Spectral diagnostics do not by themselves prove trained-network output stability
+# - Accuracy decline is not itself a mathematical stability result
+
+# ==============================================================================
+# OUTPUTS
+# ==============================================================================
+
+outputs:
+  root: "<path-to-output-directory>"
+  logs:
+    stdout: "<path-to-stdout-log>"
+    stderr: "<path-to-stderr-log>"
+  metrics: "<path-to-metrics-file>"
+  manifests: "<path-to-manifest-directory>"
+  checkpoints: "<path-to-checkpoint-directory>"
+  figures: "<path-to-figures-directory>"
+  tables: "<path-to-tables-directory>"
+  experiment_record: "<path-to-experiment-record>"
+
+# ==============================================================================
+# REPRODUCIBILITY
+# ==============================================================================
+
+reproducibility:
+  raw_seed_results_saved: false
+  configuration_saved: false
+  exact_command_saved: false
+  environment_saved: false
+  durable_backup: false
+  backup_location: "<path-to-durable-backup>"
+  imac_evidence_packet: "<path-in-iMac-documentation-repository>"
+
+# ==============================================================================
+# LIMITATIONS
+# ==============================================================================
+
+limitations:
+  evidence_limit: "<What this experiment establishes and does not establish>"
+  dataset_limit: "<Limits specific to the dataset used>"
+  architecture_limit: "<Limits specific to the architecture used>"
+  statistical_limit: "<Limits on statistical inference>"
+  theoretical_limit: "<Limits on theoretical interpretation>"
+  implementation_limit: "<Limits due to implementation choices>"
+
+# ==============================================================================
+# END OF CONFIGURATION
+# ==============================================================================
