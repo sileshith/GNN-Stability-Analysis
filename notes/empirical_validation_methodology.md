@@ -95,6 +95,27 @@ research question
             → theory–experiment reconciliation
 ```
 
+### iMac–SOL Execution Cycle
+
+This project operates through synchronized cycles between the iMac documentation repository and the SOL experimental repository:
+
+- **Research questions, hypotheses, literature support, theoretical expectations, acceptance criteria, and experiment specifications** are developed in the iMac documentation repository
+- **Implementation validation, controlled computation, logs, manifests, configurations, and machine-readable results** are produced in the SOL experimental repository
+- **The resulting evidence packet** is reviewed and interpreted in the iMac documentation repository
+- **Theory–experiment reconciliation** then determines whether to stop, revise, repeat, promote, narrow, or expand the work
+
+Experiments and documentation proceed through short synchronized cycles rather than completing all experiments before documentation. Disagreement between theory and experiment must not be forced into agreement and may be classified as support, contradiction, qualification, inconclusive evidence, implementation concern, or assumption failure.
+
+```
+iMac: question, literature, theory, and experiment specification
+                         ↓
+SOL: implementation validation and controlled experiment
+                         ↓
+iMac: evidence interpretation and theory–experiment reconciliation
+                         ↓
+Decision: stop, revise, repeat, promote, narrow, or expand
+```
+
 ### Interpretation Outcomes
 
 An experiment may:
@@ -581,7 +602,7 @@ Separating sources enables variance decomposition and more precise uncertainty a
 
 ### Experiment Record Requirements
 
-Every substantive experiment must document:
+Every substantive experiment (Evidence Level 3 or higher) must document the following. (See Section 13 for additional requirements specific to manuscript-eligible Level 6 evidence.)
 
 **Identification:**
 - Experiment ID (unique identifier)
@@ -789,6 +810,8 @@ Gates may be:
 - **Non-blocking:** May proceed with caution, but gate must be resolved before manuscript submission
 
 Current gate status: Gates A–B are blocking for Gate C. Gates C–E are blocking for Gate F. Gates F–H are blocking for Gate I.
+
+These blocking relationships govern empirical evidence progression. Parallel theory development may proceed independently of gate status, though theory–experiment reconciliation (Gate G) requires coordination between tracks.
 
 ---
 
