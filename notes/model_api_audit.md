@@ -786,7 +786,167 @@ The future specification must define:
 
 ---
 
+## 13. PyGSD 1.1.1 Training-Path Audit
+
+### Source Provenance
+
+**VERIFIED FROM INSPECTION:**
+
+- Installed distribution: `torch-geometric-signed-directed==1.1.1`
+- Package metadata identifies the official repository as `https://github.com/SherylHYX/pytorch_geometric_signed_directed`
+- The exact repository tag `1.1.1` resolves to commit `ecdf3fcf94b148ae9350c848e7774915495170d9`
+- The installed wheel did not contain bundled training examples
+- The exact tagged repository was inspected separately under `/tmp/pygsd-1.1.1` as reference material only
+- The temporary clone is not part of this research repository
+
+### MSGNN Official Link-Prediction Path
+
+**VERIFIED FROM SOURCE:**
+
+Official examples: `examples/msgnn_link.py` and `examples/run_link_sign_direction_tasks.py`
+
+**Training protocol:**
+- Uses `link_class_split` for train/validation/test splits
+- Supports `four_class_signed_digraph` and `five_class_signed_digraph` tasks
+- Uses query-edge integer class targets
+- Uses `nn.NLLLoss()`
+- Reports accuracy, macro-F1, and micro-F1
+- Uses the training graph returned by `link_class_split`, excluding held-out query edges
+- Uses `in_out_degree` features, with the real feature tensor cloned for the imaginary input
+
+**Conclusion:**  
+This establishes an official signed-directed multiclass training path for MSGNN.
+
+### SSSNET Official Paths
+
+**VERIFIED FROM SOURCE:**
+
+- `examples/sssnet.py` is a node-clustering example using `SSSNET_node_clustering`
+- This is not evidence for the `SSSNET_link_prediction` class
+- The link-prediction class is trained in `examples/run_link_sign_direction_tasks.py`
+
+**Training protocol in shared script:**
+- Uses the same graph splits, query edges, labels, and task definitions as MSGNN
+- Uses `nn.NLLLoss()`
+- Uses the same evaluation metrics (accuracy, macro-F1, micro-F1)
+- The training graph is separated into positive and negative edge tensors through `SignedData.separate_positive_negative()`
+- The model is initialized with `directed=data.is_directed`
+
+**VERIFIED FROM SOURCE:**  
+The official shared experiment runs SSSNET in directed mode (`directed=True` when `data.is_directed` is true).
+
+**Conclusion:**  
+This establishes a direct common-task comparison basis between MSGNN and SSSNET for the four- and five-class signed-directed tasks.
+
+### MagNet Official Link-Prediction Path
+
+**VERIFIED FROM SOURCE:**
+
+Official example: `examples/magnet_link.py`
+
+**Training protocol:**
+- Uses a directed real-world dataset
+- Uses `link_class_split(..., task='direction')`
+- Uses two classes (0 = edge in queried direction, 1 = edge in reversed direction)
+- Uses integer targets and `nn.NLLLoss()`
+- Uses `in_out_degree` features
+- Uses identical real/imaginary initial features (real cloned to imaginary)
+- Uses train, validation, and test query-edge splits
+- Reports accuracy
+
+**Repository-wide usage:**  
+Repository-wide search found MagNet only in:
+- `examples/magnet_link.py` (standalone direction-prediction example)
+- `test/directed_test.py` (unit tests)
+- Implementation files
+
+MagNet is **not** used in `examples/run_link_sign_direction_tasks.py` (the shared signed-directed task script).
+
+**Conclusion:**  
+The official version-1.1.1 evidence establishes MagNet for two-class direction prediction, but does not establish its validity or scientific comparability on the four- or five-class signed-directed tasks.
+
+### Exact Label Semantics from link_split.py
+
+**VERIFIED FROM SOURCE:**
+
+`torch_geometric_signed_directed/utils/general/link_split.py` defines:
+
+**Direction task (2 classes):**
+- 0 = edge exists in the queried direction
+- 1 = edge exists in the reversed direction
+
+**Four-class signed-directed task:**
+- 0 = positive edge in queried direction
+- 1 = negative edge in queried direction
+- 2 = positive edge in reversed direction
+- 3 = negative edge in reversed direction
+
+**Five-class signed-directed task:**
+- Classes 0–3 as above
+- 4 = no edge in either direction
+
+**Documentation defect:**  
+The prose documentation for class 3 states "the edge of the reversed direction exists" without the word "negative." However, source assertions verify:
+
+```python
+assert label_weight[labels==3].max() < 0
+```
+
+This confirms class 3 represents negative edges in the reversed direction. The documentation wording is incomplete but the implementation is correct.
+
+### Audit Conclusion and Gate Status
+
+**VERIFIED FROM SOURCE:**
+
+- Package-author use of `nn.NLLLoss()` is verified for the selected official link-prediction examples
+- MSGNN and SSSNET have a verified common signed-directed multiclass task path
+- MagNet has a verified two-class direction path only
+
+**UNRESOLVED:**
+
+- A scientifically defensible three-model common task has not yet been established
+- MagNet's handling of signed edge weights remains unresolved
+- No selected training implementation has yet been validated in this repository
+
+**Gate Status:**
+
+- **Gate B:** Remains PARTIAL
+  - Task semantics and loss are now verified for MSGNN and SSSNET
+  - Common three-model task comparability is not established
+  - MagNet signed-edge validity is unresolved
+  - No training implementation has been validated in this repository
+
+- **Gate C:** Remains PASS only for the narrow CPU forward-pass smoke test
+  - Forward-pass compatibility is verified
+  - Training correctness is not verified
+  - Robustness validity is not verified
+  - Convergence is not verified
+
+**Prohibited Claims:**
+
+Do not claim:
+- Training correctness
+- Robustness validity
+- Convergence
+- Full three-model comparability
+- MagNet signed-edge support
+
+### Next Decision
+
+The next controlled step is to decide whether:
+
+**(a)** The primary matched comparison should initially be MSGNN versus directed SSSNET on the official four-class signed-directed task, with MagNet treated as a direction-only reference; or
+
+**(b)** A separate two-class direction task should be implemented for all three models, subject to verifying that:
+- SSSNET and MSGNN label remapping is scientifically valid
+- MagNet signed-weight handling is scientifically valid
+
+This decision requires coordination between the empirical track and the theory track to determine which task configuration best supports the research questions and theoretical framework.
+
+---
+
 *Audit completed: 2026-07-18*  
-*Evidence level: 0–1 (constructor/API inspection)*  
+*Training-path audit added: 2026-07-18*  
+*Evidence level: 0–1 (constructor/API inspection) + package-example inspection*  
 *Gate B status: PARTIAL*  
-*Gate C status: PENDING*
+*Gate C status: PASS (forward-pass smoke test only)*
