@@ -600,6 +600,31 @@ Separating sources enables variance decomposition and more precise uncertainty a
 
 ## 10. Experiment Management and Reproducibility
 
+### Evidence-Level Documentation Requirements
+
+**Evidence Levels 0–2 — Reduced Traceable Record**
+
+Evidence Levels 0–2 may use a reduced but traceable record containing:
+
+- objective;
+- date;
+- environment versions;
+- code version or full commit hash;
+- command or script executed;
+- result or observation;
+- warning or failure, if applicable;
+- evidence limitation stating what the result does and does not establish.
+
+These reduced records are appropriate for environment checks, constructor or forward-pass smoke tests, and single functional runs.
+
+**Evidence Level 3 or Higher — Full Substantive Record**
+
+Evidence Level 3 or higher requires the complete substantive experiment record defined below.
+
+**Promotion Requirement**
+
+A Level 0–2 result must receive the complete substantive experiment record before it can be promoted to Evidence Level 3 or higher. Reduced documentation is not sufficient for multi-seed, controlled-perturbation, theory-aligned, or manuscript-ready evidence.
+
 ### Experiment Record Requirements
 
 Every substantive experiment (Evidence Level 3 or higher) must document the following. (See Section 13 for additional requirements specific to manuscript-eligible Level 6 evidence.)
@@ -811,7 +836,7 @@ Gates may be:
 
 Current gate status: Gates A–B are blocking for Gate C. Gates C–E are blocking for Gate F. Gates F–H are blocking for Gate I.
 
-These blocking relationships govern empirical evidence progression. Parallel theory development may proceed independently of gate status, though theory–experiment reconciliation (Gate G) requires coordination between tracks.
+These blocking relationships govern empirical evidence progression in the SOL experimental track. They do not block literature verification, proof development, architecture-specific theoretical analysis, or unrelated iMac documentation work. An incomplete empirical gate blocks promotion of the affected empirical claim but does not automatically block unrelated theoretical or literature work. Gate G (Theory Linkage) requires coordination between the theory and experiment tracks.
 
 ---
 
