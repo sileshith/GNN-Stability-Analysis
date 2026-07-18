@@ -47,6 +47,18 @@ iMac: interpretation and theory–experiment reconciliation
 Decision: stop, revise, repeat, promote, narrow, or expand
 ```
 
+Research and experiments proceed through short synchronized cycles rather than completing all experiments before documentation. The SOL evidence packet returns to the iMac documentation repository for interpretation, theory–experiment reconciliation, and selection of the next controlled work unit. Disagreement between theory and experiment is preserved honestly rather than forced into agreement and may be classified as support, contradiction, qualification, inconclusive evidence, implementation concern, or assumption failure.
+
+### Key Scientific Safeguards
+
+- Constructor success establishes only importability, constructor compatibility, finite initialized parameters, and CPU instantiation; it does not establish model validity.
+- Legacy Cora results are excluded from manuscript evidence unless independently reconstructed and validated under the current protocol.
+- Accuracy decline is an empirical task-level observation, not proof of mathematical instability.
+- Equal edge-level perturbation budgets do not imply equal model-specific operator perturbations.
+- SSSNET and SGCN are not automatically interchangeable; the signed-control decision remains open.
+- Publication is a target, not a guaranteed outcome.
+- See `notes/empirical_validation_methodology.md` for the complete empirical safeguards and evidence requirements.
+
 ---
 
 ## Working Research Pipeline
@@ -185,13 +197,13 @@ README.md                                   # Active project overview
 
 ## Immediate Ordered Work
 
-1. Review repository governance and methodology documentation
-2. Create experiment-record templates
-3. Complete architecture/task/API audit
-4. Run controlled forward-pass smoke tests
-5. Reproduce signed/directed baselines
-6. Implement and validate perturbation functions
-7. Begin manuscript-eligible experiments only after earlier gates pass
+1. Create experiment-record and configuration templates.
+2. Complete the model forward-API and task audit (Gate B).
+3. Run finite CPU forward-pass smoke tests (Gate C).
+4. Validate baseline task compatibility and reproduce approved signed/directed baselines (Gate D).
+5. Begin perturbation-engine development only after Gates B and C pass; validate perturbation functions and canonical manifests before robustness experiments (Gate E).
+
+No forward-pass validation, baseline reproduction, perturbation engine, robustness campaign, or theory-aligned empirical validation is represented as complete at this stage.
 
 ---
 
