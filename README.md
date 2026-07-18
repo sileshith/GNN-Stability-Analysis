@@ -26,6 +26,29 @@ The work integrates:
 
 ---
 
+## Methodology
+
+This project follows a **theory-driven, reproducible computational research methodology** governed scientifically by the **Phase 0–12 master workflow**. The research proceeds through parallel mathematical and empirical tracks:
+
+- **Mathematical track:** Operator definitions, stability proofs, perturbation bounds, and theoretical predictions
+- **Empirical track:** Controlled experiments, multi-level diagnostics, and theory–experiment reconciliation
+
+Adapted CRISP-DM principles support the empirical experiment lifecycle (data understanding, preparation, modeling, evaluation, iteration, and delivery) but do not govern literature verification, theorem development, architecture-specific theory, or theory–experiment reconciliation by themselves.
+
+### iMac–SOL Synchronized Workflow
+
+```
+iMac: literature, theory, hypothesis, and experiment specification
+                         ↓
+SOL: implementation validation and controlled computation
+                         ↓
+iMac: interpretation and theory–experiment reconciliation
+                         ↓
+Decision: stop, revise, repeat, promote, narrow, or expand
+```
+
+---
+
 ## Working Research Pipeline
 
 ```
@@ -115,14 +138,32 @@ The current evidence does **not** yet establish:
 ## Current Active Repository Structure
 
 ```
-notes/                          # Environment and repository-governance records
-scripts/                        # Verified active utility and smoke-test scripts
-archive/legacy_exploration/     # Preserved legacy work
-README.md                       # Active project overview
-GNN_CRISP_DM_Methodology.md    # Methodology document pending review/refactoring
+notes/                                      # Environment and repository-governance records
+notes/empirical_validation_methodology.md   # Active SOL-side empirical validation methodology
+scripts/                                    # Verified active utility and smoke-test scripts
+archive/legacy_exploration/                 # Preserved legacy work
+README.md                                   # Active project overview
 ```
 
 **Note:** Experiment-template and configuration directories do not yet exist.
+
+### Active Empirical Methodology
+
+**`notes/empirical_validation_methodology.md`** is the active SOL-side empirical validation methodology. It is:
+
+- Subordinate to the Phase 0–12 master guideline maintained in the iMac documentation repository
+- Responsible for experiment design discipline, signed/directed data preparation, perturbation protocols, diagnostics, uncertainty quantification, evidence levels, and reproducibility
+- The operational guide for all substantive experiments (Evidence Level 3+)
+
+### Legacy Methodology Status
+
+**`archive/legacy_exploration/GNN_CRISP_DM_Methodology.md`** is preserved only as historical documentation. It:
+
+- Reflects the earlier unsigned Cora and edge-deletion-centered project stage
+- Presents CRISP-DM too broadly for the current project
+- Is not active scientific guidance
+- Is not manuscript evidence
+- Must not be used to justify current signed/directed experiments
 
 ---
 
