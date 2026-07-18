@@ -1,124 +1,179 @@
-# Graph Neural Network (GNN) Structural Stability Analysis  
-### Scientific Machine Learning (SciML) Sandbox | ASU STP 499 Research Track
+# Stability and Robustness of Signed and Directed GNNs Under Structural Perturbations
 
-This repository documents an early-stage research sandbox exploring how Graph Convolutional Network (GCN) performance on the Cora citation network changes under random edge deletion perturbations. This is a brainstorming-level experiment to establish baseline observations before pursuing deeper theoretical analysis involving spectral stability, Lipschitz continuity, and Banach fixed-point theory.
+**Researcher:** Sileshi T. Hirpa  
+**Institution:** Arizona State University  
+**Course:** STP 499 — Individualized Instruction  
+**Faculty Advisor:** Dr. Yixuan He
 
-## 🌐 Network Topology & Information Flow
-
-Before evaluating adversarial noise or random edge erasure, we project the entire Cora dataset—consisting of 2,708 academic papers and 10,556 citation links—into a condensed, macro-topographic map to analyze how information flows across distinct research fields.
-
-<p align="center">
-  <img src="notes/macro_topography.png" alt="Cora Inter-Class Citation Dynamics Map" width="520">
-  <br>
-  <em>Figure 1: Macro-Topographic Map of Inter-Class Citation Dynamics across the Cora Dataset.</em>
-</p>
-
-### Asset Description & Structural Mapping
-* **Subject Bubble Scaling:** The physical area of each class node (e.g., *Neural Networks*, *Genetic Algorithms*) is programmatically scaled based on its diagonal intra-class homophily value. Larger bubbles indicate tighter thematic clustering.
-* **Directional Arrow Widths:** The thickness of the connecting arcs represents the empirical probability of cross-disciplinary citations (the off-diagonal transition elements) between different academic domains.
-
-### Strategic Interpretation & Robustness Connection
-This macro-map exposes the structural mechanics behind **Community Boundary Bleeding**. While the prominent self-loops demonstrate that feature aggregation is heavily concentrated inside homophilous class boundaries, the thin web of inter-class arrows represents active channels of cross-disciplinary communication. 
-
-When a network experiences edge drops, dominant intra-class edges are stripped away first due to pure random distribution. As these internal clusters collapse, the relative proportion of cross-class noise flowing along the off-diagonal links increases. During spatial convolutions, node embeddings begin to drift out of alignment and bleed across semantic boundaries—forcing vanilla Graph Convolutional Networks (GCNs) into a non-linear accuracy drop down to **$77.94\%$**.
-
-## Current Results Summary
-
-The baseline experiment tracks GCN test accuracy across 5 independent random seeds (42, 101, 2023, 7, 88) at four edge deletion levels:
-
-| Perturbation Level | Mean Test Accuracy | Std Dev | Absolute Drop | Relative Drop |
-|---:|---:|---:|---:|---:|
-| 0% | 79.70% | ±0.45% | 0.00% | 0.00% |
-| 5% | 79.46% | ±0.63% | -0.24% | -0.30% |
-| 10% | 78.72% | ±0.92% | -0.98% | -1.23% |
-| 20% | 77.94% | ±0.59% | -1.76% | -2.21% |
-
-**Interpretation:**  
-The baseline GCN achieves 79.70% test accuracy with no edge deletion. At 20% edge deletion, accuracy drops to 77.94%, an absolute decrease of 1.76 percentage points and a relative decrease of about 2.21%. The largest standard deviation appears at 10% perturbation, suggesting that the model may be more sensitive to which specific edges are removed at that level. These results support an early observation that GCN performance depends on graph structure, but the decline is moderate in this first experiment.
-
-
-## Generated Figures
-
-The analysis notebook produces four visualizations saved to `results/figures/`:
-
-![Perturbation Curve](results/figures/perturbation_curve.png)
-*Mean test accuracy vs. edge deletion percentage with error bars.*
-
-![Variance Analysis](results/figures/variance_analysis.png)
-*Standard deviation across perturbation levels.*
-
-![Raw Seed Scores](results/figures/raw_seed_scores.png)
-*Individual seed performance at each perturbation level.*
-
-![Seed Trajectories](results/figures/seed_trajectories.png)
-*Trajectory of each seed across perturbation levels.*
-
-
-## Current Notebook
-
-`notebooks/01_baseline_analysis.ipynb` contains the first cleaned analysis notebook. It loads the current JSON results from `results/local_stability_metrics.json`, creates the summary table, generates four figures, and documents the current interpretation.
-
-## Current Limitations
-
-- Only one dataset: Cora
-- Only one model: GCN
-- Only edge deletion perturbation (no feature noise, no adversarial attacks)
-- Only five random seeds
-- No validation accuracy logged yet
-- No training accuracy logged yet
-- No statistical significance testing yet
-- No spectral or Lipschitz analysis yet
-
-## Next Steps
-
-- Add validation and training accuracy logging
-- Add more seeds for stronger statistical confidence
-- Add finer perturbation levels such as 2.5%, 7.5%, and 15%
-- Add statistical testing in a future `02_statistical_analysis.ipynb`
-- Later compare GCN with GAT, GraphSAGE, and SGC
-- Later explore spectral stability and Lipschitz or Banach fixed-point connections
-- Later test on additional datasets such as CiteSeer and PubMed
-
-## Future Mathematical Direction
-
-The current experiment manipulates the spatial convolution operator at layer $l+1$:
-
-$$H^{(l+1)} = \sigma \left( \tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)$$
-
-By programmatically deleting target edge percentages from the coordinate tensor (`edge_index`), we alter the perturbed adjacency matrix $\tilde{A}$, which shifts the spectrum of the normalized graph Laplacian:
-
-$$L_{\text{sym}} = I - \tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}}$$
-
-Future theoretical work may investigate whether this perturbation disrupts the Laplacian's low-pass filtering properties, and whether Lipschitz continuity bounds or Banach fixed-point theory can provide formal stability guarantees. These are promising directions for deeper mathematical analysis once the empirical baseline is more thoroughly established.
-## Quickstart
-
-1. Ensure you have `mamba` installed. If not, visit https://mamba.readthedocs.io/en/latest/installation.html.
-2. Activate the conda environment:
-
-```bash
-mamba activate local_gnn_env
-```
-
-3. Run the stability test Python script:
-
-```bash
-python local_stability_test.py
-```
-
-This generates `results/local_stability_metrics.json` with mean accuracy, standard deviation, and raw scores for each perturbation level.
-
-4. Open and run the analysis notebook:
-
-```bash
-jupyter notebook notebooks/01_baseline_analysis.ipynb
-```
-
-Run **Kernel → Restart & Run All** to regenerate the summary table and figures. Figures are saved to `results/figures/`.
+This repository serves as an active experimental implementation repository for a researcher-directed, advisor-aligned project investigating the structural sensitivity of signed and directed Graph Neural Networks (GNNs). The complete design and results have not yet been formally approved by the advisor.
 
 ---
 
-Contributions and usage questions welcome. This environment has been tested on local machines equipped with PyTorch Geometric.
+## Research Objective
+
+This project studies how signed and directed GNNs respond to controlled structural perturbations, including:
+
+- **Sign flips** — reversing edge polarity in signed graphs
+- **Direction reversals** — reversing edge orientation in directed graphs  
+- **Edge deletion** — removing edges from the graph structure
+
+The work integrates:
+
+- General graph-operator stability theory
+- Architecture-specific analysis
+- Controlled robustness experiments
+- Reproducible experiment-to-manuscript traceability
 
 ---
 
-*Last updated: May 2026*
+## Working Research Pipeline
+
+```
+verified literature
+  → general operator framework
+    → architecture specialization
+      → controlled baseline
+        → structural perturbation
+          → operator and representation diagnostics
+            → theory–experiment reconciliation
+              → manuscript evidence
+```
+
+Theory and experiments develop in parallel throughout this pipeline.
+
+---
+
+## Candidate Architectures
+
+- **MSGNN** — signed and directed magnetic architecture
+- **MagNet** — directed magnetic architecture
+- **SSSNET** — available sign-focused architecture
+- **SGCN** — separate signed-GCN family under literature and implementation review
+- **GCN** — debugging or unsigned-control role only
+
+**Note:** SSSNET is not automatically equivalent to SGCN. The final signed-control architecture selection remains open.
+
+---
+
+## Candidate Datasets
+
+- **SDSBM** — controlled synthetic validation
+- **Bitcoin-Alpha** — signed trust/rating network
+- **Bitcoin-OTC** — signed trust/rating network
+- **Cora** — legacy debugging work only; not current manuscript evidence
+
+**Note:** The Bitcoin datasets are signed trust/rating networks and are not direct fraud-label datasets.
+
+---
+
+## Current Verified Status
+
+### Computational Environment
+- Python 3.11.15
+- PyTorch 2.12.0+cu130
+- PyG 2.7.0
+- PyGSD 1.1.1
+
+### Verified Capabilities
+- MSGNN, MagNet, and SSSNET imports verified
+- CPU constructor compatibility verified
+- Initialized parameters verified finite
+- Environment documentation exists
+- Constructor smoke-test script exists
+
+### What This Proves
+The current evidence establishes only:
+- Environment availability
+- Importability
+- Constructor compatibility
+- Finite initialized parameters
+- CPU instantiation
+
+### What This Does Not Yet Prove
+The current evidence does **not** yet establish:
+- Forward-pass correctness
+- Training correctness
+- Convergence
+- Accuracy
+- Robustness
+- Stability
+- Perturbation correctness
+- Theory–experiment agreement
+- Final architecture suitability
+
+---
+
+## Repository Governance
+
+- **`main`** — the active researcher-controlled branch
+- **`legacy-exploration`** — preserves the audited pre-reorganization repository state
+- **`archive/legacy_exploration/`** — contains preserved unsigned Cora and exploratory artifacts retained for historical reference and possible controlled pattern reuse
+- Legacy artifacts are excluded from manuscript evidence unless independently reconstructed and validated under the current protocol
+
+---
+
+## Current Active Repository Structure
+
+```
+notes/                          # Environment and repository-governance records
+scripts/                        # Verified active utility and smoke-test scripts
+archive/legacy_exploration/     # Preserved legacy work
+README.md                       # Active project overview
+GNN_CRISP_DM_Methodology.md    # Methodology document pending review/refactoring
+```
+
+**Note:** Experiment-template and configuration directories do not yet exist.
+
+---
+
+## Research Gates
+
+| Gate | Description | Status |
+|------|-------------|--------|
+| **Gate A** | Environment verified | ✅ Passed |
+| **Gate B** | Model API audit | 🟡 Partial |
+| **Gate C** | Forward-pass smoke tests | ⏳ Pending |
+| **Gate D** | Controlled baselines | ⏳ Pending |
+| **Gate E** | Perturbation generators | ⏳ Pending |
+| **Gate F** | Multi-seed robustness | ⏳ Pending |
+| **Gate G** | Theory connected | ⏳ Pending |
+| **Gate H** | Cross-dataset validation | ⏳ Pending |
+| **Gate I** | Manuscript evidence lock | ⏳ Pending |
+
+---
+
+## Immediate Ordered Work
+
+1. Review repository governance and methodology documentation
+2. Create experiment-record templates
+3. Complete architecture/task/API audit
+4. Run controlled forward-pass smoke tests
+5. Reproduce signed/directed baselines
+6. Implement and validate perturbation functions
+7. Begin manuscript-eligible experiments only after earlier gates pass
+
+---
+
+## Reproducibility and Storage
+
+- **SOL scratch is temporary** and is never the only copy
+- Code and documentation are synchronized through GitHub
+- Durable backup and environment export are maintained outside scratch
+- Production results will require:
+  - Configurations
+  - Seeds
+  - Logs
+  - Metrics
+  - Commit hashes
+  - Limitations
+  - Experiment records
+
+---
+
+## Evidence Disclaimer
+
+**This repository currently contains verified computational infrastructure and preliminary governance documentation. It does not yet contain manuscript-approved robustness results.**
+
+---
+
+*Last updated: July 2026*
