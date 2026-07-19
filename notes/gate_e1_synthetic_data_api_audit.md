@@ -530,7 +530,7 @@ The Gate E clean-baseline configuration is provisionally locked pending E2 imple
 
 ---
 
-*Audit completed: 2026-07-18*  
-*Gate E1 status: PASS*  
-*E2 clean-baseline implementation: AUTHORIZED*  
+*Audit completed: 2026-07-18*
+*Gate E1 status: PASS*
+*E2 clean-baseline implementation: AUTHORIZED*
 *Perturbation experiments: NOT AUTHORIZED*
