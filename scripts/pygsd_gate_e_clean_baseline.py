@@ -912,7 +912,7 @@ def train_msgnn(shared: SharedData, seed: int) -> SeedResult:
         best_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
         epochs_without_improvement = 0
 
-        for epoch in range(MAX_EPOCHS):
+        for epoch in range(1, MAX_EPOCHS + 1):
             stage = f"epoch {epoch} forward execution"
             model.train()
 
@@ -981,7 +981,7 @@ def train_msgnn(shared: SharedData, seed: int) -> SeedResult:
 
             result.per_epoch_train_loss.append(loss.item())
             result.per_epoch_val_loss.append(val_loss.item())
-            result.total_epochs = epoch + 1
+            result.total_epochs = epoch
 
             # Check for improvement
             if val_loss.item() < best_val_loss - MIN_IMPROVEMENT:
@@ -1000,12 +1000,12 @@ def train_msgnn(shared: SharedData, seed: int) -> SeedResult:
                 break
 
         if result.stopping_epoch == -1:
-            result.stopping_epoch = MAX_EPOCHS - 1
+            result.stopping_epoch = MAX_EPOCHS
             result.stopping_reason = "max epochs"
 
         result.best_epoch = best_epoch
         result.best_val_loss = best_val_loss
-        result.final_executed_epoch = result.total_epochs - 1
+        result.final_executed_epoch = result.total_epochs
         result.early_stopped = (result.stopping_reason == "early stopping")
 
         print(f"Best epoch: {best_epoch}")
@@ -1273,7 +1273,7 @@ def train_sssnet(shared: SharedData, seed: int) -> SeedResult:
         best_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
         epochs_without_improvement = 0
 
-        for epoch in range(MAX_EPOCHS):
+        for epoch in range(1, MAX_EPOCHS + 1):
             stage = f"epoch {epoch} forward execution"
             model.train()
 
@@ -1342,7 +1342,7 @@ def train_sssnet(shared: SharedData, seed: int) -> SeedResult:
 
             result.per_epoch_train_loss.append(loss.item())
             result.per_epoch_val_loss.append(val_loss.item())
-            result.total_epochs = epoch + 1
+            result.total_epochs = epoch
 
             # Check for improvement
             if val_loss.item() < best_val_loss - MIN_IMPROVEMENT:
@@ -1361,12 +1361,12 @@ def train_sssnet(shared: SharedData, seed: int) -> SeedResult:
                 break
 
         if result.stopping_epoch == -1:
-            result.stopping_epoch = MAX_EPOCHS - 1
+            result.stopping_epoch = MAX_EPOCHS
             result.stopping_reason = "max epochs"
 
         result.best_epoch = best_epoch
         result.best_val_loss = best_val_loss
-        result.final_executed_epoch = result.total_epochs - 1
+        result.final_executed_epoch = result.total_epochs
         result.early_stopped = (result.stopping_reason == "early stopping")
 
         print(f"Best epoch: {best_epoch}")
