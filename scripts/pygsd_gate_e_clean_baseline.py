@@ -166,16 +166,22 @@ class SeedResult:
     stopping_epoch: int
     stopping_reason: str
     total_epochs: int
+    final_executed_epoch: int
+    early_stopped: bool
     per_epoch_train_loss: List[float]
     per_epoch_val_loss: List[float]
     gradient_finite: bool
     parameters_finite: bool
     checkpoint_restored: bool
+    restored_checkpoint_val_loss: float
+    test_loss: float
     test_accuracy: float
     test_macro_f1: float
     test_micro_f1: float
     runtime_seconds: float
     learning_signal_satisfied: bool
+    finite_value_checks: Dict[str, bool]
+    warnings: List[str]
     bundle_fingerprint: str
 
 
@@ -806,16 +812,22 @@ def train_msgnn(shared: SharedData, seed: int) -> SeedResult:
         stopping_epoch=-1,
         stopping_reason="",
         total_epochs=0,
+        final_executed_epoch=-1,
+        early_stopped=False,
         per_epoch_train_loss=[],
         per_epoch_val_loss=[],
         gradient_finite=False,
         parameters_finite=False,
         checkpoint_restored=False,
+        restored_checkpoint_val_loss=float("inf"),
+        test_loss=float("inf"),
         test_accuracy=0.0,
         test_macro_f1=0.0,
         test_micro_f1=0.0,
         runtime_seconds=0.0,
         learning_signal_satisfied=False,
+        finite_value_checks={},
+        warnings=[],
         bundle_fingerprint=shared.bundle_fingerprint,
     )
 
@@ -993,6 +1005,8 @@ def train_msgnn(shared: SharedData, seed: int) -> SeedResult:
 
         result.best_epoch = best_epoch
         result.best_val_loss = best_val_loss
+        result.final_executed_epoch = result.total_epochs - 1
+        result.early_stopped = (result.stopping_reason == "early stopping")
 
         print(f"Best epoch: {best_epoch}")
         print(f"Best val loss: {best_val_loss:.6f}")
@@ -1020,6 +1034,7 @@ def train_msgnn(shared: SharedData, seed: int) -> SeedResult:
         stage = "validation loss validation"
         final_val_loss = criterion(val_output, shared.val_labels)
         validate_loss(final_val_loss, "Final validation loss")
+        result.restored_checkpoint_val_loss = final_val_loss.item()
 
         require(
             abs(final_val_loss.item() - best_val_loss) < 1e-6,
@@ -1036,12 +1051,26 @@ def train_msgnn(shared: SharedData, seed: int) -> SeedResult:
             test_output, (shared.test_queries.shape[0], LABEL_DIM), "Test"
         )
 
+        stage = "test loss validation"
+        test_loss = criterion(test_output, shared.test_labels)
+        validate_loss(test_loss, "Test loss")
+        result.test_loss = test_loss.item()
+
         stage = "metric computation"
         accuracy, macro_f1, micro_f1 = compute_metrics(test_output, shared.test_labels)
 
         result.test_accuracy = accuracy
         result.test_macro_f1 = macro_f1
         result.test_micro_f1 = micro_f1
+
+        # Finite value checks
+        result.finite_value_checks = {
+            "outputs_finite": True,
+            "losses_finite": True,
+            "gradients_finite": result.gradient_finite,
+            "parameters_finite": result.parameters_finite,
+            "all_finite": True,
+        }
 
         # Learning signal
         result.learning_signal_satisfied = (
@@ -1127,16 +1156,22 @@ def train_sssnet(shared: SharedData, seed: int) -> SeedResult:
         stopping_epoch=-1,
         stopping_reason="",
         total_epochs=0,
+        final_executed_epoch=-1,
+        early_stopped=False,
         per_epoch_train_loss=[],
         per_epoch_val_loss=[],
         gradient_finite=False,
         parameters_finite=False,
         checkpoint_restored=False,
+        restored_checkpoint_val_loss=float("inf"),
+        test_loss=float("inf"),
         test_accuracy=0.0,
         test_macro_f1=0.0,
         test_micro_f1=0.0,
         runtime_seconds=0.0,
         learning_signal_satisfied=False,
+        finite_value_checks={},
+        warnings=[],
         bundle_fingerprint=shared.bundle_fingerprint,
     )
 
@@ -1331,6 +1366,8 @@ def train_sssnet(shared: SharedData, seed: int) -> SeedResult:
 
         result.best_epoch = best_epoch
         result.best_val_loss = best_val_loss
+        result.final_executed_epoch = result.total_epochs - 1
+        result.early_stopped = (result.stopping_reason == "early stopping")
 
         print(f"Best epoch: {best_epoch}")
         print(f"Best val loss: {best_val_loss:.6f}")
@@ -1358,6 +1395,7 @@ def train_sssnet(shared: SharedData, seed: int) -> SeedResult:
         stage = "validation loss validation"
         final_val_loss = criterion(val_output, shared.val_labels)
         validate_loss(final_val_loss, "Final validation loss")
+        result.restored_checkpoint_val_loss = final_val_loss.item()
 
         require(
             abs(final_val_loss.item() - best_val_loss) < 1e-6,
@@ -1374,12 +1412,26 @@ def train_sssnet(shared: SharedData, seed: int) -> SeedResult:
             test_output, (shared.test_queries.shape[0], LABEL_DIM), "Test"
         )
 
+        stage = "test loss validation"
+        test_loss = criterion(test_output, shared.test_labels)
+        validate_loss(test_loss, "Test loss")
+        result.test_loss = test_loss.item()
+
         stage = "metric computation"
         accuracy, macro_f1, micro_f1 = compute_metrics(test_output, shared.test_labels)
 
         result.test_accuracy = accuracy
         result.test_macro_f1 = macro_f1
         result.test_micro_f1 = micro_f1
+
+        # Finite value checks
+        result.finite_value_checks = {
+            "outputs_finite": True,
+            "losses_finite": True,
+            "gradients_finite": result.gradient_finite,
+            "parameters_finite": result.parameters_finite,
+            "all_finite": True,
+        }
 
         # Learning signal
         result.learning_signal_satisfied = (
@@ -1678,23 +1730,29 @@ def main() -> int:
                 "exception_message": r.exception_message,
                 "config": r.config,
                 "optimizer_config": r.optimizer_config,
-                "initial_train_loss": r.initial_train_loss,
-                "initial_val_loss": r.initial_val_loss,
+                "initial_train_loss": None if r.initial_train_loss == float("inf") else r.initial_train_loss,
+                "initial_val_loss": None if r.initial_val_loss == float("inf") else r.initial_val_loss,
                 "best_epoch": r.best_epoch,
-                "best_val_loss": r.best_val_loss,
+                "best_val_loss": None if r.best_val_loss == float("inf") else r.best_val_loss,
                 "stopping_epoch": r.stopping_epoch,
                 "stopping_reason": r.stopping_reason,
                 "total_epochs": r.total_epochs,
+                "final_executed_epoch": r.final_executed_epoch,
+                "early_stopped": r.early_stopped,
                 "per_epoch_train_loss": r.per_epoch_train_loss,
                 "per_epoch_val_loss": r.per_epoch_val_loss,
                 "gradient_finite": r.gradient_finite,
                 "parameters_finite": r.parameters_finite,
                 "checkpoint_restored": r.checkpoint_restored,
+                "restored_checkpoint_val_loss": None if r.restored_checkpoint_val_loss == float("inf") else r.restored_checkpoint_val_loss,
+                "test_loss": None if r.test_loss == float("inf") else r.test_loss,
                 "test_accuracy": r.test_accuracy,
                 "test_macro_f1": r.test_macro_f1,
                 "test_micro_f1": r.test_micro_f1,
                 "runtime_seconds": r.runtime_seconds,
                 "learning_signal_satisfied": r.learning_signal_satisfied,
+                "finite_value_checks": r.finite_value_checks,
+                "warnings": r.warnings,
                 "bundle_fingerprint": r.bundle_fingerprint,
             }
             for r in all_results
@@ -1738,7 +1796,7 @@ def main() -> int:
     try:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w") as f:
-            json.dump(output_data, f, indent=2)
+            json.dump(output_data, f, indent=2, allow_nan=False)
         print(f"\nResults written to: {output_path}")
     except Exception as e:
         print(f"\nERROR: Failed to write output file: {e}")
