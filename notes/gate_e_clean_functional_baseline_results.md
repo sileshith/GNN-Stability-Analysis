@@ -9,7 +9,7 @@ gate_decision: "PASS"
 
 # Gate E — Clean Functional-Baseline Results
 
-**Execution Date:** 2026-07-18  
+**Execution Date:** 2026-07-18
 **Gate Decision:** **PASS**
 
 ---
@@ -312,11 +312,11 @@ The selected scalar losses compared between E3 and E4 for seed 0 differed by at 
 
 ### Pass Criteria Met
 
-✓ All six model-seed runs completed without data-contract, API, numerical, gradient, optimizer, or evaluation-path failure  
-✓ All fingerprints matched the shared records  
-✓ All recorded outputs, losses, gradients, parameters, and metrics were finite  
-✓ Both models satisfied the minimal learning-signal criterion in 3/3 seeds (exceeds required 2/3)  
-✓ All best checkpoints restored and evaluated successfully  
+✓ All six model-seed runs completed without data-contract, API, numerical, gradient, optimizer, or evaluation-path failure
+✓ All fingerprints matched the shared records
+✓ All recorded outputs, losses, gradients, parameters, and metrics were finite
+✓ Both models satisfied the minimal learning-signal criterion in 3/3 seeds (exceeds required 2/3)
+✓ All best checkpoints restored and evaluated successfully
 ✓ E3-to-E4 seed-0 reproducibility confirmed within numerical tolerance
 
 ### What Gate E PASS Establishes
@@ -435,7 +435,7 @@ The project may now proceed to the next controlled structural-perturbation speci
 
 ---
 
-*Results recorded: 2026-07-18*  
-*Gate E: PASS*  
-*Next stage: Gate F specification (structural perturbation pilot design)*  
+*Results recorded: 2026-07-18*
+*Gate E: PASS*
+*Next stage: Gate F specification (structural perturbation pilot design)*
 *Perturbation execution: NOT YET AUTHORIZED*
