@@ -51,12 +51,23 @@ Gate E evaluated whether PyGSD 1.1.1 `MSGNN_link_prediction` and directed `SSSNE
 - Communities: `K = 4`
 - Edge probability: `p = 0.05`
 - Size ratio: `1.5`
-- Eta (positive edge probability): `0.1`
-- Gamma (negative edge probability): `0.1`
+- Eta: `0.1` (direct SDSBM argument)
+- Gamma: `0.1` (used to construct the locked meta-graph matrix F, not passed directly to SDSBM)
 - Generation seed: `0`
 - Split seed: `0`
 - Validation probability: `0.15`
 - Test probability: `0.15`
+
+**Locked Meta-Graph Matrix F:**
+
+```
+F = [
+  [ 0.5,  0.1, -0.1,  0.1],
+  [ 0.9,  0.5, -0.1, -0.5],
+  [-0.9, -0.9,  0.5, -0.9],
+  [-0.9, -0.5, -0.1,  0.5]
+]
+```
 
 ### Model Configurations
 
@@ -227,7 +238,7 @@ All six runs passed all finite value checks:
 
 ## 6. E3-to-E4 Seed-0 Reproducibility Evidence
 
-Gate E3 executed a single-seed dry run (seed 0) for both models. Gate E4 re-executed seed 0 as part of the three-seed clean baseline. The following evidence confirms reproducibility:
+Gate E3 executed a single-seed dry run (seed 0) for both models. Gate E4 re-executed seed 0 as part of the three-seed clean baseline. The following checks confirm reproducibility:
 
 ### Data Fingerprints
 
@@ -241,42 +252,37 @@ Gate E3 executed a single-seed dry run (seed 0) for both models. Gate E4 re-exec
 
 ### MSGNN Seed-0 Comparison
 
-| Metric                    | E3 Dry Run | E4 Three-Seed | Match |
-|---------------------------|------------|---------------|-------|
-| Best Epoch                | 134        | 134           | ✓     |
-| Final Executed Epoch      | 164        | 164           | ✓     |
-| Test Accuracy             | 0.5187     | 0.5187        | ✓     |
-| Test Macro-F1             | 0.3953     | 0.3953        | ✓     |
-| Test Micro-F1             | 0.5187     | 0.5187        | ✓     |
-| Initial Train Loss        | 15.1210    | 15.1210       | ✓     |
-| Initial Val Loss          | 11.5222    | 11.5222       | ✓     |
-| Best Val Loss             | 1.1714     | 1.1714        | ✓     |
-| Restored Checkpoint Val   | 1.1714     | 1.1714        | ✓     |
-| Test Loss                 | 1.1279     | 1.1279        | ✓     |
+| Metric                    | E3 Dry Run | E4 Three-Seed | Match        |
+|---------------------------|------------|---------------|--------------|
+| Best Epoch                | 134        | 134           | ✓            |
+| Final Executed Epoch      | 164        | 164           | ✓            |
+| Test Accuracy             | 0.5187     | 0.5187        | ✓            |
+| Test Macro-F1             | 0.3953     | 0.3953        | ✓            |
+| Test Micro-F1             | 0.5187     | 0.5187        | ✓            |
+| Initial Train Loss        | 15.1210    | 15.1210       | within 1e-6  |
+| Initial Val Loss          | 11.5222    | 11.5222       | within 1e-6  |
+| Best Val Loss             | 1.1714     | 1.1714        | within 1e-6  |
+| Restored Checkpoint Val   | 1.1714     | 1.1714        | within 1e-6  |
+| Test Loss                 | 1.1279     | 1.1279        | within 1e-6  |
 
 ### SSSNET Seed-0 Comparison
 
-| Metric                    | E3 Dry Run | E4 Three-Seed | Match |
-|---------------------------|------------|---------------|-------|
-| Best Epoch                | 153        | 153           | ✓     |
-| Final Executed Epoch      | 183        | 183           | ✓     |
-| Test Accuracy             | 0.5520     | 0.5520        | ✓     |
-| Test Macro-F1             | 0.4466     | 0.4466        | ✓     |
-| Test Micro-F1             | 0.5520     | 0.5520        | ✓     |
-| Initial Train Loss        | 30.2944    | 30.2944       | ✓     |
-| Initial Val Loss          | 26.6887    | 26.6887       | ✓     |
-| Best Val Loss             | 1.1594     | 1.1594        | ✓     |
-| Restored Checkpoint Val   | 1.1594     | 1.1594        | ✓     |
-| Test Loss                 | 1.0980     | 1.0980        | ✓     |
+| Metric                    | E3 Dry Run | E4 Three-Seed | Match        |
+|---------------------------|------------|---------------|--------------|
+| Best Epoch                | 153        | 153           | ✓            |
+| Final Executed Epoch      | 183        | 183           | ✓            |
+| Test Accuracy             | 0.5520     | 0.5520        | ✓            |
+| Test Macro-F1             | 0.4466     | 0.4466        | ✓            |
+| Test Micro-F1             | 0.5520     | 0.5520        | ✓            |
+| Initial Train Loss        | 30.2944    | 30.2944       | within 1e-6  |
+| Initial Val Loss          | 26.6887    | 26.6887       | within 1e-6  |
+| Best Val Loss             | 1.1594     | 1.1594        | within 1e-6  |
+| Restored Checkpoint Val   | 1.1594     | 1.1594        | within 1e-6  |
+| Test Loss                 | 1.0980     | 1.0980        | within 1e-6  |
 
-### Per-Epoch Loss Reproducibility
+### Selected Scalar Loss Reproducibility
 
-Detailed per-epoch loss comparison between E3 and E4 for seed 0 revealed:
-
-- **MSGNN:** Maximum absolute difference across all 164 epochs: `1.1920928955078125e-07`
-- **SSSNET:** Maximum absolute difference across all 183 epochs: `1.1920928955078125e-07`
-
-**Numerical Tolerance:** Both models' per-epoch losses differed by at most `~1.2e-07`, well within the accepted `1e-6` floating-point tolerance for CPU PyTorch operations.
+The selected scalar losses compared between E3 and E4 for seed 0 differed by at most `1.1920928955078125e-07`, well within the accepted `1e-6` floating-point tolerance for CPU PyTorch operations.
 
 **Verdict:** ✓ Reproducible within numerical precision
 
@@ -286,17 +292,17 @@ Detailed per-epoch loss comparison between E3 and E4 for seed 0 revealed:
 
 ### Commit Timeline
 
-1. **c24f7c7** (2026-07-18): Created `scripts/pygsd_gate_e2_clean_baseline.py` implementing the E2 clean-baseline script with shared data construction, fingerprinting, three-seed training loop, and structured failure handling.
+1. **c24f7c7** (2026-07-18): Created `scripts/pygsd_gate_e_clean_baseline.py` implementing the E2 clean-baseline script with shared data construction, fingerprinting, three-seed training loop, and structured failure handling.
 
-2. **b473ea7** (2026-07-18): Completed the required result schema in `scripts/pygsd_gate_e2_clean_baseline.py`, adding per-epoch metrics recording, learning signal computation, checkpoint restoration verification, and JSON output generation to `results/gate_e4_clean_baseline_results.json`.
+2. **b473ea7** (2026-07-18): Added the required per-seed result schema to `scripts/pygsd_gate_e_clean_baseline.py`, including restored-checkpoint validation NLL, test NLL, finite value checks, warnings list, and strict JSON enforcement.
 
-3. **4375dfe** (2026-07-18): Corrected one-based epoch accounting in `scripts/pygsd_gate_e2_clean_baseline.py` to match the specification's zero-based convention. Changed `epoch + 1` display formatting to `epoch` in all print statements and JSON records while preserving the internal zero-based loop variable.
+3. **4375dfe** (2026-07-18): Changed the two training loops in `scripts/pygsd_gate_e_clean_baseline.py` from zero-based to one-based epoch numbering so that `total_epochs`, `final_executed_epoch`, `stopping_epoch`, and history lengths have consistent actual-training-epoch semantics.
 
 ### Artifact References
 
 - **E2 Dry Run (Seed 0):** `results/gate_e2_seed0_dry_run.json`
 - **E4 Three-Seed Baseline:** `results/gate_e4_clean_baseline_results.json`
-- **Implementation:** `scripts/pygsd_gate_e2_clean_baseline.py`
+- **Implementation:** `scripts/pygsd_gate_e_clean_baseline.py`
 
 ---
 
@@ -358,12 +364,22 @@ The test accuracy and F1 scores recorded in this gate serve as **execution evide
 
 ### Attribution Boundary
 
-This work uses:
+**Upstream Work:**
 
-- **PyGSD 1.1.1** models (`MSGNN_link_prediction`, `SSSNET_link_prediction`) and synthetic data generator (`SDSBM`)
-- Upstream research: MSGNN (Huang et al.), SSSNET (Huang et al.), SDSBM methodology
+- **PyGSD 1.1.1** library, including `MSGNN_link_prediction`, `SSSNET_link_prediction`, and `SDSBM` synthetic data generator
+- Original MSGNN and SSSNET architectures and implementations
+- PyGSD library developed by Dr. Yixuan He and collaborators
 
-All model architectures, training procedures, and synthetic data generation methods are attributed to their original authors and the PyGSD library maintainers.
+**This Research Project's Contributions:**
+
+- Locked clean-baseline training protocol
+- Three-seed reproducibility validation procedure
+- SHA-256 fingerprint evidence system
+- Structured failure categorization
+- Gate E validation framework and decision criteria
+- This results record and analysis
+
+The upstream model architectures, their original implementations, and the PyGSD library are attributed to their original authors. The clean-baseline protocol, reproducibility checks, fingerprint evidence, and Gate E analysis are contributions of this research project.
 
 ---
 
