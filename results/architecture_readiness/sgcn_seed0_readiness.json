@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "scope": "clean architecture-native readiness only",
+  "model": "sgcn",
+  "model_name": "SGCN",
+  "task": "link_sign_prediction",
+  "seed": 0,
+  "device": "cuda",
+  "device_name": "NVIDIA A100-SXM4-80GB MIG 1g.20gb",
+  "epochs_requested": 30,
+  "epochs_executed": 16,
+  "best_epoch": 6,
+  "first_train_loss": 1.1273245811462402,
+  "final_train_loss": 1.0986815690994263,
+  "best_val_nll": 1.094242811203003,
+  "validation_metrics": {
+    "nll": 1.094242811203003,
+    "accuracy": 0.568075117370892,
+    "macro_f1": 0.36227544910179643,
+    "micro_f1": 0.568075117370892,
+    "rows": 639,
+    "classes": 3,
+    "predicted_classes": [
+      1
+    ]
+  },
+  "test_metrics": {
+    "nll": 1.0938537120819092,
+    "accuracy": 0.568075117370892,
+    "macro_f1": 0.36227544910179643,
+    "micro_f1": 0.568075117370892,
+    "rows": 639,
+    "classes": 3,
+    "predicted_classes": [
+      1
+    ]
+  },
+  "checkpoint": "/home/shirpa/stp499_persistent/checkpoints/architecture_readiness/sgcn_seed0_clean_checkpoint.pt",
+  "checkpoint_sha256": "b9111971b0a0253b5a16c6c4305638f653a87111114b4d894d1acf7e19ba8f9e",
+  "checkpoint_reload_max_abs_difference": 1.1920928955078125e-07,
+  "output_kind": "node embeddings and query-edge sign log-probabilities",
+  "exposed_output_shape": [
+    300,
+    32
+  ],
+  "operator_modules": [
+    "SGCNConv"
+  ],
+  "trainable_parameters": 3843,
+  "dataset": {
+    "generator": "SSBM",
+    "nodes": 300,
+    "training_graph_edges": 2978,
+    "training_positive_edges": 1692,
+    "training_negative_edges": 1286,
+    "validation_queries": 639,
+    "test_queries": 639,
+    "fingerprint": "0fdb54f0174a04224467c03ccf791d3bb84bfa45eee3cd2467ba7738a5e52f4c",
+    "graph_view": "signed-undirected"
+  },
+  "environment": {
+    "python": "3.11.15",
+    "torch": "2.12.0+cu130",
+    "torch_geometric_signed_directed": "1.1.1",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-80GB MIG 1g.20gb"
+  },
+  "completed_at_utc": "2026-07-26T00:58:19.297788+00:00",
+  "limitations": [
+    "one clean synthetic dataset",
+    "one initialization seed",
+    "no structural perturbations",
+    "no architecture ranking",
+    "no robustness or stability conclusion"
+  ]
+}

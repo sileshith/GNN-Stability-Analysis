@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "scope": "clean architecture-native readiness only",
+  "model": "msgnn",
+  "model_name": "MSGNN_link_prediction",
+  "task": "four_class_signed_digraph",
+  "seed": 0,
+  "device": "cuda",
+  "device_name": "NVIDIA A100-SXM4-80GB MIG 1g.20gb",
+  "epochs_requested": 30,
+  "epochs_executed": 30,
+  "best_epoch": 30,
+  "first_train_loss": 15.392231941223145,
+  "final_train_loss": 1.2110270261764526,
+  "best_val_nll": 1.2386633157730103,
+  "validation_metrics": {
+    "nll": 1.2386634349822998,
+    "accuracy": 0.4543230016313214,
+    "macro_f1": 0.3321339257669937,
+    "micro_f1": 0.4543230016313214,
+    "rows": 1226,
+    "classes": 4,
+    "predicted_classes": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "test_metrics": {
+    "nll": 1.1866093873977661,
+    "accuracy": 0.4739837398373984,
+    "macro_f1": 0.3299245975878985,
+    "micro_f1": 0.4739837398373984,
+    "rows": 1230,
+    "classes": 4,
+    "predicted_classes": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "checkpoint": "/home/shirpa/stp499_persistent/checkpoints/architecture_readiness/msgnn_seed0_clean_checkpoint.pt",
+  "checkpoint_sha256": "f195374ee57f836d1ecbb3191ca808e3e0d865a9c25bb31f6fc791406d7975b7",
+  "checkpoint_reload_max_abs_difference": 1.6689300537109375e-06,
+  "output_kind": "query-edge log-probabilities",
+  "exposed_output_shape": [
+    1230,
+    4
+  ],
+  "operator_modules": [
+    "MSConv"
+  ],
+  "trainable_parameters": 1156,
+  "dataset": {
+    "generator": "SDSBM",
+    "nodes": 400,
+    "training_graph_edges": 2915,
+    "training_queries": 5718,
+    "validation_queries": 1226,
+    "test_queries": 1230,
+    "feature_shape": [
+      400,
+      2
+    ],
+    "fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+    "graph_view": "signed-directed"
+  },
+  "environment": {
+    "python": "3.11.15",
+    "torch": "2.12.0+cu130",
+    "torch_geometric_signed_directed": "1.1.1",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-80GB MIG 1g.20gb"
+  },
+  "completed_at_utc": "2026-07-26T00:51:02.254003+00:00",
+  "limitations": [
+    "one clean synthetic dataset",
+    "one initialization seed",
+    "no structural perturbations",
+    "no architecture ranking",
+    "no robustness or stability conclusion"
+  ]
+}

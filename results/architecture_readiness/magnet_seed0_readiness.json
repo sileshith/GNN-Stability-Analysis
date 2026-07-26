@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "scope": "clean architecture-native readiness only",
+  "model": "magnet",
+  "model_name": "MagNet_link_prediction",
+  "task": "direction",
+  "seed": 0,
+  "device": "cuda",
+  "device_name": "NVIDIA A100-SXM4-80GB MIG 1g.20gb",
+  "epochs_requested": 30,
+  "epochs_executed": 30,
+  "best_epoch": 25,
+  "first_train_loss": 8.039651870727539,
+  "final_train_loss": 0.6381125450134277,
+  "best_val_nll": 0.7153992056846619,
+  "validation_metrics": {
+    "nll": 0.7153992056846619,
+    "accuracy": 0.5365497076023392,
+    "macro_f1": 0.5360250959178476,
+    "micro_f1": 0.5365497076023392,
+    "rows": 684,
+    "classes": 2,
+    "predicted_classes": [
+      0,
+      1
+    ]
+  },
+  "test_metrics": {
+    "nll": 0.7153355479240417,
+    "accuracy": 0.5458579881656804,
+    "macro_f1": 0.545777476225391,
+    "micro_f1": 0.5458579881656804,
+    "rows": 676,
+    "classes": 2,
+    "predicted_classes": [
+      0,
+      1
+    ]
+  },
+  "checkpoint": "/home/shirpa/stp499_persistent/checkpoints/architecture_readiness/magnet_seed0_clean_checkpoint.pt",
+  "checkpoint_sha256": "dffafbee52815bbc8d805721b49ef8b225c63d4abc3257da7062dbb65f5cec8a",
+  "checkpoint_reload_max_abs_difference": 4.76837158203125e-07,
+  "output_kind": "query-edge log-probabilities",
+  "exposed_output_shape": [
+    676,
+    2
+  ],
+  "operator_modules": [
+    "MagNetConv"
+  ],
+  "trainable_parameters": 1026,
+  "dataset": {
+    "generator": "DSBM",
+    "nodes": 300,
+    "training_graph_edges": 1599,
+    "training_queries": 3154,
+    "validation_queries": 684,
+    "test_queries": 676,
+    "feature_shape": [
+      300,
+      2
+    ],
+    "fingerprint": "9260b8f13f11e2bdfd439fa871e02b7f2faa4bb431fc21b2384193abefe3ebec",
+    "graph_view": "directed-unsigned"
+  },
+  "environment": {
+    "python": "3.11.15",
+    "torch": "2.12.0+cu130",
+    "torch_geometric_signed_directed": "1.1.1",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-80GB MIG 1g.20gb"
+  },
+  "completed_at_utc": "2026-07-26T00:53:13.488162+00:00",
+  "limitations": [
+    "one clean synthetic dataset",
+    "one initialization seed",
+    "no structural perturbations",
+    "no architecture ranking",
+    "no robustness or stability conclusion"
+  ]
+}
