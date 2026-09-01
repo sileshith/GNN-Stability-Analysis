@@ -1,0 +1,167 @@
+{
+  "clean_artifact": {
+    "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+    "checkpoint_path": "results/e001/msgnn_k1_q0125_seed0_20260901T163605Z.pt",
+    "checkpoint_sha256": "6b0d7f7faa2fb74ad7e2eca5ac186ab0c1313a2773c3b67bc82f0a1395d642ef",
+    "config": {
+      "K": 1,
+      "absolute_degree": true,
+      "activation": true,
+      "cached": false,
+      "conv_bias": true,
+      "dropout": 0.5,
+      "hidden": 16,
+      "label_dim": 4,
+      "layer": 2,
+      "normalization": "sym",
+      "num_features": 2,
+      "q": 0.125,
+      "trainable_q": false
+    },
+    "result_path": "results/e001/e001_k1_q0125_seed0_clean_attempt02.json",
+    "result_sha256": "9efd03a6f5aac6ec3296924dda9aa5342020f9c2c94c4f671a6470e806599419"
+  },
+  "edit_manifest": {
+    "candidate_count": 14,
+    "direction_preserved": true,
+    "edge_index_position": 2907,
+    "edit_type": "sign_reversal",
+    "endpoints_preserved": true,
+    "m": 1,
+    "non_self_loop": true,
+    "only_one_weight_changed": true,
+    "ordered_pair_unique": true,
+    "original_weight": -1.0,
+    "perturbed_weight": 1.0,
+    "query_and_reverse_query_leakage_excluded": true,
+    "selection_rule": "Lexicographically first eligible training-graph edge",
+    "source": 16,
+    "target": 85,
+    "theorem_5_3_eligible": true,
+    "unit_weight": true,
+    "unreciprocated": true
+  },
+  "environment": {
+    "device": "cpu",
+    "pyg": "2.7.0",
+    "pygsd": "1.1.1",
+    "python": "3.11.15",
+    "torch": "2.12.0+cu130"
+  },
+  "evidence_scope": "One deterministic sign reversal using one frozen K=1 MSGNN checkpoint; not a robustness estimate",
+  "gate": "E001-fixed-checkpoint-diagnostic",
+  "integrity": {
+    "all_diagnostic_tensors_finite": true,
+    "checkpoint_hash_after": "6b0d7f7faa2fb74ad7e2eca5ac186ab0c1313a2773c3b67bc82f0a1395d642ef",
+    "checkpoint_hash_before": "6b0d7f7faa2fb74ad7e2eca5ac186ab0c1313a2773c3b67bc82f0a1395d642ef",
+    "checkpoint_unchanged": true,
+    "finite_checks": {
+      "clean_log_probabilities": true,
+      "clean_logits": true,
+      "clean_representation": true,
+      "perturbed_log_probabilities": true,
+      "perturbed_logits": true,
+      "perturbed_representation": true
+    },
+    "frozen_tensor_hashes_after": {
+      "features": "87a50b0f9a96e9454baae98c7c90f561225e0e2528632234a370cfeffff0ef4e",
+      "test_labels": "e4b8aa9476a3fa43bc9e7f9bfde63292e6e576cabaf4a1d040fc36acabc14934",
+      "test_queries": "3944eadd768fe8d5e20b1335e0f959f677accf3f347414bc6e9cbfb69e382194",
+      "train_graph": "3d00f1a6137f402bccaad12162617b05f7de4c9057ea48199ab6ce62c92e742e",
+      "train_labels": "7a8f94d2017aadbfad83288ab803a33641dad79b563c7196ec0698d9ffe7a6d8",
+      "train_queries": "414196f3b35c710a2b87f243705ecb3118c801c3d70ca24f9fd7c0b8ac8a55e0",
+      "train_weights": "72d2fa1282d98dfa85d6c44874ea797c1ce2a1d5850efb540f91d00880e4bdfc",
+      "val_labels": "63fee9cd72d3dd4764787f2692e8259541d1d7b039e8c691a5ad5a6e5567f107",
+      "val_queries": "db40102a902877d496ea66229a053edf878d3ca2ef8f7b4e47109b64746a2551"
+    },
+    "frozen_tensor_hashes_before": {
+      "features": "87a50b0f9a96e9454baae98c7c90f561225e0e2528632234a370cfeffff0ef4e",
+      "test_labels": "e4b8aa9476a3fa43bc9e7f9bfde63292e6e576cabaf4a1d040fc36acabc14934",
+      "test_queries": "3944eadd768fe8d5e20b1335e0f959f677accf3f347414bc6e9cbfb69e382194",
+      "train_graph": "3d00f1a6137f402bccaad12162617b05f7de4c9057ea48199ab6ce62c92e742e",
+      "train_labels": "7a8f94d2017aadbfad83288ab803a33641dad79b563c7196ec0698d9ffe7a6d8",
+      "train_queries": "414196f3b35c710a2b87f243705ecb3118c801c3d70ca24f9fd7c0b8ac8a55e0",
+      "train_weights": "72d2fa1282d98dfa85d6c44874ea797c1ce2a1d5850efb540f91d00880e4bdfc",
+      "val_labels": "63fee9cd72d3dd4764787f2692e8259541d1d7b039e8c691a5ad5a6e5567f107",
+      "val_queries": "db40102a902877d496ea66229a053edf878d3ca2ef8f7b4e47109b64746a2551"
+    },
+    "frozen_tensors_unchanged": true,
+    "model_state_hash_after": "020a4282305982339ae73a5a4f3f72f8d1a6b5a6e6eac7651602c2d37023e44d",
+    "model_state_hash_before": "020a4282305982339ae73a5a4f3f72f8d1a6b5a6e6eac7651602c2d37023e44d",
+    "model_state_unchanged": true,
+    "parameters_require_grad": false
+  },
+  "limitations": [
+    "One checkpoint and one edited edge only",
+    "The selected edge is diagnostic, not a random sample",
+    "No robustness or statistical claim is supported",
+    "Theorem 5.3 identity applies to magnetic adjacency H_q only",
+    "The normalized-Laplacian and downstream changes are measured, not exact theorem identities",
+    "q=1/8 is experimentally motivated but not mentor-confirmed",
+    "Effective PyGSD MSConv message flow is source_to_target"
+  ],
+  "logit_diagnostics": {
+    "delta_fro": 2.1920011043548584,
+    "max_abs_delta": 0.6677889823913574,
+    "shape": [
+      1230,
+      4
+    ]
+  },
+  "operator_diagnostics": {
+    "delta_h_fro": 1.0,
+    "delta_l_fro": 0.10286890715360641,
+    "delta_l_spectral": 0.07273930311203003,
+    "q": 0.125,
+    "spectral_le_fro": true,
+    "theorem_5_3_abs_error": 2.220446049250313e-16,
+    "theorem_5_3_expected_delta_h_fro": 1.0000000000000002
+  },
+  "output_diagnostics": {
+    "delta_fro": 2.6511528491973877,
+    "max_abs_delta": 0.6194145679473877,
+    "prediction_flip_count": 0,
+    "prediction_flip_rate": 0.0,
+    "shape": [
+      1230,
+      4
+    ]
+  },
+  "representation_diagnostics": {
+    "clean_fro": 306.8765563964844,
+    "delta_fro": 20.350011825561523,
+    "relative_delta_fro": 0.06631334871053696,
+    "shape": [
+      1230,
+      64
+    ]
+  },
+  "status": "PASS",
+  "task_metrics": {
+    "accuracy_change": 0.0,
+    "clean": {
+      "accuracy": 0.5260162353515625,
+      "macro_f1": 0.42847358361243,
+      "micro_f1": 0.5260162353515625,
+      "predicted_class_counts": [
+        82,
+        535,
+        87,
+        526
+      ]
+    },
+    "macro_f1_change": 0.0,
+    "perturbed": {
+      "accuracy": 0.5260162353515625,
+      "macro_f1": 0.42847358361243,
+      "micro_f1": 0.5260162353515625,
+      "predicted_class_counts": [
+        82,
+        535,
+        87,
+        526
+      ]
+    }
+  },
+  "timestamp": "2026-09-01T17:37:31.987402+00:00"
+}
