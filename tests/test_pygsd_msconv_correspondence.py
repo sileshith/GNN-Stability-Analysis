@@ -12,6 +12,7 @@ this audit record.
 """
 
 import unittest
+from importlib.metadata import version
 
 import torch
 from torch_geometric_signed_directed.nn.general.MSConv import MSConv
@@ -20,6 +21,7 @@ from torch_geometric_signed_directed.nn.general.MSGNN import (
 )
 
 
+@unittest.skipUnless(version("torch-geometric-signed-directed") == "1.1.1", "Historical PyGSD 1.1.1 audit")
 class TestInstalledMSConvCorrespondence(unittest.TestCase):
     """Document installed MSConv behavior relevant to E001."""
 
