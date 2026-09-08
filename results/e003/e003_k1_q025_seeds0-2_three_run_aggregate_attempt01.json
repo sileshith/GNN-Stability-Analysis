@@ -1,0 +1,450 @@
+{
+  "artifact": "E003 q=1/4 three-model-seed aggregate",
+  "timestamp": "2026-09-08T06:17:32.894600+00:00",
+  "status": "PASS",
+  "scope": {
+    "model": "MSGNN_link_prediction",
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "total_model_runs": 3,
+    "generation_seed": 0,
+    "split_seed": 0,
+    "independent_graph_count": 1,
+    "independent_split_count": 1,
+    "interpretation": "Three model-initialization/training replicates on one fixed graph and one fixed data split",
+    "not_estimated": [
+      "between-graph variability",
+      "between-split variability",
+      "robustness",
+      "perturbation tolerance",
+      "architecture superiority",
+      "publication-level generalization"
+    ]
+  },
+  "configuration": {
+    "pygsd_version": "1.2.0",
+    "device": "cpu",
+    "q": 0.25,
+    "msgnn_filter_order_K": 1,
+    "sdsbm_community_count_K": 4,
+    "trainable_q": false,
+    "cached": false,
+    "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+    "test_sample_count_per_run": 1230,
+    "test_label_counts_per_run": [
+      238,
+      377,
+      238,
+      377
+    ]
+  },
+  "per_seed": [
+    {
+      "model_seed": 0,
+      "clean_result": "results/e002/e002_k1_q025_seed0_clean_attempt01.json",
+      "clean_result_sha256": "7f8138ce440e74deed609c36597177856d6ce05bd516119d4ddf07e08cda47d1",
+      "inclusion_audit": "results/e002/e002_k1_q025_seed0_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "3b98ee4fc5b46fabf3240d2b12f8991b24046dd50dd7d3e605c25cef278bfcaf",
+      "checkpoint": "results/e002/msgnn_k1_q025_seed0_20260907T013137Z.pt",
+      "checkpoint_sha256": "4eafd504fc3bc4232bb886f34008bc6d25711553a372813e5397df4bb45abc84",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 47,
+      "stopping_epoch": 77,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5113821138211382,
+      "macro_f1": 0.38687450409013086,
+      "micro_f1": 0.5113821138211382,
+      "per_class_recall": [
+        0.07983193546533585,
+        0.7798408269882202,
+        0.10504201799631119,
+        0.7718833088874817
+      ],
+      "prediction_counts": [
+        47,
+        566,
+        57,
+        560
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          19,
+          122,
+          16,
+          81
+        ],
+        [
+          11,
+          294,
+          4,
+          68
+        ],
+        [
+          14,
+          79,
+          25,
+          120
+        ],
+        [
+          3,
+          71,
+          12,
+          291
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          74,
+          402
+        ],
+        [
+          30,
+          724
+        ]
+      ],
+      "sign_accuracy": 0.6487804878048781,
+      "direction_confusion_queried_reverse": [
+        [
+          446,
+          169
+        ],
+        [
+          167,
+          448
+        ]
+      ],
+      "direction_accuracy": 0.7268292682926829,
+      "class_behavior_pass": true
+    },
+    {
+      "model_seed": 1,
+      "clean_result": "results/e003/e003_k1_q025_seed1_clean_attempt01.json",
+      "clean_result_sha256": "f50eb94cbb8577150b8a4aa632b8c5ea887f7e99c1b35ef2caf775531942a46d",
+      "inclusion_audit": "results/e003/e003_k1_q025_seed1_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "49e3a6f8f6c6edc0347fec1b3625ccd7d0dc6991e3bd1e09acf10f6c01e2724e",
+      "checkpoint": "results/e003/msgnn_k1_q025_seed1_20260907T215456Z.pt",
+      "checkpoint_sha256": "36d0e9f95cd328857d574078f5688973c82785d35052409147e4cced5abc944f",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 33,
+      "stopping_epoch": 63,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5008130081300813,
+      "macro_f1": 0.3749768572386518,
+      "micro_f1": 0.5008130081300813,
+      "per_class_recall": [
+        0.06722689419984818,
+        0.7480106353759766,
+        0.10084033757448196,
+        0.7798408269882202
+      ],
+      "prediction_counts": [
+        44,
+        543,
+        58,
+        585
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          16,
+          118,
+          16,
+          88
+        ],
+        [
+          15,
+          282,
+          3,
+          77
+        ],
+        [
+          12,
+          76,
+          24,
+          126
+        ],
+        [
+          1,
+          67,
+          15,
+          294
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          68,
+          408
+        ],
+        [
+          34,
+          720
+        ]
+      ],
+      "sign_accuracy": 0.640650406504065,
+      "direction_confusion_queried_reverse": [
+        [
+          431,
+          184
+        ],
+        [
+          156,
+          459
+        ]
+      ],
+      "direction_accuracy": 0.7235772357723578,
+      "class_behavior_pass": true
+    },
+    {
+      "model_seed": 2,
+      "clean_result": "results/e003/e003_k1_q025_seed2_clean_attempt01.json",
+      "clean_result_sha256": "5f80efb91de9f5d01cecc58e973297da258203d0c4932bb3a73a364beff4101a",
+      "inclusion_audit": "results/e003/e003_k1_q025_seed2_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "e5cfa00eab943ed9bda0594414e593501814d0b40ad7704e61236cbd228a962e",
+      "checkpoint": "results/e003/msgnn_k1_q025_seed2_20260907T233233Z.pt",
+      "checkpoint_sha256": "5967ed4282a3b35ff41ac38f0e2f20172795e6afad8ce5224de253fde6bd2907",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 41,
+      "stopping_epoch": 71,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5089430894308943,
+      "macro_f1": 0.3906876486872245,
+      "micro_f1": 0.5089430894308943,
+      "per_class_recall": [
+        0.09663865715265274,
+        0.7745358347892761,
+        0.10504201799631119,
+        0.7586206793785095
+      ],
+      "prediction_counts": [
+        58,
+        562,
+        65,
+        545
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          23,
+          124,
+          14,
+          77
+        ],
+        [
+          15,
+          292,
+          5,
+          65
+        ],
+        [
+          18,
+          78,
+          25,
+          117
+        ],
+        [
+          2,
+          68,
+          21,
+          286
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          80,
+          396
+        ],
+        [
+          43,
+          711
+        ]
+      ],
+      "sign_accuracy": 0.6430894308943089,
+      "direction_confusion_queried_reverse": [
+        [
+          454,
+          161
+        ],
+        [
+          166,
+          449
+        ]
+      ],
+      "direction_accuracy": 0.7341463414634146,
+      "class_behavior_pass": true
+    }
+  ],
+  "descriptive_statistics": {
+    "accuracy": {
+      "values": [
+        0.5113821138211382,
+        0.5008130081300813,
+        0.5089430894308943
+      ],
+      "mean": 0.5070460704607046,
+      "sample_standard_deviation": 0.0055340319394747975,
+      "minimum": 0.5008130081300813,
+      "maximum": 0.5113821138211382,
+      "range": 0.010569105691056846
+    },
+    "macro_f1": {
+      "values": [
+        0.38687450409013086,
+        0.3749768572386518,
+        0.3906876486872245
+      ],
+      "mean": 0.3841796700053357,
+      "sample_standard_deviation": 0.008194744660059051,
+      "minimum": 0.3749768572386518,
+      "maximum": 0.3906876486872245,
+      "range": 0.01571079144857268
+    },
+    "sign_accuracy": {
+      "values": [
+        0.6487804878048781,
+        0.640650406504065,
+        0.6430894308943089
+      ],
+      "mean": 0.6441734417344174,
+      "sample_standard_deviation": 0.004172033690607247,
+      "minimum": 0.640650406504065,
+      "maximum": 0.6487804878048781,
+      "range": 0.008130081300813052
+    },
+    "direction_accuracy": {
+      "values": [
+        0.7268292682926829,
+        0.7235772357723578,
+        0.7341463414634146
+      ],
+      "mean": 0.7281842818428185,
+      "sample_standard_deviation": 0.005413274893072651,
+      "minimum": 0.7235772357723578,
+      "maximum": 0.7341463414634146,
+      "range": 0.010569105691056846
+    },
+    "best_epoch": {
+      "values": [
+        47,
+        33,
+        41
+      ],
+      "mean": 40.333333333333336,
+      "sample_standard_deviation": 7.023769168568492,
+      "minimum": 33,
+      "maximum": 47,
+      "range": 14
+    },
+    "stopping_epoch": {
+      "values": [
+        77,
+        63,
+        71
+      ],
+      "mean": 70.33333333333333,
+      "sample_standard_deviation": 7.023769168568492,
+      "minimum": 63,
+      "maximum": 77,
+      "range": 14
+    }
+  },
+  "pooled_descriptive_counts": {
+    "warning": "Counts pool repeated predictions on the same 1,230 test queries across three trained models; they are descriptive and not 3,690 independent data cases",
+    "total_prediction_records": 3690,
+    "confusion_rows_true_columns_predicted": [
+      [
+        58,
+        364,
+        46,
+        246
+      ],
+      [
+        41,
+        868,
+        12,
+        210
+      ],
+      [
+        44,
+        233,
+        74,
+        363
+      ],
+      [
+        6,
+        206,
+        48,
+        871
+      ]
+    ],
+    "prediction_counts": [
+      149,
+      1671,
+      180,
+      1690
+    ],
+    "per_class_precision": [
+      0.38926174496644295,
+      0.5194494314781568,
+      0.4111111111111111,
+      0.5153846153846153
+    ],
+    "per_class_recall": [
+      0.08123249299719888,
+      0.7674624226348364,
+      0.10364145658263306,
+      0.7701149425287356
+    ],
+    "macro_f1_from_pooled_confusion": 0.38425797752766977,
+    "sign_confusion_positive_negative": [
+      [
+        222,
+        1206
+      ],
+      [
+        107,
+        2155
+      ]
+    ],
+    "sign_accuracy": 0.6441734417344174,
+    "direction_confusion_queried_reverse": [
+      [
+        1331,
+        514
+      ],
+      [
+        489,
+        1356
+      ]
+    ],
+    "direction_accuracy": 0.7281842818428185
+  },
+  "gates": {
+    "all_three_clean_runs_passed": true,
+    "all_three_class_behavior_audits_passed": true,
+    "all_bundle_fingerprints_match": true,
+    "all_checkpoint_hashes_match": true,
+    "all_source_hashes_match": true,
+    "nontrivial_margin_epsilon": null,
+    "full_clean_baseline_gate": "pending frozen inclusion margin and semantic-channel criterion",
+    "three_run_milestone": "PASS"
+  },
+  "scientific_interpretation": [
+    "The three runs are consistent across model initialization and training randomness.",
+    "All three runs exceed the declared joint-class majority baselines.",
+    "All three runs predict every class and have nonzero recall for every class.",
+    "All three runs learn direction substantially better than sign.",
+    "Low positive-sign recall remains a repeated limitation.",
+    "The q=1/4 restricted sign degeneracy is a mechanistically relevant hypothesis, not a causal conclusion from these three runs."
+  ],
+  "next_milestones": [
+    "Mentor progress update after repository and manuscript synchronization",
+    "Expand retained q=1/4 condition to five total model seeds if scientifically retained",
+    "Run a controlled q=1/8 comparison because it retains all four restricted semantic states",
+    "Evaluate a training-label-derived class-weighted loss as a separately declared condition",
+    "Create corrected architecture-native SGCN and MagNet clean baselines",
+    "Treat SSSNET and DIMPA as conditional extensions",
+    "Introduce graph-generation and split variability for publication-oriented replication",
+    "Expand retained conditions toward ten total runs only under a frozen analysis plan"
+  ]
+}
