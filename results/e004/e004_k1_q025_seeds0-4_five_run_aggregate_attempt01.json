@@ -1,0 +1,650 @@
+{
+  "artifact": "E004 q=1/4 five-model-seed aggregate",
+  "timestamp": "2026-09-14T01:01:17.304869+00:00",
+  "status": "PASS",
+  "scope": {
+    "model": "MSGNN_link_prediction",
+    "model_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "total_model_runs": 5,
+    "generation_seed": 0,
+    "split_seed": 0,
+    "independent_graph_count": 1,
+    "independent_split_count": 1,
+    "interpretation": "Five model-initialization/training replicates on one fixed graph and one fixed data split",
+    "not_estimated": [
+      "between-graph variability",
+      "between-split variability",
+      "robustness",
+      "perturbation tolerance",
+      "architecture superiority",
+      "publication-level generalization"
+    ]
+  },
+  "configuration": {
+    "pygsd_version": "1.2.0",
+    "device": "cpu",
+    "q": 0.25,
+    "msgnn_filter_order_K": 1,
+    "sdsbm_community_count_K": 4,
+    "trainable_q": false,
+    "cached": false,
+    "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+    "test_sample_count_per_run": 1230,
+    "test_label_counts_per_run": [
+      238,
+      377,
+      238,
+      377
+    ]
+  },
+  "per_seed": [
+    {
+      "model_seed": 0,
+      "clean_result": "results/e002/e002_k1_q025_seed0_clean_attempt01.json",
+      "clean_result_sha256": "7f8138ce440e74deed609c36597177856d6ce05bd516119d4ddf07e08cda47d1",
+      "inclusion_audit": "results/e002/e002_k1_q025_seed0_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "3b98ee4fc5b46fabf3240d2b12f8991b24046dd50dd7d3e605c25cef278bfcaf",
+      "checkpoint": "results/e002/msgnn_k1_q025_seed0_20260907T013137Z.pt",
+      "checkpoint_sha256": "4eafd504fc3bc4232bb886f34008bc6d25711553a372813e5397df4bb45abc84",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 47,
+      "stopping_epoch": 77,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5113821138211382,
+      "macro_f1": 0.38687450409013086,
+      "micro_f1": 0.5113821138211382,
+      "per_class_recall": [
+        0.07983193546533585,
+        0.7798408269882202,
+        0.10504201799631119,
+        0.7718833088874817
+      ],
+      "prediction_counts": [
+        47,
+        566,
+        57,
+        560
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          19,
+          122,
+          16,
+          81
+        ],
+        [
+          11,
+          294,
+          4,
+          68
+        ],
+        [
+          14,
+          79,
+          25,
+          120
+        ],
+        [
+          3,
+          71,
+          12,
+          291
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          74,
+          402
+        ],
+        [
+          30,
+          724
+        ]
+      ],
+      "sign_accuracy": 0.6487804878048781,
+      "direction_confusion_queried_reverse": [
+        [
+          446,
+          169
+        ],
+        [
+          167,
+          448
+        ]
+      ],
+      "direction_accuracy": 0.7268292682926829,
+      "class_behavior_pass": true,
+      "accuracy_gate_pass": true,
+      "macro_f1_gate_pass": true,
+      "sign_accuracy_gate_pass": true,
+      "direction_accuracy_gate_pass": true
+    },
+    {
+      "model_seed": 1,
+      "clean_result": "results/e003/e003_k1_q025_seed1_clean_attempt01.json",
+      "clean_result_sha256": "f50eb94cbb8577150b8a4aa632b8c5ea887f7e99c1b35ef2caf775531942a46d",
+      "inclusion_audit": "results/e003/e003_k1_q025_seed1_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "49e3a6f8f6c6edc0347fec1b3625ccd7d0dc6991e3bd1e09acf10f6c01e2724e",
+      "checkpoint": "results/e003/msgnn_k1_q025_seed1_20260907T215456Z.pt",
+      "checkpoint_sha256": "36d0e9f95cd328857d574078f5688973c82785d35052409147e4cced5abc944f",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 33,
+      "stopping_epoch": 63,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5008130081300813,
+      "macro_f1": 0.3749768572386518,
+      "micro_f1": 0.5008130081300813,
+      "per_class_recall": [
+        0.06722689419984818,
+        0.7480106353759766,
+        0.10084033757448196,
+        0.7798408269882202
+      ],
+      "prediction_counts": [
+        44,
+        543,
+        58,
+        585
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          16,
+          118,
+          16,
+          88
+        ],
+        [
+          15,
+          282,
+          3,
+          77
+        ],
+        [
+          12,
+          76,
+          24,
+          126
+        ],
+        [
+          1,
+          67,
+          15,
+          294
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          68,
+          408
+        ],
+        [
+          34,
+          720
+        ]
+      ],
+      "sign_accuracy": 0.640650406504065,
+      "direction_confusion_queried_reverse": [
+        [
+          431,
+          184
+        ],
+        [
+          156,
+          459
+        ]
+      ],
+      "direction_accuracy": 0.7235772357723578,
+      "class_behavior_pass": true,
+      "accuracy_gate_pass": true,
+      "macro_f1_gate_pass": true,
+      "sign_accuracy_gate_pass": true,
+      "direction_accuracy_gate_pass": true
+    },
+    {
+      "model_seed": 2,
+      "clean_result": "results/e003/e003_k1_q025_seed2_clean_attempt01.json",
+      "clean_result_sha256": "5f80efb91de9f5d01cecc58e973297da258203d0c4932bb3a73a364beff4101a",
+      "inclusion_audit": "results/e003/e003_k1_q025_seed2_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "e5cfa00eab943ed9bda0594414e593501814d0b40ad7704e61236cbd228a962e",
+      "checkpoint": "results/e003/msgnn_k1_q025_seed2_20260907T233233Z.pt",
+      "checkpoint_sha256": "5967ed4282a3b35ff41ac38f0e2f20172795e6afad8ce5224de253fde6bd2907",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 41,
+      "stopping_epoch": 71,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5089430894308943,
+      "macro_f1": 0.3906876486872245,
+      "micro_f1": 0.5089430894308943,
+      "per_class_recall": [
+        0.09663865715265274,
+        0.7745358347892761,
+        0.10504201799631119,
+        0.7586206793785095
+      ],
+      "prediction_counts": [
+        58,
+        562,
+        65,
+        545
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          23,
+          124,
+          14,
+          77
+        ],
+        [
+          15,
+          292,
+          5,
+          65
+        ],
+        [
+          18,
+          78,
+          25,
+          117
+        ],
+        [
+          2,
+          68,
+          21,
+          286
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          80,
+          396
+        ],
+        [
+          43,
+          711
+        ]
+      ],
+      "sign_accuracy": 0.6430894308943089,
+      "direction_confusion_queried_reverse": [
+        [
+          454,
+          161
+        ],
+        [
+          166,
+          449
+        ]
+      ],
+      "direction_accuracy": 0.7341463414634146,
+      "class_behavior_pass": true,
+      "accuracy_gate_pass": true,
+      "macro_f1_gate_pass": true,
+      "sign_accuracy_gate_pass": true,
+      "direction_accuracy_gate_pass": true
+    },
+    {
+      "model_seed": 3,
+      "clean_result": "results/e004/e004_k1_q025_seed3_clean_attempt01.json",
+      "clean_result_sha256": "6a117262455044562d3c4656e023d04470d8bc5f68e9528e4aed629a10ee663d",
+      "inclusion_audit": "results/e004/e004_k1_q025_seed3_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "07f25b8389343b4d1a0af03ac150a5f3fc2fc6a7f2863d47b25deb288a52680f",
+      "checkpoint": "results/e004/msgnn_k1_q025_seed3_20260909T104314Z.pt",
+      "checkpoint_sha256": "57ba958711e8ee057eb680b77dca2c69c9a177c2267aef7fc10c597c97a4582d",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 34,
+      "stopping_epoch": 64,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5186991869918699,
+      "macro_f1": 0.3977932904286342,
+      "micro_f1": 0.5186991869918699,
+      "per_class_recall": [
+        0.10504201799631119,
+        0.7771883010864258,
+        0.10084033757448196,
+        0.7851458787918091
+      ],
+      "prediction_counts": [
+        54,
+        560,
+        51,
+        565
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          25,
+          120,
+          13,
+          80
+        ],
+        [
+          15,
+          293,
+          2,
+          67
+        ],
+        [
+          12,
+          80,
+          24,
+          122
+        ],
+        [
+          2,
+          67,
+          12,
+          296
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          74,
+          402
+        ],
+        [
+          31,
+          723
+        ]
+      ],
+      "sign_accuracy": 0.6479674796747967,
+      "direction_confusion_queried_reverse": [
+        [
+          453,
+          162
+        ],
+        [
+          161,
+          454
+        ]
+      ],
+      "direction_accuracy": 0.7373983739837399,
+      "class_behavior_pass": true,
+      "accuracy_gate_pass": true,
+      "macro_f1_gate_pass": true,
+      "sign_accuracy_gate_pass": true,
+      "direction_accuracy_gate_pass": true
+    },
+    {
+      "model_seed": 4,
+      "clean_result": "results/e004/e004_k1_q025_seed4_clean_attempt01.json",
+      "clean_result_sha256": "11329f88c710cff5e1f5987151ed66c2bbef4657b4c62a12a33c4454bca0671b",
+      "inclusion_audit": "results/e004/e004_k1_q025_seed4_inclusion_audit_attempt01.json",
+      "inclusion_audit_sha256": "59648d7aecf6b3bf1e1d8ee8d96200944199b965c0bfbee4f8732c5dfbbd44d3",
+      "checkpoint": "results/e004/msgnn_k1_q025_seed4_20260914T005131Z.pt",
+      "checkpoint_sha256": "c68ec5184cc973f1a3074a928e1d28a32f220d77e09993b00758882ceea7e566",
+      "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc",
+      "best_epoch": 52,
+      "stopping_epoch": 82,
+      "stopping_reason": "early stopping",
+      "accuracy": 0.5154471544715448,
+      "macro_f1": 0.3961335979690791,
+      "micro_f1": 0.5154471544715448,
+      "per_class_recall": [
+        0.09663865715265274,
+        0.8010610342025757,
+        0.10924369841814041,
+        0.7506631016731262
+      ],
+      "prediction_counts": [
+        55,
+        588,
+        68,
+        519
+      ],
+      "confusion_rows_true_columns_predicted": [
+        [
+          23,
+          123,
+          20,
+          72
+        ],
+        [
+          14,
+          302,
+          4,
+          57
+        ],
+        [
+          17,
+          88,
+          26,
+          107
+        ],
+        [
+          1,
+          75,
+          18,
+          283
+        ]
+      ],
+      "sign_confusion_positive_negative": [
+        [
+          86,
+          390
+        ],
+        [
+          37,
+          717
+        ]
+      ],
+      "sign_accuracy": 0.6528455284552845,
+      "direction_confusion_queried_reverse": [
+        [
+          462,
+          153
+        ],
+        [
+          181,
+          434
+        ]
+      ],
+      "direction_accuracy": 0.7284552845528456,
+      "class_behavior_pass": true,
+      "accuracy_gate_pass": true,
+      "macro_f1_gate_pass": true,
+      "sign_accuracy_gate_pass": true,
+      "direction_accuracy_gate_pass": true
+    }
+  ],
+  "descriptive_statistics": {
+    "accuracy": {
+      "values": [
+        0.5113821138211382,
+        0.5008130081300813,
+        0.5089430894308943,
+        0.5186991869918699,
+        0.5154471544715448
+      ],
+      "mean": 0.5110569105691057,
+      "sample_standard_deviation": 0.006840872835109788,
+      "minimum": 0.5008130081300813,
+      "maximum": 0.5186991869918699,
+      "range": 0.01788617886178856
+    },
+    "macro_f1": {
+      "values": [
+        0.38687450409013086,
+        0.3749768572386518,
+        0.3906876486872245,
+        0.3977932904286342,
+        0.3961335979690791
+      ],
+      "mean": 0.3892931796827441,
+      "sample_standard_deviation": 0.00910761808562484,
+      "minimum": 0.3749768572386518,
+      "maximum": 0.3977932904286342,
+      "range": 0.022816433189982388
+    },
+    "sign_accuracy": {
+      "values": [
+        0.6487804878048781,
+        0.640650406504065,
+        0.6430894308943089,
+        0.6479674796747967,
+        0.6528455284552845
+      ],
+      "mean": 0.6466666666666666,
+      "sample_standard_deviation": 0.004830390496752187,
+      "minimum": 0.640650406504065,
+      "maximum": 0.6528455284552845,
+      "range": 0.012195121951219523
+    },
+    "direction_accuracy": {
+      "values": [
+        0.7268292682926829,
+        0.7235772357723578,
+        0.7341463414634146,
+        0.7373983739837399,
+        0.7284552845528456
+      ],
+      "mean": 0.7300813008130081,
+      "sample_standard_deviation": 0.00560327185044317,
+      "minimum": 0.7235772357723578,
+      "maximum": 0.7373983739837399,
+      "range": 0.013821138211382089
+    },
+    "best_epoch": {
+      "values": [
+        47,
+        33,
+        41,
+        34,
+        52
+      ],
+      "mean": 41.4,
+      "sample_standard_deviation": 8.203657720797473,
+      "minimum": 33,
+      "maximum": 52,
+      "range": 19
+    },
+    "stopping_epoch": {
+      "values": [
+        77,
+        63,
+        71,
+        64,
+        82
+      ],
+      "mean": 71.4,
+      "sample_standard_deviation": 8.203657720797473,
+      "minimum": 63,
+      "maximum": 82,
+      "range": 19
+    }
+  },
+  "pooled_descriptive_counts": {
+    "warning": "Counts pool repeated predictions on the same 1,230 test queries across five trained models; they are descriptive and not 6,150 independent data cases",
+    "total_prediction_records": 6150,
+    "confusion_rows_true_columns_predicted": [
+      [
+        106,
+        607,
+        79,
+        398
+      ],
+      [
+        70,
+        1463,
+        18,
+        334
+      ],
+      [
+        73,
+        401,
+        124,
+        592
+      ],
+      [
+        9,
+        348,
+        78,
+        1450
+      ]
+    ],
+    "prediction_counts": [
+      258,
+      2819,
+      299,
+      2774
+    ],
+    "per_class_precision": [
+      0.4108527131782946,
+      0.5189783611209648,
+      0.41471571906354515,
+      0.5227108868060563
+    ],
+    "per_class_recall": [
+      0.08907563025210084,
+      0.7761273209549071,
+      0.10420168067226891,
+      0.7692307692307693
+    ],
+    "macro_f1_from_pooled_confusion": 0.3893596384507567,
+    "sign_confusion_positive_negative": [
+      [
+        382,
+        1998
+      ],
+      [
+        175,
+        3595
+      ]
+    ],
+    "sign_accuracy": 0.6466666666666666,
+    "direction_confusion_queried_reverse": [
+      [
+        2246,
+        829
+      ],
+      [
+        831,
+        2244
+      ]
+    ],
+    "direction_accuracy": 0.7300813008130081
+  },
+  "gates": {
+    "frozen_before_aggregation": true,
+    "strict_inequality_required": true,
+    "thresholds": {
+      "accuracy": 0.3065040650406504,
+      "macro_f1": 0.2468,
+      "sign_accuracy": 0.6130081300813008,
+      "direction_accuracy": 0.5,
+      "all_classes_predicted": true,
+      "no_zero_class_recall": true
+    },
+    "all_five_clean_runs_passed": true,
+    "all_five_class_behavior_audits_passed": true,
+    "all_five_accuracy_gates_passed": true,
+    "all_five_macro_f1_gates_passed": true,
+    "all_five_sign_accuracy_gates_passed": true,
+    "all_five_direction_accuracy_gates_passed": true,
+    "all_bundle_fingerprints_match": true,
+    "all_checkpoint_hashes_match": true,
+    "all_source_hashes_match": true,
+    "full_clean_baseline_gate": "PASS",
+    "five_run_milestone": "PASS"
+  },
+  "scientific_interpretation": [
+    "The five runs are consistent across model initialization and training randomness.",
+    "All five runs exceed the frozen joint-class majority baselines.",
+    "All five runs predict every class and have nonzero recall for every class.",
+    "All five runs learn direction substantially better than sign.",
+    "Low positive-sign recall remains a repeated limitation.",
+    "The q=1/4 restricted sign degeneracy is a mechanistically relevant hypothesis, not a causal conclusion from these five runs."
+  ],
+  "next_milestones": [
+    "Run separately trained q=0 and q=1/8 synthetic charge controls",
+    "Create signal-related and signal-unrelated perturbation manifests with frozen budgets",
+    "Run matched clean-versus-perturbed retraining for the actual stability estimand",
+    "Create corrected architecture-native SGCN and MagNet clean baselines",
+    "Treat SSSNET and DIMPA as conditional extensions",
+    "Introduce graph-generation and split variability for publication-oriented replication",
+    "Expand retained conditions toward ten total runs only under a frozen analysis plan"
+  ]
+}
