@@ -1,0 +1,3248 @@
+{
+  "artifact": "E006 fixed-checkpoint stratified pilot",
+  "timestamp": "2026-09-19T03:42:33.331593+00:00",
+  "status": "PASS",
+  "scope": {
+    "conditions": [
+      "q0125",
+      "q025"
+    ],
+    "model_seed": 0,
+    "checkpoint_count": 2,
+    "scenarios_per_checkpoint": 21,
+    "total_scenarios": 42,
+    "training_performed": false,
+    "estimand": "Frozen-checkpoint sensitivity to deterministic nested perturbations",
+    "not_estimated": [
+      "retraining stability",
+      "between-model-seed variability",
+      "between-graph variability",
+      "between-split variability",
+      "robustness",
+      "generalization",
+      "architecture superiority"
+    ]
+  },
+  "sources": {
+    "training_script": "scripts/e005_charge_comparison_replication.py",
+    "training_script_sha256": "5c252bbb56c543e56a5ac43c0f7163df96393ee69604a7e867e03e0e93721f82",
+    "operator_script": "scripts/e002_q025_fixed_checkpoint_sign_reversal.py",
+    "operator_script_sha256": "4b7f3946447220fb14e0a414c13db39fa671caebf740c96f474b333179c76013",
+    "manifest": "results/e006/e006_stratified_perturbation_manifest_attempt01.json",
+    "manifest_sha256": "ef1381415cb4f49fbfac3dbf58ab8023e39eb9035d2ae9593cba93a2ef9027d2",
+    "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc"
+  },
+  "budget_plan": {
+    "sign_reversal": {
+      "signal_disrupting": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "signal_restoring": [
+        1
+      ]
+    },
+    "direction_reversal": {
+      "signal_disrupting": [
+        1,
+        2,
+        4
+      ],
+      "signal_restoring": [
+        1,
+        2,
+        4
+      ],
+      "direction_neutral": [
+        1,
+        2,
+        4
+      ]
+    },
+    "deletion": {
+      "signal_removing": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "noise_removing": [
+        1,
+        2,
+        4
+      ]
+    }
+  },
+  "conditions": {
+    "q0125": {
+      "condition": "q0125",
+      "q": 0.125,
+      "model_seed": 0,
+      "clean_result": "results/e005/e005_k1_q0125_seed0_clean_attempt01.json",
+      "clean_result_sha256": "3cd695d773a4b06c50822ade65e9337bc33490af2223993ef8138f4d74f4e419",
+      "checkpoint": "results/e005/msgnn_k1_q0125_seed0_20260914T025641Z.pt",
+      "checkpoint_sha256": "1568e5dff714392fec2cbee48bb8b6cb1bdc675162893cdd066253d0dfecb622",
+      "config": {
+        "hidden": 16,
+        "q": 0.125,
+        "K": 1,
+        "label_dim": 4,
+        "activation": true,
+        "trainable_q": false,
+        "layer": 2,
+        "dropout": 0.5,
+        "normalization": "sym",
+        "cached": false,
+        "conv_bias": true,
+        "absolute_degree": true,
+        "num_features": 2
+      },
+      "clean_metrics_reproduced": true,
+      "clean_metrics": {
+        "accuracy": 0.5016260162601626,
+        "macro_f1": 0.42898384569650116,
+        "micro_f1": 0.5016260162601626,
+        "sign_accuracy": 0.63495934009552,
+        "direction_accuracy": 0.727642297744751
+      },
+      "scenario_count": 21,
+      "scenarios": [
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.0,
+            "delta_l_fro": 0.10286890715360641
+          },
+          "representation_diagnostics": {
+            "delta_fro": 7.989167213439941,
+            "relative_delta_fro": 0.03354496881365776
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.752227783203125,
+            "max_abs_delta": 0.5018240213394165
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.133646011352539,
+            "max_abs_delta": 0.7754392623901367,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.14355164766311646
+          },
+          "representation_diagnostics": {
+            "delta_fro": 12.5094633102417,
+            "relative_delta_fro": 0.05252481997013092
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.980276107788086,
+            "max_abs_delta": 0.8588327765464783
+          },
+          "output_diagnostics": {
+            "delta_fro": 3.5011820793151855,
+            "max_abs_delta": 1.2883868217468262,
+            "prediction_flip_count": 1,
+            "prediction_flip_rate": 0.0008130081300813008
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5008130081300813,
+              "macro_f1": 0.42763151128234356,
+              "micro_f1": 0.5008130081300813,
+              "sign_accuracy": 0.6341463327407837,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": -0.0008130081300812275,
+              "macro_f1": -0.0013523344141576077,
+              "micro_f1": -0.0008130081300812275,
+              "sign_accuracy": -0.0008130073547363281,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.0,
+            "delta_l_fro": 0.20734073221683502
+          },
+          "representation_diagnostics": {
+            "delta_fro": 13.919861793518066,
+            "relative_delta_fro": 0.05844680964946747
+          },
+          "logit_diagnostics": {
+            "delta_fro": 3.2152791023254395,
+            "max_abs_delta": 0.8588327765464783
+          },
+          "output_diagnostics": {
+            "delta_fro": 3.786432981491089,
+            "max_abs_delta": 1.2883868217468262,
+            "prediction_flip_count": 5,
+            "prediction_flip_rate": 0.0040650406504065045
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.4991869918699187,
+              "macro_f1": 0.4264847443083565,
+              "micro_f1": 0.4991869918699187,
+              "sign_accuracy": 0.6341463327407837,
+              "direction_accuracy": 0.7243902683258057
+            },
+            "changes": {
+              "accuracy": -0.002439024390243849,
+              "macro_f1": -0.0024991013881446866,
+              "micro_f1": -0.002439024390243849,
+              "sign_accuracy": -0.0008130073547363281,
+              "direction_accuracy": -0.0032520294189453125
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 8,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.8284271247461903,
+            "delta_l_fro": 0.3388335108757019
+          },
+          "representation_diagnostics": {
+            "delta_fro": 20.93686866760254,
+            "relative_delta_fro": 0.08790986239910126
+          },
+          "logit_diagnostics": {
+            "delta_fro": 4.076432228088379,
+            "max_abs_delta": 0.8619741201400757
+          },
+          "output_diagnostics": {
+            "delta_fro": 4.723780632019043,
+            "max_abs_delta": 1.2883868217468262,
+            "prediction_flip_count": 20,
+            "prediction_flip_rate": 0.016260162601626018
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.4983739837398374,
+              "macro_f1": 0.4235203738157726,
+              "micro_f1": 0.4983739837398374,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.7219512462615967
+            },
+            "changes": {
+              "accuracy": -0.0032520325203251876,
+              "macro_f1": -0.005463471880728543,
+              "micro_f1": -0.0032520325203251876,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": -0.005691051483154297
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_restoring",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.0,
+            "delta_l_fro": 0.14433756470680237
+          },
+          "representation_diagnostics": {
+            "delta_fro": 2.847369432449341,
+            "relative_delta_fro": 0.01195555366575718
+          },
+          "logit_diagnostics": {
+            "delta_fro": 0.4779997169971466,
+            "max_abs_delta": 0.3036386966705322
+          },
+          "output_diagnostics": {
+            "delta_fro": 0.48100918531417847,
+            "max_abs_delta": 0.22603559494018555,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 0.9999999999999999,
+            "delta_l_fro": 0.10526314377784729
+          },
+          "representation_diagnostics": {
+            "delta_fro": 9.1701078414917,
+            "relative_delta_fro": 0.038503509014844894
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.007096767425537,
+            "max_abs_delta": 0.759967565536499
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.5382802486419678,
+            "max_abs_delta": 0.9805166721343994,
+            "prediction_flip_count": 2,
+            "prediction_flip_rate": 0.0016260162601626016
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5024390243902439,
+              "macro_f1": 0.43031481278602246,
+              "micro_f1": 0.5024390243902439,
+              "sign_accuracy": 0.6365853548049927,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0008130081300813385,
+              "macro_f1": 0.0013309670895212955,
+              "micro_f1": 0.0008130081300813385,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": -0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.414213562373095,
+            "delta_l_fro": 0.15926721692085266
+          },
+          "representation_diagnostics": {
+            "delta_fro": 10.91413688659668,
+            "relative_delta_fro": 0.04582635313272476
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.3541111946105957,
+            "max_abs_delta": 0.759967565536499
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.8217434883117676,
+            "max_abs_delta": 0.9805166721343994,
+            "prediction_flip_count": 5,
+            "prediction_flip_rate": 0.0040650406504065045
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5040650406504065,
+              "macro_f1": 0.4314936507787024,
+              "micro_f1": 0.5040650406504065,
+              "sign_accuracy": 0.6365853548049927,
+              "direction_accuracy": 0.7292683124542236
+            },
+            "changes": {
+              "accuracy": 0.0024390243902439046,
+              "macro_f1": 0.002509805082201222,
+              "micro_f1": 0.0024390243902439046,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": 0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2892,
+              "source": 300,
+              "target": 113,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2903,
+              "source": 348,
+              "target": 281,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.9999999999999998,
+            "delta_l_fro": 0.21923136711120605
+          },
+          "representation_diagnostics": {
+            "delta_fro": 20.38081169128418,
+            "relative_delta_fro": 0.08557508885860443
+          },
+          "logit_diagnostics": {
+            "delta_fro": 3.9577810764312744,
+            "max_abs_delta": 0.9103145599365234
+          },
+          "output_diagnostics": {
+            "delta_fro": 4.588189125061035,
+            "max_abs_delta": 1.2858848571777344,
+            "prediction_flip_count": 6,
+            "prediction_flip_rate": 0.004878048780487805
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5032520325203252,
+              "macro_f1": 0.4309194077074251,
+              "micro_f1": 0.5032520325203252,
+              "sign_accuracy": 0.6365853548049927,
+              "direction_accuracy": 0.7284553050994873
+            },
+            "changes": {
+              "accuracy": 0.001626016260162677,
+              "macro_f1": 0.0019355620109239302,
+              "micro_f1": 0.001626016260162677,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": 0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_restoring",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 0.9999999999999999,
+            "delta_l_fro": 0.10286890715360641
+          },
+          "representation_diagnostics": {
+            "delta_fro": 5.38705587387085,
+            "relative_delta_fro": 0.022619206458330154
+          },
+          "logit_diagnostics": {
+            "delta_fro": 0.750884473323822,
+            "max_abs_delta": 0.22388851642608643
+          },
+          "output_diagnostics": {
+            "delta_fro": 0.862096905708313,
+            "max_abs_delta": 0.2148580551147461,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_restoring",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.414213562373095,
+            "delta_l_fro": 0.1546458601951599
+          },
+          "representation_diagnostics": {
+            "delta_fro": 14.88451862335205,
+            "relative_delta_fro": 0.06249721720814705
+          },
+          "logit_diagnostics": {
+            "delta_fro": 3.217926263809204,
+            "max_abs_delta": 0.7374314069747925
+          },
+          "output_diagnostics": {
+            "delta_fro": 3.688223361968994,
+            "max_abs_delta": 1.1120295524597168,
+            "prediction_flip_count": 2,
+            "prediction_flip_rate": 0.0016260162601626016
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5008130081300813,
+              "macro_f1": 0.42842211067183733,
+              "micro_f1": 0.5008130081300813,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": -0.0008130081300812275,
+              "macro_f1": -0.0005617350246638342,
+              "micro_f1": -0.0008130081300812275,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_restoring",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2894,
+              "source": 286,
+              "target": 206,
+              "weight": -1.0,
+              "source_community": 0,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.9999999999999998,
+            "delta_l_fro": 0.22928795218467712
+          },
+          "representation_diagnostics": {
+            "delta_fro": 19.475141525268555,
+            "relative_delta_fro": 0.08177235722541809
+          },
+          "logit_diagnostics": {
+            "delta_fro": 3.913256883621216,
+            "max_abs_delta": 0.7374314069747925
+          },
+          "output_diagnostics": {
+            "delta_fro": 4.496000289916992,
+            "max_abs_delta": 1.1167068481445312,
+            "prediction_flip_count": 5,
+            "prediction_flip_rate": 0.0040650406504065045
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42977743386348877,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.6357723474502563,
+              "direction_accuracy": 0.7292683124542236
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0007935881669876022,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0008130073547363281,
+              "direction_accuracy": 0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "direction_neutral",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 0.9999999999999999,
+            "delta_l_fro": 0.10012523084878922
+          },
+          "representation_diagnostics": {
+            "delta_fro": 9.894776344299316,
+            "relative_delta_fro": 0.041546255350112915
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.541745901107788,
+            "max_abs_delta": 0.9360165596008301
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.691563129425049,
+            "max_abs_delta": 1.023604154586792,
+            "prediction_flip_count": 2,
+            "prediction_flip_rate": 0.0016260162601626016
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5008130081300813,
+              "macro_f1": 0.4276418140899294,
+              "micro_f1": 0.5008130081300813,
+              "sign_accuracy": 0.6357723474502563,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": -0.0008130081300812275,
+              "macro_f1": -0.0013420316065717586,
+              "micro_f1": -0.0008130081300812275,
+              "sign_accuracy": 0.0008130073547363281,
+              "direction_accuracy": -0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "direction_neutral",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.414213562373095,
+            "delta_l_fro": 0.17566557228565216
+          },
+          "representation_diagnostics": {
+            "delta_fro": 11.751620292663574,
+            "relative_delta_fro": 0.04934278130531311
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.6506435871124268,
+            "max_abs_delta": 0.9360165596008301
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.790879011154175,
+            "max_abs_delta": 1.023604154586792,
+            "prediction_flip_count": 5,
+            "prediction_flip_rate": 0.0040650406504065045
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5024390243902439,
+              "macro_f1": 0.42872943921244505,
+              "micro_f1": 0.5024390243902439,
+              "sign_accuracy": 0.6382113695144653,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": 0.0008130081300813385,
+              "macro_f1": -0.0002544064840561133,
+              "micro_f1": 0.0008130081300813385,
+              "sign_accuracy": 0.0032520294189453125,
+              "direction_accuracy": -0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "direction_neutral",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.9999999999999998,
+            "delta_l_fro": 0.2780473232269287
+          },
+          "representation_diagnostics": {
+            "delta_fro": 17.483428955078125,
+            "relative_delta_fro": 0.0734095424413681
+          },
+          "logit_diagnostics": {
+            "delta_fro": 3.4395992755889893,
+            "max_abs_delta": 0.9360165596008301
+          },
+          "output_diagnostics": {
+            "delta_fro": 3.792116165161133,
+            "max_abs_delta": 1.1896147727966309,
+            "prediction_flip_count": 9,
+            "prediction_flip_rate": 0.007317073170731708
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5032520325203252,
+              "macro_f1": 0.43012252272654317,
+              "micro_f1": 0.5032520325203252,
+              "sign_accuracy": 0.6406503915786743,
+              "direction_accuracy": 0.725203275680542
+            },
+            "changes": {
+              "accuracy": 0.001626016260162677,
+              "macro_f1": 0.0011386770300420013,
+              "micro_f1": 0.001626016260162677,
+              "sign_accuracy": 0.005691051483154297,
+              "direction_accuracy": -0.0024390220642089844
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 0.7071067811865476,
+            "delta_l_fro": 0.07195072621107101
+          },
+          "representation_diagnostics": {
+            "delta_fro": 9.443419456481934,
+            "relative_delta_fro": 0.039651092141866684
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.3461476564407349,
+            "max_abs_delta": 0.3558359146118164
+          },
+          "output_diagnostics": {
+            "delta_fro": 1.3808218240737915,
+            "max_abs_delta": 0.6302585601806641,
+            "prediction_flip_count": 1,
+            "prediction_flip_rate": 0.0008130081300813008
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5024390243902439,
+              "macro_f1": 0.43034689323753916,
+              "micro_f1": 0.5024390243902439,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.7284553050994873
+            },
+            "changes": {
+              "accuracy": 0.0008130081300813385,
+              "macro_f1": 0.0013630475410379983,
+              "micro_f1": 0.0008130081300813385,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.0,
+            "delta_l_fro": 0.14717455208301544
+          },
+          "representation_diagnostics": {
+            "delta_fro": 19.109764099121094,
+            "relative_delta_fro": 0.0802382081747055
+          },
+          "logit_diagnostics": {
+            "delta_fro": 3.7217016220092773,
+            "max_abs_delta": 0.9361560344696045
+          },
+          "output_diagnostics": {
+            "delta_fro": 4.026200771331787,
+            "max_abs_delta": 1.1316397190093994,
+            "prediction_flip_count": 6,
+            "prediction_flip_rate": 0.004878048780487805
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.4991869918699187,
+              "macro_f1": 0.4256417785707301,
+              "micro_f1": 0.4991869918699187,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": -0.002439024390243849,
+              "macro_f1": -0.0033420671257710644,
+              "micro_f1": -0.002439024390243849,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": -0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.18715952336788177
+          },
+          "representation_diagnostics": {
+            "delta_fro": 22.0543212890625,
+            "relative_delta_fro": 0.09260183572769165
+          },
+          "logit_diagnostics": {
+            "delta_fro": 4.184996604919434,
+            "max_abs_delta": 0.9364681243896484
+          },
+          "output_diagnostics": {
+            "delta_fro": 4.6656270027160645,
+            "max_abs_delta": 1.1315600872039795,
+            "prediction_flip_count": 8,
+            "prediction_flip_rate": 0.0065040650406504065
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5,
+              "macro_f1": 0.4270043547436573,
+              "micro_f1": 0.5,
+              "sign_accuracy": 0.637398362159729,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": -0.001626016260162566,
+              "macro_f1": -0.0019794909528438875,
+              "micro_f1": -0.001626016260162566,
+              "sign_accuracy": 0.0024390220642089844,
+              "direction_accuracy": -0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 8,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2892,
+              "source": 300,
+              "target": 113,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2903,
+              "source": 348,
+              "target": 281,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2868,
+              "source": 369,
+              "target": 358,
+              "weight": 1.0,
+              "source_community": 2,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.0,
+            "delta_l_fro": 0.24961858987808228
+          },
+          "representation_diagnostics": {
+            "delta_fro": 25.832477569580078,
+            "relative_delta_fro": 0.10846558213233948
+          },
+          "logit_diagnostics": {
+            "delta_fro": 4.9397101402282715,
+            "max_abs_delta": 0.9424264430999756
+          },
+          "output_diagnostics": {
+            "delta_fro": 5.447453498840332,
+            "max_abs_delta": 1.1394212245941162,
+            "prediction_flip_count": 17,
+            "prediction_flip_rate": 0.013821138211382113
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.4991869918699187,
+              "macro_f1": 0.4248221437877858,
+              "micro_f1": 0.4991869918699187,
+              "sign_accuracy": 0.6382113695144653,
+              "direction_accuracy": 0.7243902683258057
+            },
+            "changes": {
+              "accuracy": -0.002439024390243849,
+              "macro_f1": -0.004161701908715343,
+              "micro_f1": -0.002439024390243849,
+              "sign_accuracy": 0.0032520294189453125,
+              "direction_accuracy": -0.0032520294189453125
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "noise_removing",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 0.7071067811865476,
+            "delta_l_fro": 0.07398086786270142
+          },
+          "representation_diagnostics": {
+            "delta_fro": 15.513470649719238,
+            "relative_delta_fro": 0.0651380643248558
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.9887304306030273,
+            "max_abs_delta": 0.44191083312034607
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.0050947666168213,
+            "max_abs_delta": 0.518733024597168,
+            "prediction_flip_count": 8,
+            "prediction_flip_rate": 0.0065040650406504065
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.429004528298101,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.6365853548049927,
+              "direction_accuracy": 0.7284553050994873
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 2.0682601599819606e-05,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": 0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "noise_removing",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.0,
+            "delta_l_fro": 0.1113758534193039
+          },
+          "representation_diagnostics": {
+            "delta_fro": 17.185335159301758,
+            "relative_delta_fro": 0.07215790450572968
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.4218788146972656,
+            "max_abs_delta": 0.44191068410873413
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.5353543758392334,
+            "max_abs_delta": 0.5185954570770264,
+            "prediction_flip_count": 9,
+            "prediction_flip_rate": 0.007317073170731708
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5008130081300813,
+              "macro_f1": 0.4284315565527905,
+              "micro_f1": 0.5008130081300813,
+              "sign_accuracy": 0.6365853548049927,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": -0.0008130081300812275,
+              "macro_f1": -0.0005522891437106381,
+              "micro_f1": -0.0008130081300812275,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "noise_removing",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.16715432703495026
+          },
+          "representation_diagnostics": {
+            "delta_fro": 18.95752716064453,
+            "relative_delta_fro": 0.07959899306297302
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.735013008117676,
+            "max_abs_delta": 0.4745960831642151
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.978433132171631,
+            "max_abs_delta": 0.6158552169799805,
+            "prediction_flip_count": 9,
+            "prediction_flip_rate": 0.007317073170731708
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5016260162601626,
+              "macro_f1": 0.42898384569650116,
+              "micro_f1": 0.5016260162601626,
+              "sign_accuracy": 0.63495934009552,
+              "direction_accuracy": 0.727642297744751
+            },
+            "perturbed": {
+              "accuracy": 0.5008130081300813,
+              "macro_f1": 0.4284315565527905,
+              "micro_f1": 0.5008130081300813,
+              "sign_accuracy": 0.6365853548049927,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": -0.0008130081300812275,
+              "macro_f1": -0.0005522891437106381,
+              "micro_f1": -0.0008130081300812275,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        }
+      ],
+      "integrity": {
+        "model_state_hash_before": "6fd51dc85f4112ac2c8fadeb1cc99d1442c04ac109202cc82489b0e023f2bb35",
+        "model_state_hash_after": "6fd51dc85f4112ac2c8fadeb1cc99d1442c04ac109202cc82489b0e023f2bb35",
+        "model_state_unchanged": true,
+        "checkpoint_hash_before": "1568e5dff714392fec2cbee48bb8b6cb1bdc675162893cdd066253d0dfecb622",
+        "checkpoint_hash_after": "1568e5dff714392fec2cbee48bb8b6cb1bdc675162893cdd066253d0dfecb622",
+        "checkpoint_unchanged": true,
+        "parameters_require_grad": false
+      }
+    },
+    "q025": {
+      "condition": "q025",
+      "q": 0.25,
+      "model_seed": 0,
+      "clean_result": "results/e002/e002_k1_q025_seed0_clean_attempt01.json",
+      "clean_result_sha256": "7f8138ce440e74deed609c36597177856d6ce05bd516119d4ddf07e08cda47d1",
+      "checkpoint": "results/e002/msgnn_k1_q025_seed0_20260907T013137Z.pt",
+      "checkpoint_sha256": "4eafd504fc3bc4232bb886f34008bc6d25711553a372813e5397df4bb45abc84",
+      "config": {
+        "hidden": 16,
+        "q": 0.25,
+        "K": 1,
+        "label_dim": 4,
+        "activation": true,
+        "trainable_q": false,
+        "layer": 2,
+        "dropout": 0.5,
+        "normalization": "sym",
+        "cached": false,
+        "conv_bias": true,
+        "absolute_degree": true,
+        "num_features": 2
+      },
+      "clean_metrics_reproduced": true,
+      "clean_metrics": {
+        "accuracy": 0.5113821138211382,
+        "macro_f1": 0.38687450409013086,
+        "micro_f1": 0.5113821138211382,
+        "sign_accuracy": 0.6487804651260376,
+        "direction_accuracy": 0.7268292903900146
+      },
+      "scenario_count": 21,
+      "scenarios": [
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 8.659560562354933e-17,
+            "delta_l_fro": 6.359071491601753e-09
+          },
+          "representation_diagnostics": {
+            "delta_fro": 7.907449912636366e-07,
+            "relative_delta_fro": 3.974335083256619e-09
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.9540402124439424e-07,
+            "max_abs_delta": 2.384185791015625e-07
+          },
+          "output_diagnostics": {
+            "delta_fro": 0.0,
+            "max_abs_delta": 0.0,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.2246467991473532e-16,
+            "delta_l_fro": 8.873966450551052e-09
+          },
+          "representation_diagnostics": {
+            "delta_fro": 1.2157009905422456e-06,
+            "relative_delta_fro": 6.1101910198146925e-09
+          },
+          "logit_diagnostics": {
+            "delta_fro": 4.0193447148340056e-07,
+            "max_abs_delta": 2.384185791015625e-07
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.384185791015625e-07,
+            "max_abs_delta": 2.384185791015625e-07,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.7319121124709866e-16,
+            "delta_l_fro": 1.2817231720418931e-08
+          },
+          "representation_diagnostics": {
+            "delta_fro": 1.7875183857540833e-06,
+            "relative_delta_fro": 8.98418228700848e-09
+          },
+          "logit_diagnostics": {
+            "delta_fro": 5.004383751838759e-07,
+            "max_abs_delta": 2.384185791015625e-07
+          },
+          "output_diagnostics": {
+            "delta_fro": 4.172325134277344e-07,
+            "max_abs_delta": 2.384185791015625e-07,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 8,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.4492935982947064e-16,
+            "delta_l_fro": 2.0945753576029347e-08
+          },
+          "representation_diagnostics": {
+            "delta_fro": 1.8167198732044199e-06,
+            "relative_delta_fro": 9.130950218150247e-09
+          },
+          "logit_diagnostics": {
+            "delta_fro": 5.251734478406433e-07,
+            "max_abs_delta": 2.384185791015625e-07
+          },
+          "output_diagnostics": {
+            "delta_fro": 5.900558903704223e-07,
+            "max_abs_delta": 2.384185791015625e-07,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "sign_reversal",
+          "stratum": "signal_restoring",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 8.659560562354933e-17,
+            "delta_l_fro": 8.922549810108649e-09
+          },
+          "representation_diagnostics": {
+            "delta_fro": 1.6076688780231052e-06,
+            "relative_delta_fro": 8.080246693964455e-09
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.0331352768844226e-06,
+            "max_abs_delta": 4.76837158203125e-07
+          },
+          "output_diagnostics": {
+            "delta_fro": 1.2548865697681322e-06,
+            "max_abs_delta": 4.76837158203125e-07,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.14886458218097687
+          },
+          "representation_diagnostics": {
+            "delta_fro": 2.5787429809570312,
+            "relative_delta_fro": 0.012960927560925484
+          },
+          "logit_diagnostics": {
+            "delta_fro": 0.6644479632377625,
+            "max_abs_delta": 0.16763782501220703
+          },
+          "output_diagnostics": {
+            "delta_fro": 0.8198691606521606,
+            "max_abs_delta": 0.2862534523010254,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.0,
+            "delta_l_fro": 0.2252378612756729
+          },
+          "representation_diagnostics": {
+            "delta_fro": 6.718261241912842,
+            "relative_delta_fro": 0.03376641124486923
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.9368995428085327,
+            "max_abs_delta": 0.46762847900390625
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.1525049209594727,
+            "max_abs_delta": 0.5840811729431152,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_disrupting",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2892,
+              "source": 300,
+              "target": 113,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2903,
+              "source": 348,
+              "target": 281,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.8284271247461903,
+            "delta_l_fro": 0.3100399971008301
+          },
+          "representation_diagnostics": {
+            "delta_fro": 9.91385269165039,
+            "relative_delta_fro": 0.049827657639980316
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.7044689655303955,
+            "max_abs_delta": 0.5233414173126221
+          },
+          "output_diagnostics": {
+            "delta_fro": 3.0279107093811035,
+            "max_abs_delta": 0.6631040573120117,
+            "prediction_flip_count": 5,
+            "prediction_flip_rate": 0.0040650406504065045
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.510569105691057,
+              "macro_f1": 0.38747407192204264,
+              "micro_f1": 0.510569105691057,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7243902683258057
+            },
+            "changes": {
+              "accuracy": -0.0008130081300812275,
+              "macro_f1": 0.0005995678319117848,
+              "micro_f1": -0.0008130081300812275,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": -0.0024390220642089844
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_restoring",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.14547860622406006
+          },
+          "representation_diagnostics": {
+            "delta_fro": 4.402446746826172,
+            "relative_delta_fro": 0.022126980125904083
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.0754318237304688,
+            "max_abs_delta": 0.3213024139404297
+          },
+          "output_diagnostics": {
+            "delta_fro": 1.2441456317901611,
+            "max_abs_delta": 0.4177513122558594,
+            "prediction_flip_count": 3,
+            "prediction_flip_rate": 0.0024390243902439024
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.3869962836228614,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6495934724807739,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0001217795327305704,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0008130073547363281,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_restoring",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.0,
+            "delta_l_fro": 0.2187022864818573
+          },
+          "representation_diagnostics": {
+            "delta_fro": 5.990967273712158,
+            "relative_delta_fro": 0.030110985040664673
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.6056182384490967,
+            "max_abs_delta": 0.4161394536495209
+          },
+          "output_diagnostics": {
+            "delta_fro": 1.7714194059371948,
+            "max_abs_delta": 0.46073782444000244,
+            "prediction_flip_count": 5,
+            "prediction_flip_rate": 0.0040650406504065045
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5130081300813009,
+              "macro_f1": 0.3904653186341747,
+              "micro_f1": 0.5130081300813009,
+              "sign_accuracy": 0.6512194871902466,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": 0.001626016260162677,
+              "macro_f1": 0.0035908145440438632,
+              "micro_f1": 0.001626016260162677,
+              "sign_accuracy": 0.0024390220642089844,
+              "direction_accuracy": 0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "signal_restoring",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2894,
+              "source": 286,
+              "target": 206,
+              "weight": -1.0,
+              "source_community": 0,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.8284271247461903,
+            "delta_l_fro": 0.3242621421813965
+          },
+          "representation_diagnostics": {
+            "delta_fro": 12.166563034057617,
+            "relative_delta_fro": 0.061149924993515015
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.785226583480835,
+            "max_abs_delta": 0.5070071220397949
+          },
+          "output_diagnostics": {
+            "delta_fro": 3.077106237411499,
+            "max_abs_delta": 0.5935921669006348,
+            "prediction_flip_count": 9,
+            "prediction_flip_rate": 0.007317073170731708
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.3882306045687439,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6504064798355103,
+              "direction_accuracy": 0.7284553050994873
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0013561004786130648,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": 0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "direction_neutral",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.14159847795963287
+          },
+          "representation_diagnostics": {
+            "delta_fro": 4.139522552490234,
+            "relative_delta_fro": 0.02080550603568554
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.9622033834457397,
+            "max_abs_delta": 0.6984598636627197
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.154536724090576,
+            "max_abs_delta": 0.8752765655517578,
+            "prediction_flip_count": 2,
+            "prediction_flip_rate": 0.0016260162601626016
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5097560975609756,
+              "macro_f1": 0.38342520287098125,
+              "micro_f1": 0.5097560975609756,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.725203275680542
+            },
+            "changes": {
+              "accuracy": -0.001626016260162566,
+              "macro_f1": -0.003449301219149603,
+              "micro_f1": -0.001626016260162566,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": -0.0016260147094726562
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "direction_neutral",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.0,
+            "delta_l_fro": 0.24842864274978638
+          },
+          "representation_diagnostics": {
+            "delta_fro": 7.904592037200928,
+            "relative_delta_fro": 0.039728984236717224
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.480234146118164,
+            "max_abs_delta": 0.6984598636627197
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.5866358280181885,
+            "max_abs_delta": 0.8752765655517578,
+            "prediction_flip_count": 5,
+            "prediction_flip_rate": 0.0040650406504065045
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5121951219512195,
+              "macro_f1": 0.38747973902699007,
+              "micro_f1": 0.5121951219512195,
+              "sign_accuracy": 0.6504064798355103,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": 0.0008130081300813385,
+              "macro_f1": 0.0006052349368592114,
+              "micro_f1": 0.0008130081300813385,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": -0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "direction_reversal",
+          "stratum": "direction_neutral",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.8284271247461903,
+            "delta_l_fro": 0.3932183086872101
+          },
+          "representation_diagnostics": {
+            "delta_fro": 12.7191743850708,
+            "relative_delta_fro": 0.06392738223075867
+          },
+          "logit_diagnostics": {
+            "delta_fro": 4.2021050453186035,
+            "max_abs_delta": 0.9899542331695557
+          },
+          "output_diagnostics": {
+            "delta_fro": 4.422806739807129,
+            "max_abs_delta": 1.2282087802886963,
+            "prediction_flip_count": 13,
+            "prediction_flip_rate": 0.01056910569105691
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5146341463414634,
+              "macro_f1": 0.3950798471187606,
+              "micro_f1": 0.5146341463414634,
+              "sign_accuracy": 0.6544715166091919,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": 0.003252032520325243,
+              "macro_f1": 0.008205343028629741,
+              "micro_f1": 0.003252032520325243,
+              "sign_accuracy": 0.005691051483154297,
+              "direction_accuracy": -0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 0.7071067811865476,
+            "delta_l_fro": 0.07195073366165161
+          },
+          "representation_diagnostics": {
+            "delta_fro": 2.3683152198791504,
+            "relative_delta_fro": 0.011903303675353527
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.1487479209899902,
+            "max_abs_delta": 0.4100966453552246
+          },
+          "output_diagnostics": {
+            "delta_fro": 1.2537696361541748,
+            "max_abs_delta": 0.5073575973510742,
+            "prediction_flip_count": 0,
+            "prediction_flip_rate": 0.0
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 0.0,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.0,
+            "delta_l_fro": 0.14717455208301544
+          },
+          "representation_diagnostics": {
+            "delta_fro": 4.094106197357178,
+            "relative_delta_fro": 0.020577240735292435
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.6846476793289185,
+            "max_abs_delta": 0.41030776500701904
+          },
+          "output_diagnostics": {
+            "delta_fro": 1.7995655536651611,
+            "max_abs_delta": 0.5073575973510742,
+            "prediction_flip_count": 3,
+            "prediction_flip_rate": 0.0024390243902439024
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5097560975609756,
+              "macro_f1": 0.3858106062890464,
+              "micro_f1": 0.5097560975609756,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": -0.001626016260162566,
+              "macro_f1": -0.0010638978010844569,
+              "micro_f1": -0.001626016260162566,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": -0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.18715952336788177
+          },
+          "representation_diagnostics": {
+            "delta_fro": 5.790524005889893,
+            "relative_delta_fro": 0.029103543609380722
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.1187753677368164,
+            "max_abs_delta": 0.515070915222168
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.2532260417938232,
+            "max_abs_delta": 0.5919170379638672,
+            "prediction_flip_count": 6,
+            "prediction_flip_rate": 0.004878048780487805
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.510569105691057,
+              "macro_f1": 0.3886883905196007,
+              "micro_f1": 0.510569105691057,
+              "sign_accuracy": 0.6504064798355103,
+              "direction_accuracy": 0.7260162830352783
+            },
+            "changes": {
+              "accuracy": -0.0008130081300812275,
+              "macro_f1": 0.0018138864294698354,
+              "micro_f1": -0.0008130081300812275,
+              "sign_accuracy": 0.0016260147094726562,
+              "direction_accuracy": -0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "signal_removing",
+          "budget": 8,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2876,
+              "source": 34,
+              "target": 35,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2872,
+              "source": 155,
+              "target": 366,
+              "weight": 1.0,
+              "source_community": 1,
+              "target_community": 1
+            },
+            {
+              "edge_index_position": 2881,
+              "source": 177,
+              "target": 286,
+              "weight": 1.0,
+              "source_community": 0,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2908,
+              "source": 195,
+              "target": 10,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2905,
+              "source": 205,
+              "target": 225,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2892,
+              "source": 300,
+              "target": 113,
+              "weight": -1.0,
+              "source_community": 2,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2903,
+              "source": 348,
+              "target": 281,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 0
+            },
+            {
+              "edge_index_position": 2868,
+              "source": 369,
+              "target": 358,
+              "weight": 1.0,
+              "source_community": 2,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 2.0,
+            "delta_l_fro": 0.24961858987808228
+          },
+          "representation_diagnostics": {
+            "delta_fro": 6.90380334854126,
+            "relative_delta_fro": 0.034698959439992905
+          },
+          "logit_diagnostics": {
+            "delta_fro": 2.3538050651550293,
+            "max_abs_delta": 0.5120608806610107
+          },
+          "output_diagnostics": {
+            "delta_fro": 2.5384318828582764,
+            "max_abs_delta": 0.5883722305297852,
+            "prediction_flip_count": 8,
+            "prediction_flip_rate": 0.0065040650406504065
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5097560975609756,
+              "macro_f1": 0.38817007733586556,
+              "micro_f1": 0.5097560975609756,
+              "sign_accuracy": 0.6512194871902466,
+              "direction_accuracy": 0.7243902683258057
+            },
+            "changes": {
+              "accuracy": -0.001626016260162566,
+              "macro_f1": 0.0012955732457347047,
+              "micro_f1": -0.001626016260162566,
+              "sign_accuracy": 0.0024390220642089844,
+              "direction_accuracy": -0.0024390220642089844
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "noise_removing",
+          "budget": 1,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 0.7071067811865476,
+            "delta_l_fro": 0.07398086786270142
+          },
+          "representation_diagnostics": {
+            "delta_fro": 1.9186793565750122,
+            "relative_delta_fro": 0.009643405675888062
+          },
+          "logit_diagnostics": {
+            "delta_fro": 0.6397035717964172,
+            "max_abs_delta": 0.1476602554321289
+          },
+          "output_diagnostics": {
+            "delta_fro": 0.8037610650062561,
+            "max_abs_delta": 0.2407512664794922,
+            "prediction_flip_count": 2,
+            "prediction_flip_rate": 0.0016260162601626016
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38692054878360604,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": 0.0,
+              "macro_f1": 4.6044693475189025e-05,
+              "micro_f1": 0.0,
+              "sign_accuracy": 0.0,
+              "direction_accuracy": 0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "noise_removing",
+          "budget": 2,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.0,
+            "delta_l_fro": 0.1113758534193039
+          },
+          "representation_diagnostics": {
+            "delta_fro": 2.7054357528686523,
+            "relative_delta_fro": 0.013597693294286728
+          },
+          "logit_diagnostics": {
+            "delta_fro": 0.8235232830047607,
+            "max_abs_delta": 0.14757585525512695
+          },
+          "output_diagnostics": {
+            "delta_fro": 0.9715898633003235,
+            "max_abs_delta": 0.24028968811035156,
+            "prediction_flip_count": 3,
+            "prediction_flip_rate": 0.0024390243902439024
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5121951219512195,
+              "macro_f1": 0.38862342308320363,
+              "micro_f1": 0.5121951219512195,
+              "sign_accuracy": 0.6495934724807739,
+              "direction_accuracy": 0.727642297744751
+            },
+            "changes": {
+              "accuracy": 0.0008130081300813385,
+              "macro_f1": 0.0017489189930727789,
+              "micro_f1": 0.0008130081300813385,
+              "sign_accuracy": 0.0008130073547363281,
+              "direction_accuracy": 0.0008130073547363281
+            }
+          },
+          "finite": true
+        },
+        {
+          "edit_type": "deletion",
+          "stratum": "noise_removing",
+          "budget": 4,
+          "selection_rule": "First m records in frozen manifest lexicographic order",
+          "selected_edges": [
+            {
+              "edge_index_position": 2907,
+              "source": 16,
+              "target": 85,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2898,
+              "source": 83,
+              "target": 300,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2897,
+              "source": 138,
+              "target": 394,
+              "weight": -1.0,
+              "source_community": 3,
+              "target_community": 2
+            },
+            {
+              "edge_index_position": 2910,
+              "source": 151,
+              "target": 145,
+              "weight": -1.0,
+              "source_community": 1,
+              "target_community": 1
+            }
+          ],
+          "operator_diagnostics": {
+            "delta_h_fro": 1.4142135623730951,
+            "delta_l_fro": 0.16715432703495026
+          },
+          "representation_diagnostics": {
+            "delta_fro": 9.178525924682617,
+            "relative_delta_fro": 0.046131860464811325
+          },
+          "logit_diagnostics": {
+            "delta_fro": 1.877632975578308,
+            "max_abs_delta": 0.41537439823150635
+          },
+          "output_diagnostics": {
+            "delta_fro": 1.9919788837432861,
+            "max_abs_delta": 0.39766907691955566,
+            "prediction_flip_count": 8,
+            "prediction_flip_rate": 0.0065040650406504065
+          },
+          "task_metrics": {
+            "clean": {
+              "accuracy": 0.5113821138211382,
+              "macro_f1": 0.38687450409013086,
+              "micro_f1": 0.5113821138211382,
+              "sign_accuracy": 0.6487804651260376,
+              "direction_accuracy": 0.7268292903900146
+            },
+            "perturbed": {
+              "accuracy": 0.5146341463414634,
+              "macro_f1": 0.3926482479810009,
+              "micro_f1": 0.5146341463414634,
+              "sign_accuracy": 0.6512194871902466,
+              "direction_accuracy": 0.73008131980896
+            },
+            "changes": {
+              "accuracy": 0.003252032520325243,
+              "macro_f1": 0.005773743890870042,
+              "micro_f1": 0.003252032520325243,
+              "sign_accuracy": 0.0024390220642089844,
+              "direction_accuracy": 0.0032520294189453125
+            }
+          },
+          "finite": true
+        }
+      ],
+      "integrity": {
+        "model_state_hash_before": "ec6f000e27426a72506db072d6e11ee54c94681f191c06b429b88a70f9633bef",
+        "model_state_hash_after": "ec6f000e27426a72506db072d6e11ee54c94681f191c06b429b88a70f9633bef",
+        "model_state_unchanged": true,
+        "checkpoint_hash_before": "4eafd504fc3bc4232bb886f34008bc6d25711553a372813e5397df4bb45abc84",
+        "checkpoint_hash_after": "4eafd504fc3bc4232bb886f34008bc6d25711553a372813e5397df4bb45abc84",
+        "checkpoint_unchanged": true,
+        "parameters_require_grad": false
+      }
+    }
+  },
+  "integrity": {
+    "frozen_tensor_hashes_before": {
+      "features": "ab260c1b3dee4f544bd0b700efac7cf61b495e78f20eb3ba000e79816fcc0f76",
+      "train_graph": "0f0517229a4199bcfc1f435e179352a22184f2a75848ac1842d74e09cfbc6ddb",
+      "train_weights": "1e1fa455542af0f0c21861064bc620d9829cfe33a15879235dad4d6fe7f8f762",
+      "train_queries": "a3a4afce4bbc6fd8e74be7a755016bb1c36913d0bc9a474a57c463bf0f4a4b4a",
+      "train_labels": "4c5bdc0f94e1fb2ded318cdabf505623bb8fc66a39322c091cf2b7e981836e28",
+      "val_queries": "e0610270543843de386ad614dd132bc2b21a33598ad03c7ca4e9e5d90042032e",
+      "val_labels": "b051a6afeab7b13e82f406e1d53aec066f04367fe95b4fa7913bede663eac638",
+      "test_queries": "93582066e905b30e36c2b1b607972fe32b9e3739390d70b65d4c38bc35bc4828",
+      "test_labels": "4f86c038f971fc461deb977f258b7b3cac50cedc2a177f141920cd8bdfec3691"
+    },
+    "frozen_tensor_hashes_after": {
+      "features": "ab260c1b3dee4f544bd0b700efac7cf61b495e78f20eb3ba000e79816fcc0f76",
+      "train_graph": "0f0517229a4199bcfc1f435e179352a22184f2a75848ac1842d74e09cfbc6ddb",
+      "train_weights": "1e1fa455542af0f0c21861064bc620d9829cfe33a15879235dad4d6fe7f8f762",
+      "train_queries": "a3a4afce4bbc6fd8e74be7a755016bb1c36913d0bc9a474a57c463bf0f4a4b4a",
+      "train_labels": "4c5bdc0f94e1fb2ded318cdabf505623bb8fc66a39322c091cf2b7e981836e28",
+      "val_queries": "e0610270543843de386ad614dd132bc2b21a33598ad03c7ca4e9e5d90042032e",
+      "val_labels": "b051a6afeab7b13e82f406e1d53aec066f04367fe95b4fa7913bede663eac638",
+      "test_queries": "93582066e905b30e36c2b1b607972fe32b9e3739390d70b65d4c38bc35bc4828",
+      "test_labels": "4f86c038f971fc461deb977f258b7b3cac50cedc2a177f141920cd8bdfec3691"
+    },
+    "frozen_tensors_unchanged": true,
+    "all_models_unchanged": true,
+    "all_checkpoints_unchanged": true,
+    "all_parameters_frozen": true,
+    "all_clean_metrics_reproduced": true,
+    "all_scenarios_finite": true
+  },
+  "limitations": [
+    "This is a deterministic seed-0 fixed-checkpoint pilot, not a random perturbation sample.",
+    "The sign-restoring stratum has one eligible edge and is a case study, not replicated evidence.",
+    "All scenarios use one generated graph and one split.",
+    "No retraining, robustness, or stability conclusion is supported."
+  ]
+}
