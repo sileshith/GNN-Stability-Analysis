@@ -1,0 +1,103 @@
+{
+  "audit": "E005 checkpoint clean-baseline inclusion audit",
+  "timestamp": "2026-09-19T02:14:08.560953+00:00",
+  "source": {
+    "script": "scripts/e005_charge_comparison_replication.py",
+    "script_sha256": "5c252bbb56c543e56a5ac43c0f7163df96393ee69604a7e867e03e0e93721f82",
+    "result": "results/e005/e005_k1_q000_seed4_clean_attempt01.json",
+    "result_sha256": "dfc678b5c66fb879d479770ca6faf9ac19f4892232c1b8415f6c73ede2c2810f",
+    "checkpoint": "results/e005/msgnn_k1_q000_seed4_20260914T030352Z.pt",
+    "checkpoint_sha256": "67c55957d95ea4e388661f71fc81864034910a9cfa7f3081e76d92c5bc2d93a9",
+    "bundle_fingerprint": "fcd161442a591368153c9c039d228c81270444c2cea2aa8481d73a2b344094dc"
+  },
+  "environment": {
+    "device": "cpu",
+    "pygsd_version": "1.2.0",
+    "torch_version": "2.12.0+cu130"
+  },
+  "configuration": {
+    "charge_condition": "q000",
+    "q": 0.0,
+    "K": 1,
+    "trainable_q": false,
+    "cached": false,
+    "model_seed": 4
+  },
+  "test_split": {
+    "sample_count": 1230,
+    "label_counts": [
+      238,
+      377,
+      238,
+      377
+    ],
+    "prediction_counts": [
+      146,
+      492,
+      86,
+      506
+    ],
+    "confusion_rows_true_columns_predicted": [
+      [
+        47,
+        103,
+        15,
+        73
+      ],
+      [
+        43,
+        263,
+        14,
+        57
+      ],
+      [
+        31,
+        72,
+        34,
+        101
+      ],
+      [
+        25,
+        54,
+        23,
+        275
+      ]
+    ],
+    "per_class_precision": [
+      0.3219178020954132,
+      0.5345528721809387,
+      0.39534884691238403,
+      0.54347825050354
+    ],
+    "per_class_recall": [
+      0.1974789947271347,
+      0.6976127028465271,
+      0.1428571492433548,
+      0.7294429540634155
+    ]
+  },
+  "metrics": {
+    "accuracy": 0.5032520325203252,
+    "macro_f1": 0.42070955195110377,
+    "micro_f1": 0.5032520325203252,
+    "majority_class": 1,
+    "majority_accuracy": 0.3065040650406504,
+    "majority_macro_f1": 0.11729931716967462,
+    "accuracy_margin_over_majority": 0.19674796747967482,
+    "macro_f1_margin_over_majority": 0.30341023478142914
+  },
+  "gates": {
+    "more_than_one_class_predicted": true,
+    "no_zero_recall": true,
+    "accuracy_above_majority": true,
+    "macro_f1_above_majority": true,
+    "class_behavior_pass": true,
+    "nontrivial_margin_epsilon": null,
+    "full_clean_baseline_gate": "pending mentor-approved epsilon"
+  },
+  "warnings": [
+    "This is a single-seed clean checkpoint audit.",
+    "Low nonzero class recall may still indicate weak minority-class behavior.",
+    "Passing this audit does not establish robustness or publication-level generalization."
+  ]
+}
