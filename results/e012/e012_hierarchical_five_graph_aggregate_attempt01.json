@@ -1,0 +1,1433 @@
+{
+  "artifact": "E012 hierarchical five-graph aggregate",
+  "timestamp": "2026-09-23T04:14:54.872631+00:00",
+  "status": "PASS",
+  "scope": {
+    "model": "MSGNN_link_prediction",
+    "fixed_q": 0.125,
+    "trainable_q": false,
+    "scenario": "q0125_sign_reversal_signal_disrupting_m58",
+    "graph_generation_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_seeds_within_graph": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "split_seed": 0,
+    "graph_count": 5,
+    "model_seed_count_per_graph": 5,
+    "paired_result_count": 25,
+    "primary_metric": "macro_f1",
+    "primary_unit_of_analysis": "graph_generation_seed",
+    "secondary_unit": "model_seed_nested_within_graph",
+    "estimand": "paired change after matched retraining on sign-reversed signal-disrupting edges at approximately two percent of the training graph"
+  },
+  "sources": {
+    "graph0_e011_aggregate": {
+      "path": "results/e011/e011_primary_budget_five_seed_aggregate_attempt01.json",
+      "sha256": "978d6d5decd5778739a7ca4b2d8ff3a90908b96557d9526a675fd9f4d7aa5ded"
+    },
+    "individual_artifacts": [
+      {
+        "generation_seed": 0,
+        "model_seed": 0,
+        "path": "results/e010/e010_seed0_reduced_matched_retraining_attempt01.json",
+        "sha256": "9cc1dc22a5e0d2be626d186c26f9afdf1e2478b07dafbcf9a79444e4cd95f714",
+        "source_experiment": "E010"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 1,
+        "path": "results/e011/e011_seed1_primary_budget_matched_retraining_attempt01.json",
+        "sha256": "b486d04f1eb2983c6cacd9fb15134ce5c049141831e3cdfb67591082c9649a41",
+        "source_experiment": "E011"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 2,
+        "path": "results/e011/e011_seed2_primary_budget_matched_retraining_attempt01.json",
+        "sha256": "b219b4850d1f04563e4578784bc1496f244a3ebd30399287f90c21834df21311",
+        "source_experiment": "E011"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 3,
+        "path": "results/e011/e011_seed3_primary_budget_matched_retraining_attempt01.json",
+        "sha256": "08c2abb72ce51d6c485d9c1486b4e712cb29d27aaddcc40a553d95b8e662c63b",
+        "source_experiment": "E011"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 4,
+        "path": "results/e011/e011_seed4_primary_budget_matched_retraining_attempt01.json",
+        "sha256": "2049289b687da44da229eba1347bdeebc38ad30b4fc902852e9fa63d4395d7d9",
+        "source_experiment": "E011"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 0,
+        "path": "results/e012/e012_g1_seed0_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "5b4fbb8cf239491e6168cbf3c81633159047f384bb5f9375486e059adec8615c",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 1,
+        "path": "results/e012/e012_g1_seed1_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "3f5a758bdc97363c18c62614fbdc6760aba626b68e47ea04a24347e9eac767d6",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 2,
+        "path": "results/e012/e012_g1_seed2_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "2e7fce8ac23b0cd0b680118901a49965554369fc81792591bcde188928424bc0",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 3,
+        "path": "results/e012/e012_g1_seed3_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "f1242f621b288b439536cd6f8a9400104eaf6a8fd26c274d6049f9698e83b9a4",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 4,
+        "path": "results/e012/e012_g1_seed4_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "3bb7088bd2676634e6a78f632943e530d39f9d80a3d80ee171838cd835000889",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 0,
+        "path": "results/e012/e012_g2_seed0_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "97c1340ff756e8656658ac36fe7b0d2f9315f2aea0a80f0393aa985bf6ea22e4",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 1,
+        "path": "results/e012/e012_g2_seed1_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "ac25f72feeea32d6d1f63b0da761c341f10363fb6e9b5a5f205e8e89c5ac6d21",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 2,
+        "path": "results/e012/e012_g2_seed2_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "6aefb960d3420f22a65a4d68a11f4a23dc8cd410901caa27044eb9bdea0001fe",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 3,
+        "path": "results/e012/e012_g2_seed3_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "f0282e8db66a7ffabf168b489756913cbdc50fdc19cdbfbeeb9c876d0b12392a",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 4,
+        "path": "results/e012/e012_g2_seed4_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "eb6e406f83519df7ce036904bd911f3677b91e23af57c55ee7eee82f6a052032",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 0,
+        "path": "results/e012/e012_g3_seed0_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "472f8d737091f13f2f1cfa5aaaccf491e283c753253d6a2d61fde3bd80734181",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 1,
+        "path": "results/e012/e012_g3_seed1_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "e61f0cb08800d0acddad12b0d32ddff8f68bbf19c52deee4331e0103d7f98d1a",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 2,
+        "path": "results/e012/e012_g3_seed2_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "37c8887826fbd5470eea94711c8aedebf80dcf8ca6eddb5c4abbaa9530f83e13",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 3,
+        "path": "results/e012/e012_g3_seed3_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "2922462dd8f0012c7e1afde77b1456e0666901322c4b53812527bc724e1d8546",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 4,
+        "path": "results/e012/e012_g3_seed4_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "5a628a7c46ec3046989c97e87e08244efac3b8022d6e78c60d31e8481cb603fa",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 0,
+        "path": "results/e012/e012_g4_seed0_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "aae92c637590db09c8db6db4448f642e6dfebfd3cd9fc5c9ab0961744c22c717",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 1,
+        "path": "results/e012/e012_g4_seed1_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "c00a34efcffa43d403a45008ceb8500fa7905a1286a8281d11a52719a89b5aae",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 2,
+        "path": "results/e012/e012_g4_seed2_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "39c761cdb588a78b56d17a283323611a492b6a582179d5bd03b36146e1f5fb53",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 3,
+        "path": "results/e012/e012_g4_seed3_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "feaf51d5354b6cbbeb9373e5dda3d947552ac74df80d81e45a02ba8adb7dbe87",
+        "source_experiment": "E012"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 4,
+        "path": "results/e012/e012_g4_seed4_q0125_sign_disrupting_matched_retraining_attempt01.json",
+        "sha256": "76d8ad758659d60f9e4a9499a556d764c4e1418001f0208189cab106714c83ed",
+        "source_experiment": "E012"
+      }
+    ],
+    "verified_checkpoints": [
+      {
+        "generation_seed": 0,
+        "model_seed": 0,
+        "arm": "perturbed",
+        "path": "results/e010/msgnn_k1_seed0_q0125_sign_reversal_signal_disrupting_m58_attempt01.pt",
+        "sha256": "486b8a98e82d4e00dfca92059c1754dc459958090007c8cc428406238522dcd8"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 1,
+        "arm": "perturbed",
+        "path": "results/e011/msgnn_k1_seed1_q0125_sign_reversal_signal_disrupting_m58_attempt01.pt",
+        "sha256": "3074709ea0c633ccfd3421a18c7be782951195728d2568dcc1e9bd42e39e0cbb"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 2,
+        "arm": "perturbed",
+        "path": "results/e011/msgnn_k1_seed2_q0125_sign_reversal_signal_disrupting_m58_attempt01.pt",
+        "sha256": "d2b0cd56d7372f568c6be1e3f26daa1e345b1e1dfd1dd8d899bb11784291bba4"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 3,
+        "arm": "perturbed",
+        "path": "results/e011/msgnn_k1_seed3_q0125_sign_reversal_signal_disrupting_m58_attempt01.pt",
+        "sha256": "8f8682c5063f0f93e851437c4df003251708a9cc707d5bdc4b23a7dda51509b5"
+      },
+      {
+        "generation_seed": 0,
+        "model_seed": 4,
+        "arm": "perturbed",
+        "path": "results/e011/msgnn_k1_seed4_q0125_sign_reversal_signal_disrupting_m58_attempt01.pt",
+        "sha256": "4ca10deaff6415afb969e207ffc17b0880c05a3ef68ec021e86bc2d07df4059d"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 0,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed0_g1_q0125_clean_m0_attempt01.pt",
+        "sha256": "bf8f058717c01f9ea846f079075c01766c68599290b25d0d0f30b2d1ddab829a"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 0,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed0_g1_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "8142ebdf8db5962baa8b4c76ff2fca26f2d04987495d5ac639e4c6d2968ed375"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 1,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed1_g1_q0125_clean_m0_attempt01.pt",
+        "sha256": "4823ad8f51e1d3c7a0ba65bfe3c4324dc3125aed0df4dafeaf534a5bbb1cdb04"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 1,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed1_g1_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "1183cbdb7753faaeb5bb98cb500d0bc885cb84251d0881215e2d91c42b66b09a"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 2,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed2_g1_q0125_clean_m0_attempt01.pt",
+        "sha256": "a514d3608aa875777064bd2f5c322f7d580006854e2c5a18f8acc5601b0b32ce"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 2,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed2_g1_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "7779ccdfe6c6387efcc2492a0229e3813f8808cf0bdbb16914afce56ffd7e980"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 3,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed3_g1_q0125_clean_m0_attempt01.pt",
+        "sha256": "7bd088c93b5f5adf033e42532222bf2f2e5af078b83429ab84ccb423915597d5"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 3,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed3_g1_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "3fa91d53adb007b6b8433206c18dcec31bbe6cf91d4eebfd550aa73d60ac88db"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 4,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed4_g1_q0125_clean_m0_attempt01.pt",
+        "sha256": "604ee18d676175e16e714141f9622234d83b2a55fb088751f4796f3e4cdc13d3"
+      },
+      {
+        "generation_seed": 1,
+        "model_seed": 4,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed4_g1_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "4bac5e3652e2236e8cd5cd9d35ef84943f34ee23e5201e85a087640416ceacb3"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 0,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed0_g2_q0125_clean_m0_attempt01.pt",
+        "sha256": "efd4a37a386cfe3e80ce3b6505b9916843d31425eb47cdae6f9fbe4945ff8285"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 0,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed0_g2_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "0aca1385ba4c5fd5b94da2526bd320a6696c910c189fc84c0644b37419b3f85d"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 1,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed1_g2_q0125_clean_m0_attempt01.pt",
+        "sha256": "d87c48d838e5ad7569963e1bd8880eb90a1bc1d812c23fe9ecfc33b8633819dc"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 1,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed1_g2_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "109c2399acfd5e91d731e0d796061b255bdad818b5acf1ae29d1a80b0fc022da"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 2,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed2_g2_q0125_clean_m0_attempt01.pt",
+        "sha256": "cf085fbbb42231e35733d554d47a08fb0524389d4461e14ce8bac662dfb8d9af"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 2,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed2_g2_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "1262c8ab48bfe9704bf27ebdcd40ad7980a568c680cc1ea43768c13fdbbb85c2"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 3,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed3_g2_q0125_clean_m0_attempt01.pt",
+        "sha256": "a9f054222b43d44c4aec367b7b64652bf98ede34415aab3c65a0276032d8f75d"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 3,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed3_g2_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "19c528036cbab7796a317bec05f6cc05699c1cfadaa62519bcfe11156ce45db5"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 4,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed4_g2_q0125_clean_m0_attempt01.pt",
+        "sha256": "c1b42afcc2489db8b91227dae4333206c9a515ebbb0361b2728afbbe575933c6"
+      },
+      {
+        "generation_seed": 2,
+        "model_seed": 4,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed4_g2_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "5fde18d1018f4bd9f957d9fa4a6744856eb7c2680836616ddc767e5e859459d4"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 0,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed0_g3_q0125_clean_m0_attempt01.pt",
+        "sha256": "0c60f4a9c67401bd27640774af1afed87710490be8f855378cc6445222c66a7c"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 0,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed0_g3_q0125_sign_reversal_signal_disrupting_m56_attempt01.pt",
+        "sha256": "ef176a038743989eb50fc3013ab9af50db6cf1b9092b341179a103bd81c45ffe"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 1,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed1_g3_q0125_clean_m0_attempt01.pt",
+        "sha256": "b9b018341706167904ae4386ea5298283a26adc303f0eba3a96706fe95a6fa01"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 1,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed1_g3_q0125_sign_reversal_signal_disrupting_m56_attempt01.pt",
+        "sha256": "1991b4274c5160f6cd2849b1762545e128e4683a22e751f1850e92e9afc8eac1"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 2,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed2_g3_q0125_clean_m0_attempt01.pt",
+        "sha256": "008775f5d19538df331c5d32ddc958f9cb3d163a5669fe78211a9afe0b31e45c"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 2,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed2_g3_q0125_sign_reversal_signal_disrupting_m56_attempt01.pt",
+        "sha256": "2c0c549288c24fa3d2f6a13c2e2b57ad6f8e6f7a45eaeb4efc290791776a7698"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 3,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed3_g3_q0125_clean_m0_attempt01.pt",
+        "sha256": "6292dfdd5823f07596ec42087c5f18b59c192498c87edca35c472be6e972f219"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 3,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed3_g3_q0125_sign_reversal_signal_disrupting_m56_attempt01.pt",
+        "sha256": "b0ef483eddbd988d036a56b4c4a3f688893b2f88320934e773fe3b32acae2e00"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 4,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed4_g3_q0125_clean_m0_attempt01.pt",
+        "sha256": "0ae761cd38f09885d9684b9a0fd3864087941c2dbd74fa98f5fed943036a4f70"
+      },
+      {
+        "generation_seed": 3,
+        "model_seed": 4,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed4_g3_q0125_sign_reversal_signal_disrupting_m56_attempt01.pt",
+        "sha256": "cfe0b2fe5568b675bbc83623e2ee82fa75de542df8ab86f6e80241df9f1a66f4"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 0,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed0_g4_q0125_clean_m0_attempt01.pt",
+        "sha256": "a6a62edc14bd735411238ba94407db1f2bd50a44824ead8349ca378a6b6e2bda"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 0,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed0_g4_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "53915ae325402888a09d095b8294618c57fc301cf2c37aa1157431e3fe30c4bb"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 1,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed1_g4_q0125_clean_m0_attempt01.pt",
+        "sha256": "a85d03cff0f81517dfc7aa1ab118883dd327237266eee6a8dad22906f3c5bc3e"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 1,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed1_g4_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "85c7c3bb8cac0cce97abb56981b51847bd844efcb0425c74241194844a6d9620"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 2,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed2_g4_q0125_clean_m0_attempt01.pt",
+        "sha256": "1f6065b1afaab146cb346bc66229432693ca6609acbbbb107db325ee4cac1e4b"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 2,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed2_g4_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "daff2be098b753258b09a8081be6dde94d159c3de8ab6b86a4c800d8f6e69dac"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 3,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed3_g4_q0125_clean_m0_attempt01.pt",
+        "sha256": "c8fad23ef95431aed2d953e74db54076566968f47994141cba93de10ce3c290e"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 3,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed3_g4_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "5fc36afcc4e4cf1c0f598d37ba8aeb2562ca41187552606436c3d9b7986e1bea"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 4,
+        "arm": "clean",
+        "path": "results/e012/msgnn_k1_seed4_g4_q0125_clean_m0_attempt01.pt",
+        "sha256": "7e5f27ad55fcb691652cfca94b3bfd090c913134bd29f9efa005b6128b516c2f"
+      },
+      {
+        "generation_seed": 4,
+        "model_seed": 4,
+        "arm": "perturbed",
+        "path": "results/e012/msgnn_k1_seed4_g4_q0125_sign_reversal_signal_disrupting_m57_attempt01.pt",
+        "sha256": "a44f3fcdada8fc482bafce9932d63649baa29cc4c9060876ca46510bc66ab337"
+      }
+    ]
+  },
+  "within_graph_summaries": {
+    "0": {
+      "accuracy": {
+        "values": [
+          -0.002439024390243849,
+          -0.0008130081300813385,
+          -0.013821138211382089,
+          0.004878048780487809,
+          -0.0032520325203251876
+        ],
+        "count": 5,
+        "mean": -0.003089430894308931,
+        "sample_sd": 0.006787522427558299,
+        "median": -0.002439024390243849,
+        "minimum": -0.013821138211382089,
+        "maximum": 0.004878048780487809,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "macro_f1": {
+        "values": [
+          -0.011997324988339164,
+          -0.0038934969035480105,
+          -0.01484697784840816,
+          -0.0010594959915166124,
+          -0.0023415814782509203
+        ],
+        "count": 5,
+        "mean": -0.006827775442012574,
+        "sample_sd": 0.006185483497420906,
+        "median": -0.0038934969035480105,
+        "minimum": -0.01484697784840816,
+        "maximum": -0.0010594959915166124,
+        "sign_counts": {
+          "negative": 5,
+          "zero": 0,
+          "positive": 0
+        }
+      },
+      "micro_f1": {
+        "values": [
+          -0.002439024390243849,
+          -0.0008130081300813385,
+          -0.013821138211382089,
+          0.004878048780487809,
+          -0.0032520325203251876
+        ],
+        "count": 5,
+        "mean": -0.003089430894308931,
+        "sample_sd": 0.006787522427558299,
+        "median": -0.002439024390243849,
+        "minimum": -0.013821138211382089,
+        "maximum": 0.004878048780487809,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "sign_accuracy": {
+        "values": [
+          0.0016260147094726562,
+          -0.004878044128417969,
+          -0.016260147094726562,
+          0.0024390220642089844,
+          -0.004065036773681641
+        ],
+        "count": 5,
+        "mean": -0.004227638244628906,
+        "sample_sd": 0.007482318304847043,
+        "median": -0.004065036773681641,
+        "minimum": -0.016260147094726562,
+        "maximum": 0.0024390220642089844,
+        "sign_counts": {
+          "negative": 3,
+          "zero": 0,
+          "positive": 2
+        }
+      },
+      "direction_accuracy": {
+        "values": [
+          -0.004878044128417969,
+          0.009756088256835938,
+          -0.0024390220642089844,
+          0.0008130073547363281,
+          -0.004065036773681641
+        ],
+        "count": 5,
+        "mean": -0.00016260147094726562,
+        "sample_sd": 0.005957740972091093,
+        "median": -0.0024390220642089844,
+        "minimum": -0.004878044128417969,
+        "maximum": 0.009756088256835938,
+        "sign_counts": {
+          "negative": 3,
+          "zero": 0,
+          "positive": 2
+        }
+      }
+    },
+    "1": {
+      "accuracy": {
+        "values": [
+          -0.005025125628140725,
+          -0.005862646566164198,
+          0.003350083752093891,
+          -0.0041876046901172526,
+          -0.024288107202680098
+        ],
+        "count": 5,
+        "mean": -0.007202680067001676,
+        "sample_sd": 0.010233532592365814,
+        "median": -0.005025125628140725,
+        "minimum": -0.024288107202680098,
+        "maximum": 0.003350083752093891,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "macro_f1": {
+        "values": [
+          0.008450925198430326,
+          -0.0025852246905793685,
+          0.0013897883712771786,
+          -0.005553191598003437,
+          -0.04562513524397205
+        ],
+        "count": 5,
+        "mean": -0.00878456759256947,
+        "sample_sd": 0.02125253396150651,
+        "median": -0.0025852246905793685,
+        "minimum": -0.04562513524397205,
+        "maximum": 0.008450925198430326,
+        "sign_counts": {
+          "negative": 3,
+          "zero": 0,
+          "positive": 2
+        }
+      },
+      "micro_f1": {
+        "values": [
+          -0.005025125628140725,
+          -0.005862646566164198,
+          0.003350083752093891,
+          -0.0041876046901172526,
+          -0.024288107202680098
+        ],
+        "count": 5,
+        "mean": -0.007202680067001676,
+        "sample_sd": 0.010233532592365814,
+        "median": -0.005025125628140725,
+        "minimum": -0.024288107202680098,
+        "maximum": 0.003350083752093891,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "sign_accuracy": {
+        "values": [
+          -0.0025125741958618164,
+          -0.0008375644683837891,
+          0.0,
+          -0.0058626532554626465,
+          -0.024288058280944824
+        ],
+        "count": 5,
+        "mean": -0.006700170040130615,
+        "sample_sd": 0.010085058610978042,
+        "median": -0.0025125741958618164,
+        "minimum": -0.024288058280944824,
+        "maximum": 0.0,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 1,
+          "positive": 0
+        }
+      },
+      "direction_accuracy": {
+        "values": [
+          0.00335007905960083,
+          0.008375227451324463,
+          0.004187583923339844,
+          0.007537662982940674,
+          -0.00670015811920166
+        ],
+        "count": 5,
+        "mean": 0.00335007905960083,
+        "sample_sd": 0.006010338119041792,
+        "median": 0.004187583923339844,
+        "minimum": -0.00670015811920166,
+        "maximum": 0.008375227451324463,
+        "sign_counts": {
+          "negative": 1,
+          "zero": 0,
+          "positive": 4
+        }
+      }
+    },
+    "2": {
+      "accuracy": {
+        "values": [
+          -0.005766062602965416,
+          -0.0016474464579901982,
+          0.004118616144975329,
+          0.005766062602965416,
+          0.01976935749588138
+        ],
+        "count": 5,
+        "mean": 0.004448105436573302,
+        "sample_sd": 0.009722028088184904,
+        "median": 0.004118616144975329,
+        "minimum": -0.005766062602965416,
+        "maximum": 0.01976935749588138,
+        "sign_counts": {
+          "negative": 2,
+          "zero": 0,
+          "positive": 3
+        }
+      },
+      "macro_f1": {
+        "values": [
+          -0.021098327479414203,
+          -0.0028919410993216155,
+          0.005608502306322982,
+          0.007466673433299986,
+          0.020812793782118866
+        ],
+        "count": 5,
+        "mean": 0.0019795401886012034,
+        "sample_sd": 0.0154457821447774,
+        "median": 0.005608502306322982,
+        "minimum": -0.021098327479414203,
+        "maximum": 0.020812793782118866,
+        "sign_counts": {
+          "negative": 2,
+          "zero": 0,
+          "positive": 3
+        }
+      },
+      "micro_f1": {
+        "values": [
+          -0.005766062602965416,
+          -0.0016474464579901982,
+          0.004118616144975329,
+          0.005766062602965416,
+          0.01976935749588138
+        ],
+        "count": 5,
+        "mean": 0.004448105436573302,
+        "sample_sd": 0.009722028088184904,
+        "median": 0.004118616144975329,
+        "minimum": -0.005766062602965416,
+        "maximum": 0.01976935749588138,
+        "sign_counts": {
+          "negative": 2,
+          "zero": 0,
+          "positive": 3
+        }
+      },
+      "sign_accuracy": {
+        "values": [
+          -0.0008237361907958984,
+          0.0016474127769470215,
+          0.0016474127769470215,
+          0.004942357540130615,
+          0.023887991905212402
+        ],
+        "count": 5,
+        "mean": 0.006260287761688232,
+        "sample_sd": 0.010064958023379748,
+        "median": 0.0016474127769470215,
+        "minimum": -0.0008237361907958984,
+        "maximum": 0.023887991905212402,
+        "sign_counts": {
+          "negative": 1,
+          "zero": 0,
+          "positive": 4
+        }
+      },
+      "direction_accuracy": {
+        "values": [
+          -0.010708451271057129,
+          -0.0008237361907958984,
+          -0.005766093730926514,
+          0.0,
+          -0.0032949447631835938
+        ],
+        "count": 5,
+        "mean": -0.004118645191192627,
+        "sample_sd": 0.004319657879630697,
+        "median": -0.0032949447631835938,
+        "minimum": -0.010708451271057129,
+        "maximum": 0.0,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 1,
+          "positive": 0
+        }
+      }
+    },
+    "3": {
+      "accuracy": {
+        "values": [
+          0.0075125208681134925,
+          -0.01001669449081799,
+          0.01085141903171949,
+          -0.005843071786310605,
+          0.0025041736227044975
+        ],
+        "count": 5,
+        "mean": 0.0010016694490817767,
+        "sample_sd": 0.008802288031027745,
+        "median": 0.0025041736227044975,
+        "minimum": -0.01001669449081799,
+        "maximum": 0.01085141903171949,
+        "sign_counts": {
+          "negative": 2,
+          "zero": 0,
+          "positive": 3
+        }
+      },
+      "macro_f1": {
+        "values": [
+          0.008661277639926024,
+          -0.018322600347315143,
+          -0.003175716908483228,
+          -0.009560117149584768,
+          -0.0036499139305805617
+        ],
+        "count": 5,
+        "mean": -0.005209414139207535,
+        "sample_sd": 0.009872288551441552,
+        "median": -0.0036499139305805617,
+        "minimum": -0.018322600347315143,
+        "maximum": 0.008661277639926024,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "micro_f1": {
+        "values": [
+          0.0075125208681134925,
+          -0.01001669449081799,
+          0.01085141903171949,
+          -0.005843071786310605,
+          0.0025041736227044975
+        ],
+        "count": 5,
+        "mean": 0.0010016694490817767,
+        "sample_sd": 0.008802288031027745,
+        "median": 0.0025041736227044975,
+        "minimum": -0.01001669449081799,
+        "maximum": 0.01085141903171949,
+        "sign_counts": {
+          "negative": 2,
+          "zero": 0,
+          "positive": 3
+        }
+      },
+      "sign_accuracy": {
+        "values": [
+          0.007512509822845459,
+          -0.005843043327331543,
+          0.005008339881896973,
+          -0.005008339881896973,
+          0.0033388733863830566
+        ],
+        "count": 5,
+        "mean": 0.0010016679763793946,
+        "sample_sd": 0.006059646807455032,
+        "median": 0.0033388733863830566,
+        "minimum": -0.005843043327331543,
+        "maximum": 0.007512509822845459,
+        "sign_counts": {
+          "negative": 2,
+          "zero": 0,
+          "positive": 3
+        }
+      },
+      "direction_accuracy": {
+        "values": [
+          0.005843102931976318,
+          0.0016694068908691406,
+          0.009181976318359375,
+          -0.0025041699409484863,
+          0.006677806377410889
+        ],
+        "count": 5,
+        "mean": 0.0041736245155334474,
+        "sample_sd": 0.004609927262872335,
+        "median": 0.005843102931976318,
+        "minimum": -0.0025041699409484863,
+        "maximum": 0.009181976318359375,
+        "sign_counts": {
+          "negative": 1,
+          "zero": 0,
+          "positive": 4
+        }
+      }
+    },
+    "4": {
+      "accuracy": {
+        "values": [
+          -0.018272425249169444,
+          -0.004152823920265725,
+          0.002491694352159457,
+          -0.002491694352159457,
+          -0.020764119601328956
+        ],
+        "count": 5,
+        "mean": -0.008637873754152824,
+        "sample_sd": 0.010266802086619587,
+        "median": -0.004152823920265725,
+        "minimum": -0.020764119601328956,
+        "maximum": 0.002491694352159457,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "macro_f1": {
+        "values": [
+          -0.02544466727659933,
+          0.0010941796796753445,
+          0.016815302456363257,
+          -0.014523223610136915,
+          -0.02700508760001663
+        ],
+        "count": 5,
+        "mean": -0.009812699270142855,
+        "sample_sd": 0.018642264911824254,
+        "median": -0.014523223610136915,
+        "minimum": -0.02700508760001663,
+        "maximum": 0.016815302456363257,
+        "sign_counts": {
+          "negative": 3,
+          "zero": 0,
+          "positive": 2
+        }
+      },
+      "micro_f1": {
+        "values": [
+          -0.018272425249169444,
+          -0.004152823920265725,
+          0.002491694352159457,
+          -0.002491694352159457,
+          -0.020764119601328956
+        ],
+        "count": 5,
+        "mean": -0.008637873754152824,
+        "sample_sd": 0.010266802086619587,
+        "median": -0.004152823920265725,
+        "minimum": -0.020764119601328956,
+        "maximum": 0.002491694352159457,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "sign_accuracy": {
+        "values": [
+          -0.012458503246307373,
+          -0.019933581352233887,
+          0.0033222436904907227,
+          -0.0033222436904907227,
+          -0.039036571979522705
+        ],
+        "count": 5,
+        "mean": -0.014285731315612792,
+        "sample_sd": 0.016417063765678728,
+        "median": -0.012458503246307373,
+        "minimum": -0.039036571979522705,
+        "maximum": 0.0033222436904907227,
+        "sign_counts": {
+          "negative": 4,
+          "zero": 0,
+          "positive": 1
+        }
+      },
+      "direction_accuracy": {
+        "values": [
+          -0.014950156211853027,
+          0.004983365535736084,
+          -0.009136199951171875,
+          0.004152834415435791,
+          0.015780746936798096
+        ],
+        "count": 5,
+        "mean": 0.00016611814498901367,
+        "sample_sd": 0.01222652121153213,
+        "median": 0.004152834415435791,
+        "minimum": -0.014950156211853027,
+        "maximum": 0.015780746936798096,
+        "sign_counts": {
+          "negative": 2,
+          "zero": 0,
+          "positive": 3
+        }
+      }
+    }
+  },
+  "primary_between_graph_summary": {
+    "accuracy": {
+      "values": [
+        -0.003089430894308931,
+        -0.007202680067001676,
+        0.004448105436573302,
+        0.0010016694490817767,
+        -0.008637873754152824
+      ],
+      "count": 5,
+      "mean": -0.0026960419659616706,
+      "sample_sd": 0.005488210515275912,
+      "median": -0.003089430894308931,
+      "minimum": -0.008637873754152824,
+      "maximum": 0.004448105436573302,
+      "sign_counts": {
+        "negative": 3,
+        "zero": 0,
+        "positive": 2
+      },
+      "confidence_interval_95_t": {
+        "lower": -0.009510555377343112,
+        "upper": 0.004118471445419771,
+        "half_width": 0.006814513411381441,
+        "degrees_of_freedom": 4,
+        "unit_of_analysis": "graph_generation_seed"
+      }
+    },
+    "macro_f1": {
+      "values": [
+        -0.006827775442012574,
+        -0.00878456759256947,
+        0.0019795401886012034,
+        -0.005209414139207535,
+        -0.009812699270142855
+      ],
+      "count": 5,
+      "mean": -0.005730983251066246,
+      "sample_sd": 0.004661328730986674,
+      "median": -0.006827775442012574,
+      "minimum": -0.009812699270142855,
+      "maximum": 0.0019795401886012034,
+      "sign_counts": {
+        "negative": 4,
+        "zero": 0,
+        "positive": 1
+      },
+      "confidence_interval_95_t": {
+        "lower": -0.011518787320125248,
+        "upper": 5.6820817992756824e-05,
+        "half_width": 0.005787804069059003,
+        "degrees_of_freedom": 4,
+        "unit_of_analysis": "graph_generation_seed"
+      }
+    },
+    "micro_f1": {
+      "values": [
+        -0.003089430894308931,
+        -0.007202680067001676,
+        0.004448105436573302,
+        0.0010016694490817767,
+        -0.008637873754152824
+      ],
+      "count": 5,
+      "mean": -0.0026960419659616706,
+      "sample_sd": 0.005488210515275912,
+      "median": -0.003089430894308931,
+      "minimum": -0.008637873754152824,
+      "maximum": 0.004448105436573302,
+      "sign_counts": {
+        "negative": 3,
+        "zero": 0,
+        "positive": 2
+      },
+      "confidence_interval_95_t": {
+        "lower": -0.009510555377343112,
+        "upper": 0.004118471445419771,
+        "half_width": 0.006814513411381441,
+        "degrees_of_freedom": 4,
+        "unit_of_analysis": "graph_generation_seed"
+      }
+    },
+    "sign_accuracy": {
+      "values": [
+        -0.004227638244628906,
+        -0.006700170040130615,
+        0.006260287761688232,
+        0.0010016679763793946,
+        -0.014285731315612792
+      ],
+      "count": 5,
+      "mean": -0.0035903167724609373,
+      "sample_sd": 0.007787650349703829,
+      "median": -0.004227638244628906,
+      "minimum": -0.014285731315612792,
+      "maximum": 0.006260287761688232,
+      "sign_counts": {
+        "negative": 3,
+        "zero": 0,
+        "positive": 2
+      },
+      "confidence_interval_95_t": {
+        "lower": -0.013259961842287154,
+        "upper": 0.00607932829736528,
+        "half_width": 0.009669645069826217,
+        "degrees_of_freedom": 4,
+        "unit_of_analysis": "graph_generation_seed"
+      }
+    },
+    "direction_accuracy": {
+      "values": [
+        -0.00016260147094726562,
+        0.00335007905960083,
+        -0.004118645191192627,
+        0.0041736245155334474,
+        0.00016611814498901367
+      ],
+      "count": 5,
+      "mean": 0.0006817150115966798,
+      "sample_sd": 0.003291495374614684,
+      "median": 0.00016611814498901367,
+      "minimum": -0.004118645191192627,
+      "maximum": 0.0041736245155334474,
+      "sign_counts": {
+        "negative": 2,
+        "zero": 0,
+        "positive": 3
+      },
+      "confidence_interval_95_t": {
+        "lower": -0.003405216295316593,
+        "upper": 0.0047686463185099524,
+        "half_width": 0.004086931306913273,
+        "degrees_of_freedom": 4,
+        "unit_of_analysis": "graph_generation_seed"
+      }
+    }
+  },
+  "secondary_pooled_model_seed_summary": {
+    "accuracy": {
+      "values": [
+        -0.002439024390243849,
+        -0.0008130081300813385,
+        -0.013821138211382089,
+        0.004878048780487809,
+        -0.0032520325203251876,
+        -0.005025125628140725,
+        -0.005862646566164198,
+        0.003350083752093891,
+        -0.0041876046901172526,
+        -0.024288107202680098,
+        -0.005766062602965416,
+        -0.0016474464579901982,
+        0.004118616144975329,
+        0.005766062602965416,
+        0.01976935749588138,
+        0.0075125208681134925,
+        -0.01001669449081799,
+        0.01085141903171949,
+        -0.005843071786310605,
+        0.0025041736227044975,
+        -0.018272425249169444,
+        -0.004152823920265725,
+        0.002491694352159457,
+        -0.002491694352159457,
+        -0.020764119601328956
+      ],
+      "count": 25,
+      "mean": -0.0026960419659616706,
+      "sample_sd": 0.009821772185116701,
+      "median": -0.002491694352159457,
+      "minimum": -0.024288107202680098,
+      "maximum": 0.01976935749588138,
+      "sign_counts": {
+        "negative": 16,
+        "zero": 0,
+        "positive": 9
+      },
+      "inferential_status": "descriptive_only; these 25 observations are nested within five generated graphs and are not treated as 25 independent experimental units"
+    },
+    "macro_f1": {
+      "values": [
+        -0.011997324988339164,
+        -0.0038934969035480105,
+        -0.01484697784840816,
+        -0.0010594959915166124,
+        -0.0023415814782509203,
+        0.008450925198430326,
+        -0.0025852246905793685,
+        0.0013897883712771786,
+        -0.005553191598003437,
+        -0.04562513524397205,
+        -0.021098327479414203,
+        -0.0028919410993216155,
+        0.005608502306322982,
+        0.007466673433299986,
+        0.020812793782118866,
+        0.008661277639926024,
+        -0.018322600347315143,
+        -0.003175716908483228,
+        -0.009560117149584768,
+        -0.0036499139305805617,
+        -0.02544466727659933,
+        0.0010941796796753445,
+        0.016815302456363257,
+        -0.014523223610136915,
+        -0.02700508760001663
+      ],
+      "count": 25,
+      "mean": -0.005730983251066246,
+      "sample_sd": 0.014618131674527501,
+      "median": -0.003175716908483228,
+      "minimum": -0.04562513524397205,
+      "maximum": 0.020812793782118866,
+      "sign_counts": {
+        "negative": 17,
+        "zero": 0,
+        "positive": 8
+      },
+      "inferential_status": "descriptive_only; these 25 observations are nested within five generated graphs and are not treated as 25 independent experimental units"
+    },
+    "micro_f1": {
+      "values": [
+        -0.002439024390243849,
+        -0.0008130081300813385,
+        -0.013821138211382089,
+        0.004878048780487809,
+        -0.0032520325203251876,
+        -0.005025125628140725,
+        -0.005862646566164198,
+        0.003350083752093891,
+        -0.0041876046901172526,
+        -0.024288107202680098,
+        -0.005766062602965416,
+        -0.0016474464579901982,
+        0.004118616144975329,
+        0.005766062602965416,
+        0.01976935749588138,
+        0.0075125208681134925,
+        -0.01001669449081799,
+        0.01085141903171949,
+        -0.005843071786310605,
+        0.0025041736227044975,
+        -0.018272425249169444,
+        -0.004152823920265725,
+        0.002491694352159457,
+        -0.002491694352159457,
+        -0.020764119601328956
+      ],
+      "count": 25,
+      "mean": -0.0026960419659616706,
+      "sample_sd": 0.009821772185116701,
+      "median": -0.002491694352159457,
+      "minimum": -0.024288107202680098,
+      "maximum": 0.01976935749588138,
+      "sign_counts": {
+        "negative": 16,
+        "zero": 0,
+        "positive": 9
+      },
+      "inferential_status": "descriptive_only; these 25 observations are nested within five generated graphs and are not treated as 25 independent experimental units"
+    },
+    "sign_accuracy": {
+      "values": [
+        0.0016260147094726562,
+        -0.004878044128417969,
+        -0.016260147094726562,
+        0.0024390220642089844,
+        -0.004065036773681641,
+        -0.0025125741958618164,
+        -0.0008375644683837891,
+        0.0,
+        -0.0058626532554626465,
+        -0.024288058280944824,
+        -0.0008237361907958984,
+        0.0016474127769470215,
+        0.0016474127769470215,
+        0.004942357540130615,
+        0.023887991905212402,
+        0.007512509822845459,
+        -0.005843043327331543,
+        0.005008339881896973,
+        -0.005008339881896973,
+        0.0033388733863830566,
+        -0.012458503246307373,
+        -0.019933581352233887,
+        0.0033222436904907227,
+        -0.0033222436904907227,
+        -0.039036571979522705
+      ],
+      "count": 25,
+      "mean": -0.0035903167724609373,
+      "sample_sd": 0.012031027016136099,
+      "median": -0.0008375644683837891,
+      "minimum": -0.039036571979522705,
+      "maximum": 0.023887991905212402,
+      "sign_counts": {
+        "negative": 14,
+        "zero": 1,
+        "positive": 10
+      },
+      "inferential_status": "descriptive_only; these 25 observations are nested within five generated graphs and are not treated as 25 independent experimental units"
+    },
+    "direction_accuracy": {
+      "values": [
+        -0.004878044128417969,
+        0.009756088256835938,
+        -0.0024390220642089844,
+        0.0008130073547363281,
+        -0.004065036773681641,
+        0.00335007905960083,
+        0.008375227451324463,
+        0.004187583923339844,
+        0.007537662982940674,
+        -0.00670015811920166,
+        -0.010708451271057129,
+        -0.0008237361907958984,
+        -0.005766093730926514,
+        0.0,
+        -0.0032949447631835938,
+        0.005843102931976318,
+        0.0016694068908691406,
+        0.009181976318359375,
+        -0.0025041699409484863,
+        0.006677806377410889,
+        -0.014950156211853027,
+        0.004983365535736084,
+        -0.009136199951171875,
+        0.004152834415435791,
+        0.015780746936798096
+      ],
+      "count": 25,
+      "mean": 0.0006817150115966797,
+      "sample_sd": 0.007247841578743326,
+      "median": 0.0008130073547363281,
+      "minimum": -0.014950156211853027,
+      "maximum": 0.015780746936798096,
+      "sign_counts": {
+        "negative": 11,
+        "zero": 1,
+        "positive": 13
+      },
+      "inferential_status": "descriptive_only; these 25 observations are nested within five generated graphs and are not treated as 25 independent experimental units"
+    }
+  },
+  "primary_macro_f1_interpretation": {
+    "graph_mean_values": [
+      -0.006827775442012574,
+      -0.00878456759256947,
+      0.0019795401886012034,
+      -0.005209414139207535,
+      -0.009812699270142855
+    ],
+    "mean_change": -0.005730983251066246,
+    "sample_sd_across_graph_means": 0.004661328730986674,
+    "confidence_interval_95_t": {
+      "lower": -0.011518787320125248,
+      "upper": 5.6820817992756824e-05,
+      "half_width": 0.005787804069059003,
+      "degrees_of_freedom": 4,
+      "unit_of_analysis": "graph_generation_seed"
+    },
+    "graphs_negative": 4,
+    "graphs_zero": 0,
+    "graphs_positive": 1,
+    "interval_excludes_zero": false,
+    "direction": "negative"
+  },
+  "integrity": {
+    "all_25_source_artifacts_hash_locked": true,
+    "graph0_aggregate_hash_locked": true,
+    "all_referenced_checkpoints_hash_verified": true,
+    "all_source_artifacts_passed": true,
+    "all_source_boolean_integrity_gates_passed": true,
+    "all_clean_inclusion_gates_passed": true,
+    "all_values_finite": true,
+    "five_graph_units_present": true,
+    "five_model_seeds_present_per_graph": true,
+    "primary_analysis_uses_graph_means": true,
+    "pooled_25_run_analysis_marked_secondary": true
+  },
+  "limitations": [
+    "Only five generated graphs are available, so the between-graph confidence interval is necessarily imprecise.",
+    "The split seed is fixed at zero; between-split variability is not estimated.",
+    "The perturbation selection is deterministic within each generated graph.",
+    "The result is limited to the locked SDSBM configuration, MSGNN, q = 0.125, and the selected perturbation condition.",
+    "The secondary 25-run pooled summary must not be interpreted as 25 independent graph-level replications.",
+    "This experiment does not establish real-world, alternative-architecture, or publication-wide generalization."
+  ]
+}
