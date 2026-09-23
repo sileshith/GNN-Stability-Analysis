@@ -1,0 +1,1062 @@
+{
+  "artifact": "E013 leave-one-graph-out sensitivity analysis of E012 hierarchical graph means",
+  "timestamp": "2026-09-23T13:25:19.034082+00:00",
+  "status": "PASS",
+  "source": {
+    "path": "results/e012/e012_hierarchical_five_graph_aggregate_attempt01.json",
+    "sha256_before": "38870823c0ccc6878735a24327342bb356fc0553c1ecc036eb26753e6d7b4797",
+    "sha256_after": "38870823c0ccc6878735a24327342bb356fc0553c1ecc036eb26753e6d7b4797",
+    "unchanged": true,
+    "source_status": "PASS"
+  },
+  "scope": {
+    "model": "MSGNN_link_prediction",
+    "scenario": "q0125_sign_reversal_signal_disrupting_m58",
+    "fixed_q": 0.125,
+    "trainable_q": false,
+    "split_seed": 0,
+    "graph_generation_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "model_seeds_nested_within_graph": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "primary_metric": "macro_f1",
+    "primary_unit_of_analysis": "graph_generation_seed",
+    "analysis_type": "leave_one_graph_out",
+    "training_performed": false,
+    "new_checkpoints_created": false
+  },
+  "full_five_graph_reference": {
+    "macro_f1": {
+      "count": 5,
+      "values": [
+        -0.006827775442012574,
+        -0.00878456759256947,
+        0.0019795401886012034,
+        -0.005209414139207535,
+        -0.009812699270142855
+      ],
+      "mean": -0.005730983251066246,
+      "median": -0.006827775442012574,
+      "sample_sd": 0.004661328730986674,
+      "standard_error": 0.0020846095815918067,
+      "minimum": -0.009812699270142855,
+      "maximum": 0.0019795401886012034,
+      "sign_counts": {
+        "negative": 4,
+        "positive": 1,
+        "zero": 0
+      },
+      "confidence_interval_95_t": {
+        "degrees_of_freedom": 4,
+        "critical_value": 2.7764451051977934,
+        "half_width": 0.005787804069058992,
+        "lower": -0.011518787320125238,
+        "upper": 5.682081799274555e-05,
+        "unit_of_analysis": "graph_generation_seed"
+      },
+      "interval_excludes_zero": false,
+      "interval_includes_zero": true
+    },
+    "stored_interpretation": {
+      "graph_mean_values": [
+        -0.006827775442012574,
+        -0.00878456759256947,
+        0.0019795401886012034,
+        -0.005209414139207535,
+        -0.009812699270142855
+      ],
+      "mean_change": -0.005730983251066246,
+      "sample_sd_across_graph_means": 0.004661328730986674,
+      "confidence_interval_95_t": {
+        "lower": -0.011518787320125248,
+        "upper": 5.6820817992756824e-05,
+        "half_width": 0.005787804069059003,
+        "degrees_of_freedom": 4,
+        "unit_of_analysis": "graph_generation_seed"
+      },
+      "graphs_negative": 4,
+      "graphs_zero": 0,
+      "graphs_positive": 1,
+      "interval_excludes_zero": false,
+      "direction": "negative"
+    }
+  },
+  "leave_one_graph_out": [
+    {
+      "omitted_graph_seed": 0,
+      "retained_graph_seeds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "retained_graph_count": 4,
+      "metric_summaries": {
+        "accuracy": {
+          "count": 4,
+          "values": [
+            -0.007202680067001676,
+            0.004448105436573302,
+            0.0010016694490817767,
+            -0.008637873754152824
+          ],
+          "mean": -0.0025976947338748556,
+          "median": -0.0031005053089599496,
+          "sample_sd": 0.006332150110843278,
+          "standard_error": 0.003166075055421639,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.010075863862377505,
+            "lower": -0.012673558596252361,
+            "upper": 0.007478169128502649,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "macro_f1": {
+          "count": 4,
+          "values": [
+            -0.00878456759256947,
+            0.0019795401886012034,
+            -0.005209414139207535,
+            -0.009812699270142855
+          ],
+          "mean": -0.005456785203329664,
+          "median": -0.006996990865888502,
+          "sample_sd": 0.005335673989467382,
+          "standard_error": 0.002667836994733691,
+          "minimum": -0.009812699270142855,
+          "maximum": 0.0019795401886012034,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.008490247986989425,
+            "lower": -0.01394703319031909,
+            "upper": 0.003033462783659761,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "micro_f1": {
+          "count": 4,
+          "values": [
+            -0.007202680067001676,
+            0.004448105436573302,
+            0.0010016694490817767,
+            -0.008637873754152824
+          ],
+          "mean": -0.0025976947338748556,
+          "median": -0.0031005053089599496,
+          "sample_sd": 0.006332150110843278,
+          "standard_error": 0.003166075055421639,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.010075863862377505,
+            "lower": -0.012673558596252361,
+            "upper": 0.007478169128502649,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "sign_accuracy": {
+          "count": 4,
+          "values": [
+            -0.006700170040130615,
+            0.006260287761688232,
+            0.0010016679763793946,
+            -0.014285731315612792
+          ],
+          "mean": -0.003430986404418945,
+          "median": -0.0028492510318756104,
+          "sample_sd": 0.008982988896675034,
+          "standard_error": 0.004491494448337517,
+          "minimum": -0.014285731315612792,
+          "maximum": 0.006260287761688232,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.014293939912314016,
+            "lower": -0.01772492631673296,
+            "upper": 0.010862953507895071,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "direction_accuracy": {
+          "count": 4,
+          "values": [
+            0.00335007905960083,
+            -0.004118645191192627,
+            0.0041736245155334474,
+            0.00016611814498901367
+          ],
+          "mean": 0.0008927941322326661,
+          "median": 0.0017580986022949219,
+          "sample_sd": 0.003761412824151328,
+          "standard_error": 0.001880706412075664,
+          "minimum": -0.004118645191192627,
+          "maximum": 0.0041736245155334474,
+          "sign_counts": {
+            "negative": 1,
+            "positive": 3,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.005985247172433575,
+            "lower": -0.005092453040200909,
+            "upper": 0.0068780413046662416,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        }
+      },
+      "primary_macro_f1": {
+        "mean": -0.005456785203329664,
+        "sample_sd": 0.005335673989467382,
+        "standard_error": 0.002667836994733691,
+        "confidence_interval_95_t": {
+          "degrees_of_freedom": 3,
+          "critical_value": 3.1824463052837078,
+          "half_width": 0.008490247986989425,
+          "lower": -0.01394703319031909,
+          "upper": 0.003033462783659761,
+          "unit_of_analysis": "graph_generation_seed"
+        },
+        "sign_counts": {
+          "negative": 3,
+          "positive": 1,
+          "zero": 0
+        },
+        "interval_excludes_zero": false,
+        "interval_includes_zero": true,
+        "mean_shift_from_full_five_graph_estimate": 0.00027419804773658185,
+        "absolute_mean_shift_from_full": 0.00027419804773658185,
+        "direction": "negative",
+        "conclusion_matches_full_interval_status": true
+      }
+    },
+    {
+      "omitted_graph_seed": 1,
+      "retained_graph_seeds": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "retained_graph_count": 4,
+      "metric_summaries": {
+        "accuracy": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            0.004448105436573302,
+            0.0010016694490817767,
+            -0.008637873754152824
+          ],
+          "mean": -0.0015693824407016692,
+          "median": -0.0010438807226135771,
+          "sample_sd": 0.005630115005419769,
+          "standard_error": 0.0028150575027098843,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.008958769348660252,
+            "lower": -0.01052815178936192,
+            "upper": 0.007389386907958583,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "macro_f1": {
+          "count": 4,
+          "values": [
+            -0.006827775442012574,
+            0.0019795401886012034,
+            -0.005209414139207535,
+            -0.009812699270142855
+          ],
+          "mean": -0.00496758716569044,
+          "median": -0.006018594790610054,
+          "sample_sd": 0.005008541720233055,
+          "standard_error": 0.0025042708601165273,
+          "minimum": -0.009812699270142855,
+          "maximum": 0.0019795401886012034,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.007969707546207495,
+            "lower": -0.012937294711897935,
+            "upper": 0.003002120380517055,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "micro_f1": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            0.004448105436573302,
+            0.0010016694490817767,
+            -0.008637873754152824
+          ],
+          "mean": -0.0015693824407016692,
+          "median": -0.0010438807226135771,
+          "sample_sd": 0.005630115005419769,
+          "standard_error": 0.0028150575027098843,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.008958769348660252,
+            "lower": -0.01052815178936192,
+            "upper": 0.007389386907958583,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "sign_accuracy": {
+          "count": 4,
+          "values": [
+            -0.004227638244628906,
+            0.006260287761688232,
+            0.0010016679763793946,
+            -0.014285731315612792
+          ],
+          "mean": -0.002812853455543518,
+          "median": -0.001612985134124756,
+          "sample_sd": 0.008765481688493108,
+          "standard_error": 0.004382740844246554,
+          "minimum": -0.014285731315612792,
+          "maximum": 0.006260287761688232,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.013947837406788444,
+            "lower": -0.01676069086233196,
+            "upper": 0.011134983951244926,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "direction_accuracy": {
+          "count": 4,
+          "values": [
+            -0.00016260147094726562,
+            -0.004118645191192627,
+            0.0041736245155334474,
+            0.00016611814498901367
+          ],
+          "mean": 1.462399959564222e-05,
+          "median": 1.7583370208740234e-06,
+          "sample_sd": 0.0033879964009518497,
+          "standard_error": 0.0016939982004759249,
+          "minimum": -0.004118645191192627,
+          "maximum": 0.0041736245155334474,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.005391058314261857,
+            "lower": -0.005376434314666214,
+            "upper": 0.005405682313857499,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        }
+      },
+      "primary_macro_f1": {
+        "mean": -0.00496758716569044,
+        "sample_sd": 0.005008541720233055,
+        "standard_error": 0.0025042708601165273,
+        "confidence_interval_95_t": {
+          "degrees_of_freedom": 3,
+          "critical_value": 3.1824463052837078,
+          "half_width": 0.007969707546207495,
+          "lower": -0.012937294711897935,
+          "upper": 0.003002120380517055,
+          "unit_of_analysis": "graph_generation_seed"
+        },
+        "sign_counts": {
+          "negative": 3,
+          "positive": 1,
+          "zero": 0
+        },
+        "interval_excludes_zero": false,
+        "interval_includes_zero": true,
+        "mean_shift_from_full_five_graph_estimate": 0.0007633960853758058,
+        "absolute_mean_shift_from_full": 0.0007633960853758058,
+        "direction": "negative",
+        "conclusion_matches_full_interval_status": true
+      }
+    },
+    {
+      "omitted_graph_seed": 2,
+      "retained_graph_seeds": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "retained_graph_count": 4,
+      "metric_summaries": {
+        "accuracy": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            -0.007202680067001676,
+            0.0010016694490817767,
+            -0.008637873754152824
+          ],
+          "mean": -0.004482078816595413,
+          "median": -0.005146055480655304,
+          "sample_sd": 0.0043467714457018315,
+          "standard_error": 0.0021733857228509157,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.0010016694490817767,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.006916683363643257,
+            "lower": -0.011398762180238671,
+            "upper": 0.0024346045470478436,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "macro_f1": {
+          "count": 4,
+          "values": [
+            -0.006827775442012574,
+            -0.00878456759256947,
+            -0.005209414139207535,
+            -0.009812699270142855
+          ],
+          "mean": -0.007658614110983108,
+          "median": -0.007806171517291021,
+          "sample_sd": 0.0020491240007387643,
+          "standard_error": 0.0010245620003693822,
+          "minimum": -0.009812699270142855,
+          "maximum": -0.005209414139207535,
+          "sign_counts": {
+            "negative": 4,
+            "positive": 0,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.003260613552609625,
+            "lower": -0.010919227663592733,
+            "upper": -0.004398000558373484,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": true,
+          "interval_includes_zero": false
+        },
+        "micro_f1": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            -0.007202680067001676,
+            0.0010016694490817767,
+            -0.008637873754152824
+          ],
+          "mean": -0.004482078816595413,
+          "median": -0.005146055480655304,
+          "sample_sd": 0.0043467714457018315,
+          "standard_error": 0.0021733857228509157,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.0010016694490817767,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.006916683363643257,
+            "lower": -0.011398762180238671,
+            "upper": 0.0024346045470478436,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "sign_accuracy": {
+          "count": 4,
+          "values": [
+            -0.004227638244628906,
+            -0.006700170040130615,
+            0.0010016679763793946,
+            -0.014285731315612792
+          ],
+          "mean": -0.00605296790599823,
+          "median": -0.005463904142379761,
+          "sample_sd": 0.006358641882423177,
+          "standard_error": 0.0031793209412115885,
+          "minimum": -0.014285731315612792,
+          "maximum": 0.0010016679763793946,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.01011801818266994,
+            "lower": -0.01617098608866817,
+            "upper": 0.00406505027667171,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "direction_accuracy": {
+          "count": 4,
+          "values": [
+            -0.00016260147094726562,
+            0.00335007905960083,
+            0.0041736245155334474,
+            0.00016611814498901367
+          ],
+          "mean": 0.0018818050622940064,
+          "median": 0.0017580986022949219,
+          "sample_sd": 0.002200866845039714,
+          "standard_error": 0.001100433422519857,
+          "minimum": -0.00016260147094726562,
+          "maximum": 0.0041736245155334474,
+          "sign_counts": {
+            "negative": 1,
+            "positive": 3,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.0035020702797090245,
+            "lower": -0.0016202652174150181,
+            "upper": 0.005383875342003031,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        }
+      },
+      "primary_macro_f1": {
+        "mean": -0.007658614110983108,
+        "sample_sd": 0.0020491240007387643,
+        "standard_error": 0.0010245620003693822,
+        "confidence_interval_95_t": {
+          "degrees_of_freedom": 3,
+          "critical_value": 3.1824463052837078,
+          "half_width": 0.003260613552609625,
+          "lower": -0.010919227663592733,
+          "upper": -0.004398000558373484,
+          "unit_of_analysis": "graph_generation_seed"
+        },
+        "sign_counts": {
+          "negative": 4,
+          "positive": 0,
+          "zero": 0
+        },
+        "interval_excludes_zero": true,
+        "interval_includes_zero": false,
+        "mean_shift_from_full_five_graph_estimate": -0.0019276308599168622,
+        "absolute_mean_shift_from_full": 0.0019276308599168622,
+        "direction": "negative",
+        "conclusion_matches_full_interval_status": false
+      }
+    },
+    {
+      "omitted_graph_seed": 3,
+      "retained_graph_seeds": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "retained_graph_count": 4,
+      "metric_summaries": {
+        "accuracy": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            -0.007202680067001676,
+            0.004448105436573302,
+            -0.008637873754152824
+          ],
+          "mean": -0.0036204698197225323,
+          "median": -0.005146055480655304,
+          "sample_sd": 0.005870561628548615,
+          "standard_error": 0.0029352808142743075,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.009341373582357423,
+            "lower": -0.012961843402079955,
+            "upper": 0.00572090376263489,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "macro_f1": {
+          "count": 4,
+          "values": [
+            -0.006827775442012574,
+            -0.00878456759256947,
+            0.0019795401886012034,
+            -0.009812699270142855
+          ],
+          "mean": -0.0058613755290309235,
+          "median": -0.007806171517291021,
+          "sample_sd": 0.005371899081647973,
+          "standard_error": 0.0026859495408239867,
+          "minimum": -0.009812699270142855,
+          "maximum": 0.0019795401886012034,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.008547890192373769,
+            "lower": -0.014409265721404692,
+            "upper": 0.002686514663342845,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "micro_f1": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            -0.007202680067001676,
+            0.004448105436573302,
+            -0.008637873754152824
+          ],
+          "mean": -0.0036204698197225323,
+          "median": -0.005146055480655304,
+          "sample_sd": 0.005870561628548615,
+          "standard_error": 0.0029352808142743075,
+          "minimum": -0.008637873754152824,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.009341373582357423,
+            "lower": -0.012961843402079955,
+            "upper": 0.00572090376263489,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "sign_accuracy": {
+          "count": 4,
+          "values": [
+            -0.004227638244628906,
+            -0.006700170040130615,
+            0.006260287761688232,
+            -0.014285731315612792
+          ],
+          "mean": -0.00473831295967102,
+          "median": -0.005463904142379761,
+          "sample_sd": 0.008489838768786895,
+          "standard_error": 0.004244919384393447,
+          "minimum": -0.014285731315612792,
+          "maximum": 0.006260287761688232,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.013509228011090118,
+            "lower": -0.018247540970761138,
+            "upper": 0.008770915051419099,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "direction_accuracy": {
+          "count": 4,
+          "values": [
+            -0.00016260147094726562,
+            0.00335007905960083,
+            -0.004118645191192627,
+            0.00016611814498901367
+          ],
+          "mean": -0.00019126236438751212,
+          "median": 1.7583370208740234e-06,
+          "sample_sd": 0.003060173046568583,
+          "standard_error": 0.0015300865232842915,
+          "minimum": -0.004118645191192627,
+          "maximum": 0.00335007905960083,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.004869418202790487,
+            "lower": -0.005060680567177999,
+            "upper": 0.004678155838402975,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        }
+      },
+      "primary_macro_f1": {
+        "mean": -0.0058613755290309235,
+        "sample_sd": 0.005371899081647973,
+        "standard_error": 0.0026859495408239867,
+        "confidence_interval_95_t": {
+          "degrees_of_freedom": 3,
+          "critical_value": 3.1824463052837078,
+          "half_width": 0.008547890192373769,
+          "lower": -0.014409265721404692,
+          "upper": 0.002686514663342845,
+          "unit_of_analysis": "graph_generation_seed"
+        },
+        "sign_counts": {
+          "negative": 3,
+          "positive": 1,
+          "zero": 0
+        },
+        "interval_excludes_zero": false,
+        "interval_includes_zero": true,
+        "mean_shift_from_full_five_graph_estimate": -0.00013039227796467733,
+        "absolute_mean_shift_from_full": 0.00013039227796467733,
+        "direction": "negative",
+        "conclusion_matches_full_interval_status": true
+      }
+    },
+    {
+      "omitted_graph_seed": 4,
+      "retained_graph_seeds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "retained_graph_count": 4,
+      "metric_summaries": {
+        "accuracy": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            -0.007202680067001676,
+            0.004448105436573302,
+            0.0010016694490817767
+          ],
+          "mean": -0.0012105840189138822,
+          "median": -0.0010438807226135771,
+          "sample_sd": 0.005044803015347965,
+          "standard_error": 0.0025224015076739824,
+          "minimum": -0.007202680067001676,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.008027407358539119,
+            "lower": -0.009237991377453,
+            "upper": 0.006816823339625236,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "macro_f1": {
+          "count": 4,
+          "values": [
+            -0.006827775442012574,
+            -0.00878456759256947,
+            0.0019795401886012034,
+            -0.005209414139207535
+          ],
+          "mean": -0.0047105542462970934,
+          "median": -0.006018594790610054,
+          "sample_sd": 0.004693486091659521,
+          "standard_error": 0.0023467430458297607,
+          "minimum": -0.00878456759256947,
+          "maximum": 0.0019795401886012034,
+          "sign_counts": {
+            "negative": 3,
+            "positive": 1,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.007468383735651157,
+            "lower": -0.01217893798194825,
+            "upper": 0.002757829489354063,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "micro_f1": {
+          "count": 4,
+          "values": [
+            -0.003089430894308931,
+            -0.007202680067001676,
+            0.004448105436573302,
+            0.0010016694490817767
+          ],
+          "mean": -0.0012105840189138822,
+          "median": -0.0010438807226135771,
+          "sample_sd": 0.005044803015347965,
+          "standard_error": 0.0025224015076739824,
+          "minimum": -0.007202680067001676,
+          "maximum": 0.004448105436573302,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.008027407358539119,
+            "lower": -0.009237991377453,
+            "upper": 0.006816823339625236,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "sign_accuracy": {
+          "count": 4,
+          "values": [
+            -0.004227638244628906,
+            -0.006700170040130615,
+            0.006260287761688232,
+            0.0010016679763793946
+          ],
+          "mean": -0.0009164631366729737,
+          "median": -0.001612985134124756,
+          "sample_sd": 0.005761947777289622,
+          "standard_error": 0.002880973888644811,
+          "minimum": -0.006700170040130615,
+          "maximum": 0.006260287761688232,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.009168544707536516,
+            "lower": -0.01008500784420949,
+            "upper": 0.008252081570863542,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        },
+        "direction_accuracy": {
+          "count": 4,
+          "values": [
+            -0.00016260147094726562,
+            0.00335007905960083,
+            -0.004118645191192627,
+            0.0041736245155334474
+          ],
+          "mean": 0.0008106142282485963,
+          "median": 0.0015937387943267822,
+          "sample_sd": 0.003786091522197611,
+          "standard_error": 0.0018930457610988056,
+          "minimum": -0.004118645191192627,
+          "maximum": 0.0041736245155334474,
+          "sign_counts": {
+            "negative": 2,
+            "positive": 2,
+            "zero": 0
+          },
+          "confidence_interval_95_t": {
+            "degrees_of_freedom": 3,
+            "critical_value": 3.1824463052837078,
+            "half_width": 0.006024516488141878,
+            "lower": -0.005213902259893282,
+            "upper": 0.006835130716390475,
+            "unit_of_analysis": "graph_generation_seed"
+          },
+          "interval_excludes_zero": false,
+          "interval_includes_zero": true
+        }
+      },
+      "primary_macro_f1": {
+        "mean": -0.0047105542462970934,
+        "sample_sd": 0.004693486091659521,
+        "standard_error": 0.0023467430458297607,
+        "confidence_interval_95_t": {
+          "degrees_of_freedom": 3,
+          "critical_value": 3.1824463052837078,
+          "half_width": 0.007468383735651157,
+          "lower": -0.01217893798194825,
+          "upper": 0.002757829489354063,
+          "unit_of_analysis": "graph_generation_seed"
+        },
+        "sign_counts": {
+          "negative": 3,
+          "positive": 1,
+          "zero": 0
+        },
+        "interval_excludes_zero": false,
+        "interval_includes_zero": true,
+        "mean_shift_from_full_five_graph_estimate": 0.0010204290047691527,
+        "absolute_mean_shift_from_full": 0.0010204290047691527,
+        "direction": "negative",
+        "conclusion_matches_full_interval_status": true
+      }
+    }
+  ],
+  "sensitivity_summary": {
+    "leave_one_out_count": 5,
+    "all_four_graph_means_negative": true,
+    "leave_one_out_mean_range": {
+      "minimum": -0.007658614110983108,
+      "maximum": -0.0047105542462970934
+    },
+    "leave_one_out_interval_envelope": {
+      "minimum_lower_bound": -0.014409265721404692,
+      "maximum_upper_bound": 0.003033462783659761
+    },
+    "maximum_absolute_mean_shift_from_full": 0.0019276308599168622,
+    "all_interval_statuses_match_full": false,
+    "omitted_seeds_changing_interval_status": [
+      2
+    ],
+    "interpretation": "The direction of the mean is stable across all leave-one-graph-out analyses."
+  },
+  "integrity": {
+    "source_hash_unchanged": true,
+    "source_e012_status_passed": true,
+    "source_integrity_gates_passed": true,
+    "five_graph_units_present": true,
+    "five_model_seed_values_per_graph": true,
+    "full_primary_statistics_reproduced": true,
+    "all_values_finite": true,
+    "no_training_performed": true,
+    "no_new_checkpoints_created": true
+  },
+  "limitations": [
+    "Each leave-one-out estimate contains only four independent generated-graph units.",
+    "The analysis diagnoses dependence on individual graph realizations; it does not create new replication.",
+    "The split seed remains fixed at zero, so between-split variability is not estimated.",
+    "The result remains restricted to MSGNN, SDSBM, q = 0.125, and the selected sign-reversal condition.",
+    "A change in confidence-interval status under omission must be reported as small-sample sensitivity, not as a new confirmatory significance result."
+  ]
+}
